@@ -7,7 +7,7 @@
 
     <title>Pegoraro Studio — Company Profile</title>
 
-    <!-- Prioridade máxima para a capa -->
+    <!-- Prioriza o carregamento da capa -->
     <link rel="preload" as="image" href="1.avif">
 
     <link rel="stylesheet" href="style.css">
@@ -17,10 +17,8 @@
 
     <main class="company-profile">
 
-        <!-- CAPA: carrega imediatamente -->
         <img src="1.avif" alt="" loading="eager">
 
-        <!-- DEMAIS PÁGINAS: carregamento sob demanda -->
         <img src="2.avif" alt="" loading="lazy">
         <img src="3.avif" alt="" loading="lazy">
         <img src="4.avif" alt="" loading="lazy">
@@ -56,7 +54,22 @@
         <img src="34.avif" alt="" loading="lazy">
         <img src="35.avif" alt="" loading="lazy">
         <img src="36.avif" alt="" loading="lazy">
-        <img src="37.avif" alt="" loading="lazy">
+
+        <!-- PÁGINA 37 COM LINK PARA WHATSAPP -->
+        <div class="page page-37">
+
+            <img src="37.avif" alt="" loading="lazy">
+
+            <a
+                class="proposal-link"
+                href="https://wa.me/551320034981?text=Ol%C3%A1%21%20Conheci%20o%20trabalho%20da%20Pegoraro%20Studio%20atrav%C3%A9s%20do%20Company%20Profile%20e%20gostaria%20de%20receber%20uma%20proposta%20personalizada."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Receba uma proposta personalizada">
+            </a>
+
+        </div>
+
         <img src="38.avif" alt="" loading="lazy">
         <img src="39.avif" alt="" loading="lazy">
         <img src="40.avif" alt="" loading="lazy">
