@@ -22,7 +22,10 @@ body {
     height: auto;
 }
 
-/* Página 37 */
+/* =========================
+   PÁGINA 37
+   ========================= */
+
 .page-37 {
     position: relative;
     width: 100%;
@@ -35,7 +38,7 @@ body {
     height: auto;
 }
 
-/* Área invisível sobre o texto da proposta */
+
 .proposal-link {
     position: absolute;
 
@@ -44,6 +47,54 @@ body {
 
     width: 34%;
     height: 3%;
+
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* =========================
+   PÁGINA 41
+   ========================= */
+
+.page-41 {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+}
+
+.page-41 img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* WhatsApp — telefone */
+
+.whatsapp-link {
+    position: absolute;
+
+    left: 35.4%;
+    top: 89.2%;
+
+    width: 14%;
+    height: 4%;
+
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+/* E-mail */
+
+.email-link {
+    position: absolute;
+
+    left: 35.4%;
+    top: 85%;
+
+    width: 24%;
+    height: 4%;
 
     z-index: 10;
     cursor: pointer;
