@@ -57,19 +57,16 @@ a {
 
 
 /* =========================
-   HERO
+   CONTACT HERO
 ========================= */
 
-.hero {
-  min-height: calc(100vh - 73px);
+.contact-hero {
+  min-height: 65vh;
+  padding: 14vh 8vw 10vh;
   display: flex;
-  align-items: flex-end;
-  padding: 10vh 8vw 9vh;
+  flex-direction: column;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(23, 23, 23, 0.15);
-}
-
-.hero-content {
-  max-width: 900px;
 }
 
 .eyebrow,
@@ -77,77 +74,22 @@ a {
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-bottom: 35px;
   color: #666;
+  margin-bottom: 38px;
 }
 
-.hero h1 {
+.contact-hero h1 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
-  font-size: clamp(58px, 8vw, 126px);
+  font-size: clamp(58px, 8vw, 120px);
   line-height: 0.92;
   letter-spacing: -0.045em;
-  max-width: 1000px;
 }
 
-.hero-description {
-  max-width: 530px;
-  margin-top: 48px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #555;
-}
-
-.hero-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 42px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #171717;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  transition: gap 0.3s ease;
-}
-
-.hero-link span {
-  font-size: 17px;
-  line-height: 1;
-}
-
-.hero-link:hover {
-  gap: 26px;
-}
-
-
-/* =========================
-   INTRODUCTION
-========================= */
-
-.introduction {
-  padding: 15vh 8vw;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  column-gap: 8vw;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
-}
-
-.introduction .section-label {
-  margin: 0;
-}
-
-.introduction h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: clamp(42px, 5vw, 78px);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-}
-
-.section-text {
-  grid-column: 2;
-  max-width: 570px;
-  margin-top: 55px;
+.contact-intro {
+  align-self: flex-end;
+  max-width: 470px;
+  margin-top: 80px;
   font-size: 15px;
   line-height: 1.8;
   color: #555;
@@ -155,53 +97,64 @@ a {
 
 
 /* =========================
-   SERVICES
+   CONTACT OPTIONS
 ========================= */
 
-.services {
+.contact-options {
   padding: 0 8vw;
 }
 
-.service {
+.contact-option {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
   gap: 5vw;
   padding: 65px 0;
   border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  transition: opacity 0.3s ease;
 }
 
-.service-number {
+.contact-option:hover {
+  opacity: 0.55;
+}
+
+.contact-number {
   font-size: 10px;
   letter-spacing: 0.15em;
   color: #777;
 }
 
-.service h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 3.5vw, 52px);
-  font-weight: 400;
-  letter-spacing: -0.025em;
+.contact-label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: #777;
+  margin-bottom: 15px;
 }
 
-.service p {
-  max-width: 480px;
-  margin-top: 18px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666;
+.contact-main h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 58px);
+  letter-spacing: -0.03em;
+}
+
+.contact-arrow {
+  font-size: 28px;
+  font-weight: 300;
 }
 
 
 /* =========================
-   CTA
+   CLOSING
 ========================= */
 
-.cta {
+.contact-closing {
   padding: 18vh 8vw;
   border-bottom: 1px solid rgba(23, 23, 23, 0.15);
 }
 
-.cta h2 {
+.contact-closing h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
   font-size: clamp(48px, 6vw, 90px);
@@ -242,53 +195,44 @@ a {
     font-size: 10px;
   }
 
-  .hero {
-    min-height: calc(100vh - 65px);
-    padding: 10vh 7vw 8vh;
-    align-items: flex-end;
+  .contact-hero {
+    min-height: 70vh;
+    padding: 12vh 7vw 9vh;
   }
 
-  .hero h1 {
+  .contact-hero h1 {
     font-size: clamp(48px, 14vw, 78px);
   }
 
-  .hero-description {
+  .contact-intro {
+    align-self: auto;
+    margin-top: 60px;
     font-size: 14px;
-    margin-top: 35px;
   }
 
-  .introduction {
-    display: block;
-    padding: 12vh 7vw;
-  }
-
-  .introduction h2 {
-    font-size: clamp(40px, 11vw, 65px);
-  }
-
-  .section-text {
-    margin-top: 40px;
-  }
-
-  .services {
+  .contact-options {
     padding: 0 7vw;
   }
 
-  .service {
-    grid-template-columns: 45px 1fr;
+  .contact-option {
+    grid-template-columns: 40px 1fr auto;
     gap: 20px;
     padding: 50px 0;
   }
 
-  .service h3 {
-    font-size: 36px;
+  .contact-main h2 {
+    font-size: 30px;
   }
 
-  .cta {
+  .contact-arrow {
+    font-size: 22px;
+  }
+
+  .contact-closing {
     padding: 14vh 7vw;
   }
 
-  .cta h2 {
+  .contact-closing h2 {
     font-size: clamp(42px, 11vw, 65px);
   }
 
@@ -296,4 +240,5 @@ a {
     padding: 25px 6vw;
     font-size: 8px;
   }
+
 }

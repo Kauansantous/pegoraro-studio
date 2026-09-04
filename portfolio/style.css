@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f7f6f3;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* HEADER */
+
+.site-header {
+  width: 100%;
+  padding: 30px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+}
+
+.brand {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
+.main-nav {
+  display: flex;
+  gap: 38px;
+}
+
+.main-nav a {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  transition: opacity 0.3s ease;
+}
+
+.main-nav a:hover {
+  opacity: 0.45;
+}
+
+
+/* INTRO */
+
+.portfolio-intro {
+  padding: 16vh 8vw 13vh;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+}
+
+.eyebrow,
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 38px;
+}
+
+.portfolio-intro h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(58px, 8vw, 120px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  max-width: 900px;
+}
+
+.intro-text {
+  max-width: 500px;
+  margin-top: 55px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+}
+
+
+/* PROJECTS */
+
+.projects {
+  padding: 10vw 8vw 14vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5vw;
+  row-gap: 12vw;
+}
+
+.project {
+  width: 100%;
+}
+
+.project-large {
+  grid-column: span 2;
+}
+
+.project-small:nth-child(2) {
+  margin-top: 5vw;
+}
+
+.project-small:nth-child(3) {
+  margin-top: -5vw;
+}
+
+.project-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-large .project-image {
+  aspect-ratio: 16 / 9;
+}
+
+.project-small .project-image {
+  aspect-ratio: 4 / 5;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9e7e2;
+  color: #999;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.project-info {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.project-number {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.project h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 2.5vw, 38px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.project-category {
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  color: #777;
+  white-space: nowrap;
+  padding-top: 4px;
+}
+
+
+/* CTA */
+
+.portfolio-cta {
+  padding: 16vh 8vw;
+  border-top: 1px solid rgba(23, 23, 23, 0.15);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+}
+
+.portfolio-cta h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 90px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 45px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #171717;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  transition: gap 0.3s ease;
+}
+
+.text-link span {
+  font-size: 17px;
+}
+
+.text-link:hover {
+  gap: 26px;
+}
+
+
+/* FOOTER */
+
+.site-footer {
+  padding: 30px 5vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: #777;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .site-header {
+    padding: 24px 6vw;
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+
+  .main-nav a {
+    font-size: 10px;
+  }
+
+  .portfolio-intro {
+    padding: 12vh 7vw 10vh;
+  }
+
+  .portfolio-intro h1 {
+    font-size: clamp(48px, 14vw, 78px);
+  }
+
+  .intro-text {
+    margin-top: 40px;
+    font-size: 14px;
+  }
+
+  .projects {
+    display: block;
+    padding: 18vw 7vw;
+  }
+
+  .project,
+  .project-small:nth-child(2),
+  .project-small:nth-child(3) {
+    margin: 0 0 22vw 0;
+  }
+
+  .project-large .project-image,
+  .project-small .project-image {
+    aspect-ratio: 4 / 5;
+  }
+
+  .project-info {
+    display: block;
+  }
+
+  .project-category {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .portfolio-cta {
+    padding: 14vh 7vw;
+  }
+
+  .portfolio-cta h2 {
+    font-size: clamp(42px, 11vw, 65px);
+  }
+
+  .site-footer {
+    padding: 25px 6vw;
+    font-size: 8px;
+  }
+}
