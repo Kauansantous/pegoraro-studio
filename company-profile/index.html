@@ -46,7 +46,7 @@
         PORTFÓLIO
       </a>
 
-      <a href="./index.html" class="active">
+      <a href="./index.html">
         COMPANY PROFILE
       </a>
 
@@ -265,6 +265,20 @@
     </div>
 
   </main>
+
+<script>
+  const currentPath = window.location.pathname;
+
+  document.querySelectorAll(".desktop-nav a").forEach(function (link) {
+    const linkPath = new URL(link.href).pathname;
+
+    if (
+      currentPath.replace(/\/$/, "") === linkPath.replace(/\/$/, "")
+    ) {
+      link.classList.add("active");
+    }
+  });
+</script>
 
 </body>
 </html>

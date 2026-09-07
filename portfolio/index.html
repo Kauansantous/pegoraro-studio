@@ -21,30 +21,33 @@
 
 <body>
 
-  <header class="site-header">
+  <header class="desktop-header">
 
-    <a href="../" class="brand">
-      PEGORARO STUDIO
+  <a href="../index.html" class="desktop-brand">
+    PEGORARO STUDIO
+  </a>
+
+  <nav class="desktop-nav" aria-label="Navegação principal">
+
+    <a href="../index.html">
+      HOME
     </a>
 
-    <nav class="main-nav" aria-label="Navegação principal">
+    <a href="./index.html">
+      PORTFÓLIO
+    </a>
 
-      <a href="../">
-        Home
-      </a>
+    <a href="../company-profile/index.html">
+      COMPANY PROFILE
+    </a>
 
-      <a href="../company-profile/">
-        Company Profile
-      </a>
+    <a href="../contato/index.html">
+      CONTATO
+    </a>
 
-      <a href="../contato/">
-        Contato
-      </a>
+  </nav>
 
-    </nav>
-
-  </header>
-
+</header>
 
   <main>
 
@@ -226,7 +229,19 @@
     </span>
 
   </footer>
+<script>
+  const currentPath = window.location.pathname;
 
+  document.querySelectorAll(".desktop-nav a").forEach(function (link) {
+    const linkPath = new URL(link.href).pathname;
+
+    if (
+      currentPath.replace(/\/$/, "") === linkPath.replace(/\/$/, "")
+    ) {
+      link.classList.add("active");
+    }
+  });
+</script>
 </body>
 
 </html>
