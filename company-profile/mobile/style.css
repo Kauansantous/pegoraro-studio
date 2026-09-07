@@ -9,18 +9,21 @@ html {
 }
 
 body {
+  width: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
+
   background: #fff;
   color: #111;
+
   overflow-x: hidden;
+
   font-family: Arial, Helvetica, sans-serif;
 }
 
 
 /* =========================================================
-   HEADER — NAVEGAÇÃO
+   HEADER
    ========================================================= */
 
 .mobile-header {
@@ -29,7 +32,7 @@ body {
   z-index: 1000;
 
   width: 100%;
-  min-height: 58px;
+  height: 58px;
 
   display: flex;
   align-items: center;
@@ -37,10 +40,10 @@ body {
 
   padding: 0 22px;
 
-  background: rgba(255, 255, 255, 0.56);
+  background: rgba(255, 255, 255, 0.72);
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -51,7 +54,7 @@ body {
    ========================================================= */
 
 .brand {
-  flex-shrink: 0;
+  display: inline-block;
 
   color: #111;
   text-decoration: none;
@@ -60,69 +63,211 @@ body {
   font-weight: 600;
 
   letter-spacing: 0.18em;
+
   white-space: nowrap;
 
   transition: opacity 0.25s ease;
 }
 
 .brand:hover {
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 
 /* =========================================================
-   MENU
+   BOTÃO HAMBURGER
    ========================================================= */
 
-.mobile-nav {
+.menu-toggle {
+  width: 30px;
+  height: 30px;
+
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 
-  gap: 16px;
+  gap: 5px;
 
-  margin-left: 18px;
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-nav a {
-  position: relative;
 
-  color: #111;
-  text-decoration: none;
+/* os três risquinhos */
 
-  font-size: 8px;
-  font-weight: 400;
+.menu-toggle span {
+  display: block;
 
-  letter-spacing: 0.055em;
-
-  white-space: nowrap;
-
-  transition: opacity 0.25s ease;
-}
-
-.mobile-nav a::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -5px;
-
-  width: 0;
   height: 1px;
 
   background: #111;
 
-  transition: width 0.25s ease;
+  transition:
+    transform 0.3s ease,
+    width 0.3s ease,
+    opacity 0.25s ease;
 }
 
-.mobile-nav a:hover::after,
-.mobile-nav a:focus-visible::after {
+
+/* tamanhos levemente diferentes = visual editorial */
+
+.menu-toggle span:nth-child(1) {
+  width: 20px;
+}
+
+.menu-toggle span:nth-child(2) {
+  width: 14px;
+}
+
+.menu-toggle span:nth-child(3) {
+  width: 20px;
+}
+
+
+/* =========================================================
+   HAMBURGER ABERTO → X
+   ========================================================= */
+
+.menu-toggle.is-open {
+  gap: 0;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+  width: 20px;
+  transform: translateY(1px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  width: 0;
+  opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  width: 20px;
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MENU ABERTO
+   ========================================================= */
+
+.mobile-menu {
+  position: fixed;
+
+  top: 58px;
+  left: 0;
+
+  z-index: 999;
+
   width: 100%;
+
+  max-height: calc(100vh - 58px);
+
+  overflow-y: auto;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-12px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
 }
 
-.mobile-nav a:hover {
+
+/* menu aberto */
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   CONTEÚDO DO MENU
+   ========================================================= */
+
+.mobile-menu-inner {
+  width: 100%;
+
+  padding: 18px 22px 24px;
+}
+
+.mobile-menu-inner a {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 17px 0;
+
+  color: #111;
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  font-size: 17px;
+  font-weight: 400;
+
+  letter-spacing: -0.01em;
+
+  transition:
+    opacity 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.mobile-menu-inner a:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mobile-menu-inner a:last-child {
+  border-bottom: 0;
+}
+
+.mobile-menu-inner a:hover {
   opacity: 0.55;
+  padding-left: 5px;
+}
+
+
+/* =========================================================
+   NUMERAÇÃO DO MENU
+   ========================================================= */
+
+.menu-number {
+  width: 38px;
+
+  flex-shrink: 0;
+
+  color: #888;
+
+  font-size: 8px;
+  font-weight: 400;
+
+  letter-spacing: 0.12em;
 }
 
 
@@ -156,8 +301,8 @@ main {
   display: block;
 
   width: 100%;
-  height: auto;
   max-width: 100%;
+  height: auto;
 
   margin: 0;
   padding: 0;
@@ -167,8 +312,7 @@ main {
 
 
 /* =========================================================
-   HOTSPOT — PÁGINA 39
-   ORÇAMENTO
+   PÁGINA 39 — ORÇAMENTO
    ========================================================= */
 
 .page-39 {
@@ -179,12 +323,12 @@ main {
   position: absolute;
 
   left: 5%;
-  top: 59%;
+  top: 49%;
 
-  width: 70%;
-  height: 4%;
+  width: 75%;
+  height: 3%;
 
-  z-index: 100;
+  z-index: 50;
 
   display: block;
 
@@ -200,8 +344,7 @@ main {
 
 
 /* =========================================================
-   HOTSPOTS — PÁGINA 43
-   ENCERRAMENTO
+   PÁGINA 43 — ENCERRAMENTO
    ========================================================= */
 
 .page-43 {
@@ -209,20 +352,20 @@ main {
 }
 
 
-/* -------------------------
+/* =========================================================
    E-MAIL
-   ------------------------- */
+   ========================================================= */
 
 .page-43 .email-link {
   position: absolute;
 
   left: 10%;
-  top: 81%;
+  top: 83%;
 
   width: 65%;
   height: 4%;
 
-  z-index: 100;
+  z-index: 50;
 
   display: block;
 
@@ -237,20 +380,20 @@ main {
 }
 
 
-/* -------------------------
+/* =========================================================
    WHATSAPP
-   ------------------------- */
+   ========================================================= */
 
 .page-43 .whatsapp-link {
   position: absolute;
 
   left: 10%;
-  top: 85%;
+  top: 87%;
 
   width: 50%;
   height: 4%;
 
-  z-index: 100;
+  z-index: 50;
 
   display: block;
 
@@ -323,27 +466,41 @@ main {
 @media (max-width: 380px) {
 
   .mobile-header {
-    min-height: 54px;
-    padding: 0 15px;
+    height: 54px;
+    padding: 0 16px;
   }
 
   .brand {
     font-size: 8px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.13em;
   }
 
-  .mobile-nav {
-    gap: 8px;
-    margin-left: 8px;
+  .menu-toggle {
+    width: 28px;
+    height: 28px;
   }
 
-  .mobile-nav a {
-    font-size: 7px;
-    letter-spacing: 0.03em;
+  .menu-toggle span:nth-child(1),
+  .menu-toggle span:nth-child(3) {
+    width: 19px;
   }
 
-  .mobile-nav a::after {
-    bottom: -4px;
+  .menu-toggle span:nth-child(2) {
+    width: 13px;
+  }
+
+  .mobile-menu {
+    top: 54px;
+    max-height: calc(100vh - 54px);
+  }
+
+  .mobile-menu-inner {
+    padding: 14px 16px 20px;
+  }
+
+  .mobile-menu-inner a {
+    padding: 15px 0;
+    font-size: 16px;
   }
 
   .mobile-footer {
@@ -367,23 +524,13 @@ main {
 @media (min-width: 381px) and (max-width: 699px) {
 
   .mobile-header {
-    min-height: 58px;
-    padding: 0 18px;
+    height: 58px;
+    padding: 0 20px;
   }
 
-  .brand {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-  }
-
-  .mobile-nav {
-    gap: 12px;
-    margin-left: 12px;
-  }
-
-  .mobile-nav a {
-    font-size: 8px;
-    letter-spacing: 0.045em;
+  .mobile-menu {
+    top: 58px;
+    max-height: calc(100vh - 58px);
   }
 }
 
@@ -395,7 +542,7 @@ main {
 @media (min-width: 700px) {
 
   .mobile-header {
-    min-height: 64px;
+    height: 64px;
     padding: 0 32px;
   }
 
@@ -403,13 +550,21 @@ main {
     font-size: 12px;
   }
 
-  .mobile-nav {
-    gap: 26px;
-    margin-left: 26px;
+  .mobile-menu {
+    top: 64px;
+    max-height: calc(100vh - 64px);
   }
 
-  .mobile-nav a {
-    font-size: 10px;
+  .mobile-menu-inner {
+    max-width: 720px;
+    margin: 0 auto;
+
+    padding: 24px 32px 32px;
+  }
+
+  .mobile-menu-inner a {
+    font-size: 20px;
+    padding: 20px 0;
   }
 
   .mobile-footer {
@@ -427,14 +582,24 @@ main {
 
 
 /* =========================================================
-   ACESSIBILIDADE
+   FOCO / ACESSIBILIDADE
    ========================================================= */
 
-.mobile-nav a:focus-visible,
+.menu-toggle:focus-visible,
+.mobile-menu-inner a:focus-visible,
 .mobile-footer a:focus-visible,
 .brand:focus-visible {
   outline: 1px solid #111;
   outline-offset: 5px;
+}
+
+
+/* =========================================================
+   BLOQUEIO DE SCROLL QUANDO MENU ESTÁ ABERTO
+   ========================================================= */
+
+body.menu-open {
+  overflow: hidden;
 }
 
 
@@ -448,8 +613,10 @@ main {
     scroll-behavior: auto;
   }
 
+  .menu-toggle span,
+  .mobile-menu,
+  .mobile-menu-inner a,
   .mobile-nav a,
-  .mobile-nav a::after,
   .mobile-footer a,
   .brand {
     transition: none;
