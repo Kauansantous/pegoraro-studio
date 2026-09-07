@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #111;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================================
+   BARRA SUPERIOR
+   ================================ */
+
+.mobile-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 22px;
+
+  background: rgba(255, 255, 255, 0.56);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ================================
+   LOGO / NOME
+   ================================ */
+
+.brand {
+  color: #111;
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+
+  white-space: nowrap;
+}
+
+/* ================================
+   NAVEGAÇÃO
+   ================================ */
+
+.mobile-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.mobile-nav a {
+  position: relative;
+
+  color: #111;
+  text-decoration: none;
+
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+
+  white-space: nowrap;
+
+  transition: opacity 0.25s ease;
+}
+
+.mobile-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background: #111;
+
+  transition: width 0.25s ease;
+}
+
+.mobile-nav a:hover::after,
+.mobile-nav a:focus-visible::after {
+  width: 100%;
+}
+
+.mobile-nav a:hover {
+  opacity: 0.55;
+}
+
+/* ================================
+   PÁGINAS
+   ================================ */
+
+.pages {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  line-height: 0;
+}
+
+.page img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   RODAPÉ / CTA
+   ================================ */
+
+.mobile-footer {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 32px 22px;
+
+  background: #fff;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mobile-footer span {
+  color: #777;
+
+  font-size: 8px;
+  letter-spacing: 0.15em;
+}
+
+.mobile-footer a {
+  color: #111;
+  text-decoration: none;
+
+  font-size: 9px;
+  letter-spacing: 0.08em;
+
+  transition: opacity 0.25s ease;
+}
+
+.mobile-footer a:hover {
+  opacity: 0.55;
+}
+
+/* ================================
+   CELULARES PEQUENOS
+   ================================ */
+
+@media (max-width: 380px) {
+
+  .mobile-header {
+    min-height: 54px;
+    padding: 0 16px;
+  }
+
+  .brand {
+    font-size: 8px;
+    letter-spacing: 0.13em;
+  }
+
+  .mobile-nav {
+    gap: 9px;
+  }
+
+  .mobile-nav a {
+    font-size: 7px;
+  }
+
+  .mobile-footer {
+    padding: 26px 16px;
+  }
+}
+
+/* ================================
+   TELAS MAIORES
+   ================================ */
+
+@media (min-width: 700px) {
+
+  .mobile-header {
+    min-height: 64px;
+    padding: 0 32px;
+  }
+
+  .brand {
+    font-size: 12px;
+  }
+
+  .mobile-nav {
+    gap: 26px;
+  }
+
+  .mobile-nav a {
+    font-size: 10px;
+  }
+
+  .mobile-footer {
+    padding: 36px 32px;
+  }
+}
+
+/* ================================
+   ACESSIBILIDADE
+   ================================ */
+
+.mobile-nav a:focus-visible,
+.mobile-footer a:focus-visible,
+.brand:focus-visible {
+  outline: 1px solid #111;
+  outline-offset: 5px;
+}
+
+/* ================================
+   REDUÇÃO DE MOVIMENTO
+   ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mobile-nav a,
+  .mobile-nav a::after,
+  .mobile-footer a {
+    transition: none;
+  }
+}
