@@ -17,6 +17,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 /* ================================
    BARRA SUPERIOR
    ================================ */
@@ -43,11 +44,14 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+
 /* ================================
    LOGO / NOME
    ================================ */
 
 .brand {
+  flex-shrink: 0;
+
   color: #111;
   text-decoration: none;
 
@@ -56,7 +60,14 @@ body {
   letter-spacing: 0.18em;
 
   white-space: nowrap;
+
+  transition: opacity 0.25s ease;
 }
+
+.brand:hover {
+  opacity: 0.55;
+}
+
 
 /* ================================
    NAVEGAÇÃO
@@ -65,7 +76,11 @@ body {
 .mobile-nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+
   gap: 18px;
+
+  margin-left: 18px;
 }
 
 .mobile-nav a {
@@ -87,6 +102,7 @@ body {
   content: "";
 
   position: absolute;
+
   left: 0;
   bottom: -6px;
 
@@ -107,9 +123,16 @@ body {
   opacity: 0.55;
 }
 
+
 /* ================================
    PÁGINAS
    ================================ */
+
+main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 .pages {
   width: 100%;
@@ -138,6 +161,66 @@ body {
   padding: 0;
 }
 
+
+/* ================================
+   HOTSPOTS INVISÍVEIS
+   ================================ */
+
+/*
+   Os links abaixo são invisíveis.
+   Eles ficam posicionados sobre os textos
+   clicáveis existentes dentro das artes.
+*/
+
+
+/* ---------- Página 39 — Orçamento ---------- */
+
+.page-39 {
+  position: relative;
+}
+
+.page-39 .proposal-link {
+  position: absolute;
+  left: 8.5%;
+  top: 46.2%;
+  width: 58%;
+  height: 2.6%;
+  z-index: 20;
+
+  display: block;
+  cursor: pointer;
+
+  background: rgba(255, 0, 0, 0.25);
+}
+
+.page-43 .email-link {
+  position: absolute;
+  left: 10%;
+  top: 74.5%;
+  width: 58%;
+  height: 3.5%;
+  z-index: 20;
+
+  display: block;
+  cursor: pointer;
+
+  background: rgba(0, 0, 255, 0.25);
+}
+
+.page-43 .whatsapp-link {
+  position: absolute;
+  left: 10%;
+  top: 80.2%;
+  width: 40%;
+  height: 3.5%;
+  z-index: 20;
+
+  display: block;
+  cursor: pointer;
+
+  background: rgba(0, 255, 0, 0.25);
+}
+
 /* ================================
    RODAPÉ / CTA
    ================================ */
@@ -154,13 +237,19 @@ body {
   background: #fff;
 
   border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+  line-height: normal;
 }
 
 .mobile-footer span {
   color: #777;
 
   font-size: 8px;
+  font-weight: 400;
+
   letter-spacing: 0.15em;
+
+  white-space: nowrap;
 }
 
 .mobile-footer a {
@@ -168,7 +257,11 @@ body {
   text-decoration: none;
 
   font-size: 9px;
+  font-weight: 400;
+
   letter-spacing: 0.08em;
+
+  white-space: nowrap;
 
   transition: opacity 0.25s ease;
 }
@@ -176,6 +269,7 @@ body {
 .mobile-footer a:hover {
   opacity: 0.55;
 }
+
 
 /* ================================
    CELULARES PEQUENOS
@@ -195,16 +289,31 @@ body {
 
   .mobile-nav {
     gap: 9px;
+    margin-left: 10px;
   }
 
   .mobile-nav a {
     font-size: 7px;
+    letter-spacing: 0.05em;
+  }
+
+  .mobile-nav a::after {
+    bottom: -4px;
   }
 
   .mobile-footer {
     padding: 26px 16px;
   }
+
+  .mobile-footer span {
+    font-size: 7px;
+  }
+
+  .mobile-footer a {
+    font-size: 8px;
+  }
 }
+
 
 /* ================================
    TELAS MAIORES
@@ -223,6 +332,7 @@ body {
 
   .mobile-nav {
     gap: 26px;
+    margin-left: 26px;
   }
 
   .mobile-nav a {
@@ -232,7 +342,16 @@ body {
   .mobile-footer {
     padding: 36px 32px;
   }
+
+  .mobile-footer span {
+    font-size: 9px;
+  }
+
+  .mobile-footer a {
+    font-size: 10px;
+  }
 }
+
 
 /* ================================
    ACESSIBILIDADE
@@ -244,6 +363,7 @@ body {
   outline: 1px solid #111;
   outline-offset: 5px;
 }
+
 
 /* ================================
    REDUÇÃO DE MOVIMENTO
@@ -257,7 +377,8 @@ body {
 
   .mobile-nav a,
   .mobile-nav a::after,
-  .mobile-footer a {
+  .mobile-footer a,
+  .brand {
     transition: none;
   }
 }
