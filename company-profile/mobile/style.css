@@ -11,6 +11,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   background: #fff;
   color: #111;
   overflow-x: hidden;
@@ -18,9 +19,9 @@ body {
 }
 
 
-/* ================================
-   BARRA SUPERIOR
-   ================================ */
+/* =========================================================
+   HEADER — NAVEGAÇÃO
+   ========================================================= */
 
 .mobile-header {
   position: sticky;
@@ -45,9 +46,9 @@ body {
 }
 
 
-/* ================================
-   LOGO / NOME
-   ================================ */
+/* =========================================================
+   MARCA
+   ========================================================= */
 
 .brand {
   flex-shrink: 0;
@@ -57,8 +58,8 @@ body {
 
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.18em;
 
+  letter-spacing: 0.18em;
   white-space: nowrap;
 
   transition: opacity 0.25s ease;
@@ -69,16 +70,16 @@ body {
 }
 
 
-/* ================================
-   NAVEGAÇÃO
-   ================================ */
+/* =========================================================
+   MENU
+   ========================================================= */
 
 .mobile-nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  gap: 18px;
+  gap: 16px;
 
   margin-left: 18px;
 }
@@ -89,9 +90,10 @@ body {
   color: #111;
   text-decoration: none;
 
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 400;
-  letter-spacing: 0.07em;
+
+  letter-spacing: 0.055em;
 
   white-space: nowrap;
 
@@ -104,7 +106,7 @@ body {
   position: absolute;
 
   left: 0;
-  bottom: -6px;
+  bottom: -5px;
 
   width: 0;
   height: 1px;
@@ -124,9 +126,9 @@ body {
 }
 
 
-/* ================================
-   PÁGINAS
-   ================================ */
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
 
 main {
   width: 100%;
@@ -159,21 +161,15 @@ main {
 
   margin: 0;
   padding: 0;
+
+  border: 0;
 }
 
 
-/* ================================
-   HOTSPOTS INVISÍVEIS
-   ================================ */
-
-/*
-   Os links abaixo são invisíveis.
-   Eles ficam posicionados sobre os textos
-   clicáveis existentes dentro das artes.
-*/
-
-
-/* ---------- Página 39 — Orçamento ---------- */
+/* =========================================================
+   HOTSPOT — PÁGINA 39
+   ORÇAMENTO
+   ========================================================= */
 
 .page-39 {
   position: relative;
@@ -181,49 +177,97 @@ main {
 
 .page-39 .proposal-link {
   position: absolute;
-  left: 8.5%;
-  top: 46.2%;
-  width: 58%;
-  height: 2.6%;
-  z-index: 20;
+
+  left: 5%;
+  top: 59%;
+
+  width: 70%;
+  height: 4%;
+
+  z-index: 100;
 
   display: block;
+
+  background: transparent;
+
+  border: 0;
+  outline: 0;
+
   cursor: pointer;
 
-  background: rgba(255, 0, 0, 0.25);
+  -webkit-tap-highlight-color: transparent;
 }
+
+
+/* =========================================================
+   HOTSPOTS — PÁGINA 43
+   ENCERRAMENTO
+   ========================================================= */
+
+.page-43 {
+  position: relative;
+}
+
+
+/* -------------------------
+   E-MAIL
+   ------------------------- */
 
 .page-43 .email-link {
   position: absolute;
+
   left: 10%;
-  top: 74.5%;
-  width: 58%;
-  height: 3.5%;
-  z-index: 20;
+  top: 81%;
+
+  width: 65%;
+  height: 4%;
+
+  z-index: 100;
 
   display: block;
+
+  background: transparent;
+
+  border: 0;
+  outline: 0;
+
   cursor: pointer;
 
-  background: rgba(0, 0, 255, 0.25);
+  -webkit-tap-highlight-color: transparent;
 }
+
+
+/* -------------------------
+   WHATSAPP
+   ------------------------- */
 
 .page-43 .whatsapp-link {
   position: absolute;
+
   left: 10%;
-  top: 80.2%;
-  width: 40%;
-  height: 3.5%;
-  z-index: 20;
+  top: 85%;
+
+  width: 50%;
+  height: 4%;
+
+  z-index: 100;
 
   display: block;
+
+  background: transparent;
+
+  border: 0;
+  outline: 0;
+
   cursor: pointer;
 
-  background: rgba(0, 255, 0, 0.25);
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* ================================
-   RODAPÉ / CTA
-   ================================ */
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 .mobile-footer {
   width: 100%;
@@ -254,6 +298,7 @@ main {
 
 .mobile-footer a {
   color: #111;
+
   text-decoration: none;
 
   font-size: 9px;
@@ -271,30 +316,30 @@ main {
 }
 
 
-/* ================================
-   CELULARES PEQUENOS
-   ================================ */
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+   ========================================================= */
 
 @media (max-width: 380px) {
 
   .mobile-header {
     min-height: 54px;
-    padding: 0 16px;
+    padding: 0 15px;
   }
 
   .brand {
     font-size: 8px;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.12em;
   }
 
   .mobile-nav {
-    gap: 9px;
-    margin-left: 10px;
+    gap: 8px;
+    margin-left: 8px;
   }
 
   .mobile-nav a {
     font-size: 7px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
   }
 
   .mobile-nav a::after {
@@ -315,9 +360,37 @@ main {
 }
 
 
-/* ================================
+/* =========================================================
+   CELULARES PADRÃO
+   ========================================================= */
+
+@media (min-width: 381px) and (max-width: 699px) {
+
+  .mobile-header {
+    min-height: 58px;
+    padding: 0 18px;
+  }
+
+  .brand {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
+
+  .mobile-nav {
+    gap: 12px;
+    margin-left: 12px;
+  }
+
+  .mobile-nav a {
+    font-size: 8px;
+    letter-spacing: 0.045em;
+  }
+}
+
+
+/* =========================================================
    TELAS MAIORES
-   ================================ */
+   ========================================================= */
 
 @media (min-width: 700px) {
 
@@ -353,9 +426,9 @@ main {
 }
 
 
-/* ================================
+/* =========================================================
    ACESSIBILIDADE
-   ================================ */
+   ========================================================= */
 
 .mobile-nav a:focus-visible,
 .mobile-footer a:focus-visible,
@@ -365,9 +438,9 @@ main {
 }
 
 
-/* ================================
+/* =========================================================
    REDUÇÃO DE MOVIMENTO
-   ================================ */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
