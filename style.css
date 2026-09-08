@@ -221,6 +221,12 @@ main {
   background: #e9e7e1;
 }
 
+.image-stage picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .image-stage img {
   width: 100%;
   height: 100%;
