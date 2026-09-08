@@ -74,6 +74,41 @@
     --nav-paper: 255, 255, 255;
   }
 
+  /* The Home header shares the hero's dark, photographic field. */
+  .home-page .mobile-header {
+    color: #f4f2ed;
+    background: rgba(14, 17, 16, 0.5);
+    border-bottom-color: rgba(244, 242, 237, 0.1);
+  }
+
+  .home-page .ps-mobile-nav {
+    --nav-paper: 14, 17, 16;
+    --nav-ink: #f4f2ed;
+  }
+
+  .home-page .ps-nav-header {
+    background: transparent;
+    border-bottom-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transition: background 220ms ease, border-color 220ms ease, -webkit-backdrop-filter 220ms ease, backdrop-filter 220ms ease;
+  }
+
+  .home-page .ps-mobile-nav[data-scrolled="true"] .ps-nav-header,
+  .home-page .ps-mobile-nav[data-open="true"] .ps-nav-header {
+    background: rgba(14, 17, 16, 0.92);
+    border-bottom-color: rgba(244, 242, 237, 0.12);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+
+  .home-page .ps-nav-link { color: rgba(244, 242, 237, 0.68); }
+  .home-page .ps-nav-link[aria-current="page"],
+  .home-page .ps-nav-link:focus-visible,
+  .home-page .ps-nav-link:active { color: var(--nav-ink); }
+  .home-page .ps-nav-number { color: rgba(244, 242, 237, 0.48); }
+  .home-page .ps-nav-link::before { background: rgba(244, 242, 237, 0.16); }
+
   .ps-mobile-nav,
   .ps-mobile-nav * {
     box-sizing: border-box;

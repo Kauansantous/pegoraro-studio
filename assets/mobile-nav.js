@@ -86,6 +86,13 @@
     if (parked.length) parked[0].marker.before(root);
     else document.body.prepend(root);
 
+    function updateScrollTone() {
+      root.dataset.scrolled = String(window.scrollY > 16);
+    }
+
+    updateScrollTone();
+    window.addEventListener('scroll', updateScrollTone, { passive: true });
+
     let active = null;
     let open = false;
     let closeTimer = 0;
@@ -243,6 +250,7 @@
       destroy() {
         closeMenu({ immediate: true, restoreFocus: false });
         document.removeEventListener('keydown', onKeydown);
+        window.removeEventListener('scroll', updateScrollTone);
         root.remove();
         parked.forEach(({ node, marker }) => marker.replaceWith(node));
       }

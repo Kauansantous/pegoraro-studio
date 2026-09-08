@@ -326,17 +326,30 @@ a {
   }
 
   .contact-option {
-    grid-template-columns: 40px 1fr auto;
-    gap: 20px;
+    grid-template-columns: 32px minmax(0, 1fr) 18px;
+    gap: clamp(8px, 3vw, 12px);
     padding: 50px 0;
   }
 
+  .contact-main {
+    min-width: 0;
+  }
+
   .contact-main h2 {
-    font-size: 30px;
+    font-size: clamp(1.65rem, 7vw, 2.15rem);
+  }
+
+  .contact-option--email .contact-main h2 {
+    font-size: clamp(1.12rem, 4.75vw, 1.3rem);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 
   .contact-arrow {
     font-size: 22px;
+    justify-self: end;
   }
 
   .contact-closing {
