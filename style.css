@@ -1,19 +1,17 @@
 :root {
-  --paper: #f7f6f3;
-  --ink: #171717;
-  --muted: #6e6c67;
-  --rule: rgba(23, 23, 23, 0.16);
-  --header-rule: rgba(23, 23, 23, 0.08);
+  --paper: #f4f2ed;
+  --ink: #141514;
+  --dark: #171a19;
+  --muted: #a8aaa4;
+  --rule: rgba(244, 242, 237, 0.2);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   min-height: 100%;
-  background: var(--paper);
+  background: var(--dark);
   scroll-behavior: smooth;
 }
 
@@ -29,15 +27,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.mobile-header { display: none; }
 
 .visually-hidden {
   position: absolute;
@@ -51,33 +43,46 @@ img {
   border: 0;
 }
 
-/* A navegação permanece leve, como uma assinatura sobre a página. */
+/* Navigation remains one system, adapting its tone to the hero beneath it. */
 .desktop-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  inset: 0 0 auto;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 4.5rem;
+  height: 4.75rem;
   padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
-  border-bottom: 1px solid var(--header-rule);
-  background: rgba(247, 246, 243, 0.74);
+  color: var(--ink);
+  border-bottom: 1px solid rgba(20, 21, 20, 0.08);
+  background: rgba(244, 242, 237, 0.82);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
+  transition: color 260ms ease, background 260ms ease, border-color 260ms ease, backdrop-filter 260ms ease;
+}
+
+body.at-hero .desktop-header {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(12, 15, 14, 0.08);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.desktop-brand,
+.desktop-nav a {
+  color: currentColor;
+  transition: opacity 220ms ease;
 }
 
 .desktop-brand {
   display: inline-block;
-  color: var(--ink);
   font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 0.24em;
   line-height: 1;
   white-space: nowrap;
-  transition: opacity 240ms ease;
 }
 
 .desktop-nav {
@@ -89,19 +94,17 @@ img {
 .desktop-nav a {
   position: relative;
   display: inline-block;
-  color: var(--ink);
   font-size: 0.5625rem;
   font-weight: 400;
   letter-spacing: 0.13em;
   line-height: 1;
   white-space: nowrap;
-  transition: opacity 240ms ease;
 }
 
 .desktop-nav a::after {
   position: absolute;
   right: 0;
-  bottom: -0.68rem;
+  bottom: -0.72rem;
   left: 0;
   height: 1px;
   background: currentColor;
@@ -111,41 +114,65 @@ img {
   transition: transform 380ms var(--ease-out);
 }
 
-.desktop-nav a.active {
-  font-weight: 600;
-}
-
-.desktop-nav a.active::after {
-  transform: scaleX(1);
-}
+.desktop-nav a.active { font-weight: 600; }
+.desktop-nav a.active::after { transform: scaleX(1); }
 
 .desktop-brand:focus-visible,
 .desktop-nav a:focus-visible,
 .hero-link:focus-visible {
-  outline: 1px solid var(--ink);
+  outline: 1px solid currentColor;
   outline-offset: 0.45rem;
 }
 
 main {
   overflow: clip;
+  background: var(--dark);
 }
 
-/* Manifesto */
+/* Full-screen editorial cover. */
 .hero {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: flex-end;
   min-height: 100svh;
-  padding: clamp(8.5rem, 15vh, 12rem) clamp(1.5rem, 5vw, 6rem) clamp(4.75rem, 8vw, 8.5rem);
+  padding: clamp(8rem, 15vh, 11rem) clamp(1.5rem, 5vw, 6rem) clamp(4.5rem, 7vw, 7.5rem);
+  color: #fff;
+  background: var(--dark);
+}
+
+.hero-media,
+.hero-media img,
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-media { z-index: -2; }
+
+.hero-media img {
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-scrim {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(6, 10, 9, 0.5) 0%, rgba(6, 10, 9, 0.16) 64%, rgba(6, 10, 9, 0.26) 100%),
+    linear-gradient(0deg, rgba(6, 10, 9, 0.58) 0%, rgba(6, 10, 9, 0.06) 58%, rgba(6, 10, 9, 0.2) 100%);
 }
 
 .hero-content {
-  width: min(100%, 93rem);
+  width: min(100%, 96rem);
+  padding-top: 2rem;
 }
 
 .eyebrow,
 .section-label {
   margin: 0;
-  color: var(--muted);
   font-size: 0.5625rem;
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -153,9 +180,7 @@ main {
   text-transform: uppercase;
 }
 
-.eyebrow {
-  margin-bottom: clamp(2.1rem, 4.5vh, 3.5rem);
-}
+.eyebrow { margin-bottom: clamp(2rem, 4vh, 3.25rem); color: rgba(255, 255, 255, 0.76); }
 
 .hero h1,
 .introduction h2,
@@ -167,15 +192,16 @@ main {
 }
 
 .hero h1 {
-  font-size: clamp(4.75rem, 9.4vw, 10.75rem);
-  letter-spacing: -0.065em;
-  line-height: 0.84;
+  max-width: 9.5ch;
+  font-size: clamp(5.5rem, 10.1vw, 12rem);
+  letter-spacing: -0.075em;
+  line-height: 0.79;
 }
 
 .hero-description {
-  max-width: 31rem;
-  margin: clamp(3rem, 6vw, 5.5rem) 0 0 clamp(0rem, 33vw, 31rem);
-  color: #56544f;
+  max-width: 29rem;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0 clamp(0rem, 34vw, 33rem);
+  color: rgba(255, 255, 255, 0.86);
   font-size: clamp(0.875rem, 1.05vw, 1rem);
   line-height: 1.75;
 }
@@ -185,14 +211,14 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  margin: clamp(1.9rem, 3.4vw, 2.7rem) 0 0 clamp(0rem, 33vw, 31rem);
-  padding-bottom: 0.7rem;
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0 clamp(0rem, 34vw, 33rem);
+  padding-bottom: 0.72rem;
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   line-height: 1;
   text-transform: uppercase;
-  transition: gap 420ms var(--ease-out), opacity 240ms ease;
+  transition: gap 360ms var(--ease-out), opacity 220ms ease;
 }
 
 .hero-link::after {
@@ -203,29 +229,48 @@ main {
   height: 1px;
   background: currentColor;
   content: "";
-  transform: scaleX(0.36);
+  transform: scaleX(0.4);
   transform-origin: left center;
-  transition: transform 480ms var(--ease-out);
+  transition: transform 420ms var(--ease-out);
 }
 
-.hero-link span {
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 0.7;
+.hero-link span { font-size: 1.125rem; font-weight: 300; line-height: 0.7; }
+
+/* The manifesto starts the next chapter without an empty white interruption. */
+.introduction {
+  display: grid;
+  grid-template-columns: minmax(9rem, 22%) minmax(0, 1fr);
+  column-gap: clamp(2.5rem, 7vw, 9rem);
+  padding: clamp(7rem, 12vw, 12rem) clamp(1.5rem, 8vw, 10rem) clamp(8rem, 14vw, 14rem);
+  color: var(--paper);
+  background: var(--dark);
 }
 
-/* Fotografias como pausas arquitetônicas da narrativa. */
+.introduction .section-label { padding-top: 0.85rem; color: var(--muted); }
+
+.introduction h2 {
+  max-width: 9ch;
+  font-size: clamp(3.7rem, 6.5vw, 7.8rem);
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+}
+
+.section-text {
+  grid-column: 2;
+  max-width: 31rem;
+  margin: clamp(2.75rem, 5vw, 5rem) 0 0;
+  color: rgba(244, 242, 237, 0.72);
+  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  line-height: 1.82;
+}
+
 .image-stage {
   position: relative;
   overflow: hidden;
-  background: #e9e7e1;
+  background: #282c2a;
 }
 
-.image-stage picture {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
+.image-stage picture { display: block; width: 100%; height: 100%; }
 
 .image-stage img {
   width: 100%;
@@ -234,74 +279,33 @@ main {
   transition: transform 1.2s var(--ease-out);
 }
 
-.image-stage--arrival {
-  width: min(88vw, 102rem);
-  aspect-ratio: 16 / 9.25;
-  margin-left: auto;
-}
-
 .image-stage--detail {
-  width: min(66vw, 66rem);
+  z-index: 2;
+  width: min(78vw, 90rem);
   aspect-ratio: 4 / 3;
-  margin: clamp(8rem, 16vw, 16rem) auto clamp(8rem, 17vw, 17rem) 8vw;
+  margin: clamp(-5rem, -6vw, -3rem) 0 0 auto;
 }
 
-.image-stage--closing {
-  width: min(82vw, 94rem);
-  aspect-ratio: 16 / 8.8;
-  margin-left: auto;
-}
-
-/* Posicionamento */
-.introduction {
-  display: grid;
-  grid-template-columns: minmax(9rem, 22%) minmax(0, 1fr);
-  column-gap: clamp(2.5rem, 7vw, 9rem);
-  max-width: 94rem;
-  padding: clamp(8.5rem, 17vw, 17rem) clamp(1.5rem, 5vw, 6rem) clamp(8rem, 15vw, 14rem);
-}
-
-.introduction .section-label {
-  padding-top: 0.75rem;
-}
-
-.introduction h2 {
-  font-size: clamp(3.2rem, 6.1vw, 7.25rem);
-  letter-spacing: -0.055em;
-  line-height: 0.9;
-}
-
-.section-text {
-  grid-column: 2;
-  max-width: 33rem;
-  margin: clamp(3rem, 6vw, 5.5rem) 0 0;
-  color: #56544f;
-  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
-  line-height: 1.82;
-}
-
-/* Serviços */
+/* Services use type and rules instead of cards. */
 .services {
-  width: min(100% - 3rem, 76rem);
-  margin: 0 8vw 0 auto;
-  padding: 0 0 clamp(8rem, 15vw, 14rem);
+  padding: clamp(7rem, 12vw, 12rem) max(6vw, calc((100vw - 78rem) / 2)) clamp(7rem, 11vw, 11rem);
+  color: var(--paper);
+  background: #202421;
 }
 
 .service {
   display: grid;
-  grid-template-columns: minmax(4rem, 8rem) minmax(0, 1fr) minmax(15rem, 26rem);
+  grid-template-columns: minmax(4rem, 8rem) minmax(0, 1fr) minmax(14rem, 25rem);
   column-gap: clamp(1.5rem, 4vw, 5rem);
   align-items: start;
-  padding: clamp(2.8rem, 5vw, 4.75rem) 0;
+  padding: clamp(2.65rem, 4.7vw, 4.4rem) 0;
   border-top: 1px solid var(--rule);
 }
 
-.service:last-child {
-  border-bottom: 1px solid var(--rule);
-}
+.service:last-child { border-bottom: 1px solid var(--rule); }
 
 .service-number {
-  padding-top: 0.65rem;
+  padding-top: 0.72rem;
   color: var(--muted);
   font-size: 0.5625rem;
   font-weight: 500;
@@ -310,45 +314,70 @@ main {
 }
 
 .service h3 {
-  font-size: clamp(2.35rem, 4.15vw, 4.7rem);
-  letter-spacing: -0.045em;
-  line-height: 0.94;
+  font-size: clamp(2.8rem, 4.6vw, 5.25rem);
+  letter-spacing: -0.055em;
+  line-height: 0.88;
 }
 
 .service p {
-  max-width: 26rem;
+  max-width: 25rem;
   margin: 0;
-  color: #625f59;
+  color: rgba(244, 242, 237, 0.7);
   font-size: clamp(0.875rem, 1.05vw, 0.96875rem);
   line-height: 1.75;
 }
 
-/* Encerramento */
-.cta {
-  padding: clamp(8.5rem, 16vw, 16rem) clamp(1.5rem, 11vw, 12rem) clamp(9rem, 17vw, 17rem);
+/* A final photograph and call to action share a single frame. */
+.closing-panel {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(82svh, 62rem);
+  color: #fff;
+  background: var(--dark);
 }
 
-.cta .section-label {
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+.image-stage--closing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
+
+.closing-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(6, 10, 9, 0.68), rgba(6, 10, 9, 0.2) 72%), linear-gradient(0deg, rgba(6, 10, 9, 0.64), rgba(6, 10, 9, 0.04) 68%);
+}
+
+.cta {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 94rem);
+  padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 8vw, 10rem) clamp(4rem, 7vw, 7rem);
+}
+
+.cta .section-label { margin-bottom: clamp(2rem, 4vw, 3.5rem); color: rgba(255, 255, 255, 0.72); }
 
 .cta h2 {
-  font-size: clamp(3.65rem, 7.1vw, 8.5rem);
-  letter-spacing: -0.06em;
-  line-height: 0.87;
+  max-width: 9.5ch;
+  font-size: clamp(4.25rem, 7.5vw, 9rem);
+  letter-spacing: -0.07em;
+  line-height: 0.82;
 }
 
-.cta .hero-link {
-  margin-left: 0;
-}
+.cta .hero-link { margin-left: 0; }
 
 .site-footer {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   padding: 1.8rem clamp(1.5rem, 3.5vw, 3.5rem);
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
+  color: rgba(244, 242, 237, 0.64);
+  border-top: 1px solid rgba(244, 242, 237, 0.16);
+  background: var(--dark);
   font-size: 0.5625rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -356,184 +385,88 @@ main {
   text-transform: uppercase;
 }
 
-/* A entrada aparece apenas quando JavaScript está disponível. */
+/* Existing reveal behavior is retained, with a shorter, quieter movement. */
 .js [data-reveal] {
   opacity: 0;
-  transform: translateY(1.4rem);
-  transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
+  transform: translateY(1.15rem);
+  transition: opacity 780ms var(--ease-out), transform 780ms var(--ease-out);
 }
 
-.js [data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.js .image-stage img {
-  transform: scale(1.045);
-}
-
-.js .image-stage.is-visible img {
-  transform: scale(1);
-}
+.js [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+.js .image-stage img { transform: scale(1.035); }
+.js .image-stage.is-visible img { transform: scale(1); }
 
 @media (hover: hover) and (pointer: fine) {
-  .desktop-brand:hover,
-  .desktop-nav a:hover {
-    opacity: 0.52;
-  }
-
-  .desktop-nav a:hover::after {
-    transform: scaleX(1);
-  }
-
-  .hero-link:hover {
-    gap: 1.25rem;
-    opacity: 0.68;
-  }
-
-  .hero-link:hover::after {
-    transform: scaleX(1);
-  }
-
-  .js .image-stage.is-visible:hover img,
-  .image-stage:hover img {
-    transform: scale(1.018);
-  }
+  .desktop-brand:hover, .desktop-nav a:hover { opacity: 0.58; }
+  .desktop-nav a:hover::after { transform: scaleX(1); }
+  .hero-link:hover { gap: 1.25rem; opacity: 0.72; }
+  .hero-link:hover::after { transform: scaleX(1); }
+  .js .image-stage.is-visible:hover img, .image-stage:hover img { transform: scale(1.018); }
 }
 
 @media (max-width: 768px) {
-  .desktop-header {
-    display: none;
-  }
+  .desktop-header { display: none; }
 
   .hero {
-    min-height: 86svh;
-    padding: 5rem 6vw 4.5rem;
+    min-height: 100svh;
+    padding: 7rem 6vw 3.6rem;
   }
 
-  .hero h1 {
-    max-width: none;
-    font-size: clamp(3.3rem, 14vw, 6.2rem);
-    line-height: 0.86;
-  }
-
-  .hero-description,
-  .hero-link {
-    margin-left: 0;
-  }
-
-  .hero-description {
-    max-width: 29rem;
-    margin-top: 2.5rem;
-  }
-
-  .image-stage--arrival {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-  }
+  .hero-media img { object-position: center center; }
+  .hero-scrim { background: linear-gradient(0deg, rgba(6, 10, 9, 0.7), rgba(6, 10, 9, 0.1) 65%, rgba(6, 10, 9, 0.34)); }
+  .hero-content { padding-top: 0; }
+  .eyebrow { margin-bottom: 1.75rem; }
+  .hero h1 { max-width: 7.8ch; font-size: clamp(4rem, 15.2vw, 6.4rem); line-height: 0.8; }
+  .hero-description, .hero-link { margin-left: 0; }
+  .hero-description { max-width: 21rem; margin-top: 2.4rem; font-size: 0.875rem; }
 
   .introduction {
     display: block;
-    padding: 7.5rem 6vw;
+    padding: 5.5rem 6vw 7rem;
   }
 
-  .introduction .section-label {
-    margin-bottom: 2rem;
-    padding-top: 0;
-  }
-
-  .introduction h2 {
-    max-width: 9.5ch;
-    font-size: clamp(2.8rem, 10.5vw, 5rem);
-  }
-
-  .section-text {
-    max-width: 31rem;
-    margin-top: 2.5rem;
-  }
+  .introduction .section-label { margin-bottom: 1.75rem; padding-top: 0; }
+  .introduction h2 { max-width: 8.2ch; font-size: clamp(3.25rem, 12.5vw, 5.25rem); }
+  .section-text { max-width: 27rem; margin-top: 2.25rem; }
 
   .image-stage--detail {
-    width: 88vw;
+    width: 94vw;
     aspect-ratio: 4 / 5;
-    margin: 1.5rem auto 7.5rem 0;
+    margin: -1.25rem 0 0 auto;
   }
 
-  .services {
-    width: auto;
-    margin: 0;
-    padding: 0 6vw 7.5rem;
-  }
+  .services { padding: 5.75rem 6vw 6.25rem; }
 
   .service {
     grid-template-columns: 2.8rem minmax(0, 1fr);
-    row-gap: 1.4rem;
-    padding: 2.75rem 0;
+    row-gap: 1.2rem;
+    padding: 2.7rem 0;
   }
 
-  .service h3 {
-    font-size: clamp(2.25rem, 9vw, 3.75rem);
-  }
+  .service h3 { font-size: clamp(2.65rem, 10vw, 4rem); }
+  .service p { grid-column: 2; }
 
-  .service p {
-    grid-column: 2;
-  }
-
-  .image-stage--closing {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-  }
-
-  .cta {
-    padding: 7.5rem 6vw 8rem;
-  }
-
-  .cta h2 {
-    max-width: none;
-    font-size: clamp(2.9rem, 11.5vw, 5.3rem);
-  }
-
-  .site-footer {
-    flex-direction: column;
-    gap: 0.45rem;
-    padding: 1.65rem 6vw 1.9rem;
-    font-size: 0.5rem;
-  }
+  .closing-panel { min-height: 100svh; }
+  .image-stage--closing img { object-position: center center; }
+  .closing-scrim { background: linear-gradient(0deg, rgba(6, 10, 9, 0.76), rgba(6, 10, 9, 0.08) 70%); }
+  .cta { padding: 5rem 6vw 4rem; }
+  .cta h2 { max-width: 8.3ch; font-size: clamp(3.6rem, 13.2vw, 5.7rem); }
+  .site-footer { flex-direction: column; gap: 0.45rem; padding: 1.65rem 6vw 1.9rem; font-size: 0.5rem; }
 }
 
 @media (max-width: 360px) {
-  .hero,
-  .introduction,
-  .services,
-  .cta {
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
-  }
-
-  .hero h1 {
-    font-size: 3.1rem;
-  }
+  .hero, .introduction, .services, .cta { padding-right: 1.25rem; padding-left: 1.25rem; }
+  .hero h1 { font-size: 3.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
-
-  .js [data-reveal] {
-    opacity: 1;
-    transform: none;
-  }
-
-  .js .image-stage img {
-    transform: none;
-  }
+  .js [data-reveal] { opacity: 1; transform: none; }
+  .js .image-stage img { transform: none; }
 }

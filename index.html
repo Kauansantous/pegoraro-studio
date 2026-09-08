@@ -18,12 +18,12 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=home-editorial-20260908b">
   <link rel="stylesheet" href="assets/mobile-nav.css" media="(max-width: 768px)">
   <script src="assets/mobile-nav.js" defer></script>
 </head>
 
-<body>
+<body class="at-hero">
 
   <!-- Fallback estrutural para navegadores móveis que carreguem o HTML antes do módulo de navegação. -->
   <header class="mobile-header" aria-label="Cabeçalho mobile">
@@ -66,6 +66,12 @@
 
     <section class="hero" aria-labelledby="hero-title">
 
+      <picture class="hero-media" aria-hidden="true">
+        <source media="(max-width: 768px)" srcset="assets/home/home-01-mobile.avif" type="image/avif">
+        <img src="assets/home/home-01-desktop.avif" alt="" width="2560" height="1480" fetchpriority="high">
+      </picture>
+      <div class="hero-scrim" aria-hidden="true"></div>
+
       <div class="hero-content" data-reveal>
 
         <p class="eyebrow">
@@ -94,20 +100,6 @@
       </div>
 
     </section>
-
-    <figure class="image-stage image-stage--arrival" data-reveal>
-      <picture>
-        <source media="(max-width: 768px)" srcset="assets/home/home-01-mobile.avif" type="image/avif">
-        <img
-          src="assets/home/home-01-desktop.avif"
-          alt="Piscina e área de lazer de imóvel"
-          width="2560"
-          height="1480"
-          decoding="async"
-          fetchpriority="high"
-        >
-      </picture>
-    </figure>
 
     <section class="introduction" aria-labelledby="introduction-title" data-reveal>
 
@@ -209,21 +201,25 @@
 
     </section>
 
-    <figure class="image-stage image-stage--closing" data-reveal>
-      <picture>
-        <source media="(max-width: 768px)" srcset="assets/home/home-03-mobile.avif" type="image/avif">
-        <img
-          src="assets/home/home-03-desktop.avif"
-          alt="Vista de imóvel à beira-mar"
-          width="2560"
-          height="1408"
-          loading="lazy"
-          decoding="async"
-        >
-      </picture>
-    </figure>
+    <section class="closing-panel" aria-labelledby="cta-title">
 
-    <section class="cta" aria-labelledby="cta-title" data-reveal>
+      <figure class="image-stage image-stage--closing" data-reveal>
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/home/home-03-mobile.avif" type="image/avif">
+          <img
+            src="assets/home/home-03-desktop.avif"
+            alt="Vista de imóvel à beira-mar"
+            width="2560"
+            height="1408"
+            loading="lazy"
+            decoding="async"
+          >
+        </picture>
+      </figure>
+
+      <div class="closing-scrim" aria-hidden="true"></div>
+
+      <div class="cta" data-reveal>
 
       <p class="section-label">
         PEGORARO STUDIO
@@ -241,6 +237,8 @@
         Fale conosco
         <span>→</span>
       </a>
+
+      </div>
 
     </section>
 
@@ -274,6 +272,14 @@
         link.classList.add("active");
       }
     });
+
+    const header = document.querySelector(".desktop-header");
+    const updateHeaderTone = function () {
+      document.body.classList.toggle("at-hero", window.scrollY < window.innerHeight * 0.72);
+    };
+
+    updateHeaderTone();
+    window.addEventListener("scroll", updateHeaderTone, { passive: true });
 
     const revealElements = document.querySelectorAll("[data-reveal]");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
