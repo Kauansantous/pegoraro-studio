@@ -323,10 +323,10 @@ main {
   position: absolute;
 
   left: 5%;
-  top: 49%;
+  top: 37%;
 
-  width: 75%;
-  height: 3%;
+  width: 86%;
+  height: 7%;
 
   z-index: 50;
 
@@ -340,6 +340,7 @@ main {
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 
