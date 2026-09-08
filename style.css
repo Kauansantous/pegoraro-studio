@@ -1,18 +1,32 @@
+:root {
+  --paper: #f7f6f3;
+  --ink: #171717;
+  --muted: #6e6c67;
+  --rule: rgba(23, 23, 23, 0.16);
+  --header-rule: rgba(23, 23, 23, 0.08);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 html {
+  min-height: 100%;
+  background: var(--paper);
   scroll-behavior: smooth;
 }
 
 body {
-  background: #f7f6f3;
-  color: #171717;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -20,83 +34,81 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
 
-/* =========================
-   BARRA SUPERIOR DESKTOP
-========================= */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
+/* A navegação permanece leve, como uma assinatura sobre a página. */
 .desktop-header {
   position: fixed;
   top: 0;
   left: 0;
-
-  width: 100%;
-  height: 64px;
-
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 42px;
-
-  z-index: 1000;
-
-  background: rgba(247, 246, 243, 0.68);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border-bottom: 1px solid rgba(23, 23, 23, 0.07);
+  width: 100%;
+  height: 4.5rem;
+  padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
+  border-bottom: 1px solid var(--header-rule);
+  background: rgba(247, 246, 243, 0.74);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .desktop-brand {
   display: inline-block;
-
-  color: #171717;
-  text-decoration: none;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 10px;
+  color: var(--ink);
+  font-size: 0.625rem;
   font-weight: 600;
-
-  letter-spacing: 0.22em;
-
+  letter-spacing: 0.24em;
+  line-height: 1;
   white-space: nowrap;
-
-  transition: opacity 0.25s ease;
-}
-
-.desktop-brand:hover {
-  opacity: 0.5;
+  transition: opacity 240ms ease;
 }
 
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: clamp(1.15rem, 2.15vw, 2.2rem);
 }
 
 .desktop-nav a {
   position: relative;
-
-  color: #171717;
-  text-decoration: none;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 9px;
+  display: inline-block;
+  color: var(--ink);
+  font-size: 0.5625rem;
   font-weight: 400;
-
-  letter-spacing: 0.12em;
-
+  letter-spacing: 0.13em;
+  line-height: 1;
   white-space: nowrap;
-
-  transition: opacity 0.25s ease;
+  transition: opacity 240ms ease;
 }
 
-.desktop-nav a:hover {
-  opacity: 0.5;
+.desktop-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.68rem;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 380ms var(--ease-out);
 }
 
 .desktop-nav a.active {
@@ -104,297 +116,418 @@ a {
 }
 
 .desktop-nav a.active::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -7px;
-
-  width: 100%;
-  height: 1px;
-
-  background: #171717;
+  transform: scaleX(1);
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
-.site-header {
-  width: 100%;
-  padding: 30px 5vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+.desktop-brand:focus-visible,
+.desktop-nav a:focus-visible,
+.hero-link:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 0.45rem;
 }
 
-.brand {
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  font-weight: 600;
+main {
+  overflow: clip;
 }
 
-.main-nav {
-  display: flex;
-  gap: 38px;
-}
-
-.main-nav a {
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  transition: opacity 0.3s ease;
-}
-
-.main-nav a:hover {
-  opacity: 0.45;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
+/* Manifesto */
 .hero {
-  min-height: calc(100vh - 73px);
   display: flex;
   align-items: flex-end;
-  padding: 10vh 8vw 9vh;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  min-height: 100svh;
+  padding: clamp(8.5rem, 15vh, 12rem) clamp(1.5rem, 5vw, 6rem) clamp(4.75rem, 8vw, 8.5rem);
 }
 
 .hero-content {
-  max-width: 900px;
+  width: min(100%, 93rem);
 }
 
 .eyebrow,
 .section-label {
-  font-size: 10px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.5625rem;
+  font-weight: 500;
   letter-spacing: 0.22em;
+  line-height: 1.4;
   text-transform: uppercase;
-  margin-bottom: 35px;
-  color: #666;
+}
+
+.eyebrow {
+  margin-bottom: clamp(2.1rem, 4.5vh, 3.5rem);
+}
+
+.hero h1,
+.introduction h2,
+.cta h2,
+.service h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
 }
 
 .hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: clamp(58px, 8vw, 126px);
-  line-height: 0.92;
-  letter-spacing: -0.045em;
-  max-width: 1000px;
+  font-size: clamp(4.75rem, 9.4vw, 10.75rem);
+  letter-spacing: -0.065em;
+  line-height: 0.84;
 }
 
 .hero-description {
-  max-width: 530px;
-  margin-top: 48px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #555;
+  max-width: 31rem;
+  margin: clamp(3rem, 6vw, 5.5rem) 0 0 clamp(0rem, 33vw, 31rem);
+  color: #56544f;
+  font-size: clamp(0.875rem, 1.05vw, 1rem);
+  line-height: 1.75;
 }
 
 .hero-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 42px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #171717;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  transition: gap 0.3s ease;
+  gap: 0.9rem;
+  margin: clamp(1.9rem, 3.4vw, 2.7rem) 0 0 clamp(0rem, 33vw, 31rem);
+  padding-bottom: 0.7rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: gap 420ms var(--ease-out), opacity 240ms ease;
+}
+
+.hero-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0.36);
+  transform-origin: left center;
+  transition: transform 480ms var(--ease-out);
 }
 
 .hero-link span {
-  font-size: 17px;
-  line-height: 1;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 0.7;
 }
 
-.hero-link:hover {
-  gap: 26px;
+/* Fotografias como pausas arquitetônicas da narrativa. */
+.image-stage {
+  position: relative;
+  overflow: hidden;
+  background: #e9e7e1;
 }
 
+.image-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
 
-/* =========================
-   INTRODUCTION
-========================= */
+.image-stage--arrival {
+  width: min(88vw, 102rem);
+  aspect-ratio: 16 / 9.25;
+  margin-left: auto;
+}
 
+.image-stage--detail {
+  width: min(66vw, 66rem);
+  aspect-ratio: 4 / 3;
+  margin: clamp(8rem, 16vw, 16rem) auto clamp(8rem, 17vw, 17rem) 8vw;
+}
+
+.image-stage--closing {
+  width: min(82vw, 94rem);
+  aspect-ratio: 16 / 8.8;
+  margin-left: auto;
+}
+
+/* Posicionamento */
 .introduction {
-  padding: 15vh 8vw;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  column-gap: 8vw;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  grid-template-columns: minmax(9rem, 22%) minmax(0, 1fr);
+  column-gap: clamp(2.5rem, 7vw, 9rem);
+  max-width: 94rem;
+  padding: clamp(8.5rem, 17vw, 17rem) clamp(1.5rem, 5vw, 6rem) clamp(8rem, 15vw, 14rem);
 }
 
 .introduction .section-label {
-  margin: 0;
+  padding-top: 0.75rem;
 }
 
 .introduction h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: clamp(42px, 5vw, 78px);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  font-size: clamp(3.2rem, 6.1vw, 7.25rem);
+  letter-spacing: -0.055em;
+  line-height: 0.9;
 }
 
 .section-text {
   grid-column: 2;
-  max-width: 570px;
-  margin-top: 55px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #555;
+  max-width: 33rem;
+  margin: clamp(3rem, 6vw, 5.5rem) 0 0;
+  color: #56544f;
+  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  line-height: 1.82;
 }
 
-
-/* =========================
-   SERVICES
-========================= */
-
+/* Serviços */
 .services {
-  padding: 0 8vw;
+  width: min(100% - 3rem, 76rem);
+  margin: 0 8vw 0 auto;
+  padding: 0 0 clamp(8rem, 15vw, 14rem);
 }
 
 .service {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 5vw;
-  padding: 65px 0;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  grid-template-columns: minmax(4rem, 8rem) minmax(0, 1fr) minmax(15rem, 26rem);
+  column-gap: clamp(1.5rem, 4vw, 5rem);
+  align-items: start;
+  padding: clamp(2.8rem, 5vw, 4.75rem) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.service:last-child {
+  border-bottom: 1px solid var(--rule);
 }
 
 .service-number {
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  color: #777;
+  padding-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
 }
 
 .service h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 3.5vw, 52px);
-  font-weight: 400;
-  letter-spacing: -0.025em;
+  font-size: clamp(2.35rem, 4.15vw, 4.7rem);
+  letter-spacing: -0.045em;
+  line-height: 0.94;
 }
 
 .service p {
-  max-width: 480px;
-  margin-top: 18px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666;
+  max-width: 26rem;
+  margin: 0;
+  color: #625f59;
+  font-size: clamp(0.875rem, 1.05vw, 0.96875rem);
+  line-height: 1.75;
 }
 
-
-/* =========================
-   CTA
-========================= */
-
+/* Encerramento */
 .cta {
-  padding: 18vh 8vw;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  padding: clamp(8.5rem, 16vw, 16rem) clamp(1.5rem, 11vw, 12rem) clamp(9rem, 17vw, 17rem);
+}
+
+.cta .section-label {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
 .cta h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: clamp(48px, 6vw, 90px);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-size: clamp(3.65rem, 7.1vw, 8.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.87;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
+.cta .hero-link {
+  margin-left: 0;
+}
 
 .site-footer {
-  padding: 30px 5vw;
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  color: #777;
+  gap: 1rem;
+  padding: 1.8rem clamp(1.5rem, 3.5vw, 3.5rem);
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
+/* A entrada aparece apenas quando JavaScript está disponível. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(1.4rem);
+  transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
+}
 
-/* =========================
-   MOBILE
-========================= */
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js .image-stage img {
+  transform: scale(1.045);
+}
+
+.js .image-stage.is-visible img {
+  transform: scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .desktop-brand:hover,
+  .desktop-nav a:hover {
+    opacity: 0.52;
+  }
+
+  .desktop-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .hero-link:hover {
+    gap: 1.25rem;
+    opacity: 0.68;
+  }
+
+  .hero-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .js .image-stage.is-visible:hover img,
+  .image-stage:hover img {
+    transform: scale(1.018);
+  }
+}
 
 @media (max-width: 768px) {
-
   .desktop-header {
     display: none;
   }
 
-  .site-header {
-    padding: 24px 6vw;
-  }
-
-  .main-nav {
-    gap: 18px;
-  }
-
-  .main-nav a {
-    font-size: 10px;
-  }
-
   .hero {
-    min-height: calc(100vh - 65px);
-    padding: 10vh 7vw 8vh;
-    align-items: flex-end;
+    min-height: 86svh;
+    padding: 5rem 6vw 4.5rem;
   }
 
   .hero h1 {
-    font-size: clamp(48px, 14vw, 78px);
+    max-width: none;
+    font-size: clamp(3.3rem, 14vw, 6.2rem);
+    line-height: 0.86;
+  }
+
+  .hero-description,
+  .hero-link {
+    margin-left: 0;
   }
 
   .hero-description {
-    font-size: 14px;
-    margin-top: 35px;
+    max-width: 29rem;
+    margin-top: 2.5rem;
+  }
+
+  .image-stage--arrival {
+    width: 100%;
+    aspect-ratio: 4 / 5;
   }
 
   .introduction {
     display: block;
-    padding: 12vh 7vw;
+    padding: 7.5rem 6vw;
+  }
+
+  .introduction .section-label {
+    margin-bottom: 2rem;
+    padding-top: 0;
   }
 
   .introduction h2 {
-    font-size: clamp(40px, 11vw, 65px);
+    max-width: 9.5ch;
+    font-size: clamp(2.8rem, 10.5vw, 5rem);
   }
 
   .section-text {
-    margin-top: 40px;
+    max-width: 31rem;
+    margin-top: 2.5rem;
+  }
+
+  .image-stage--detail {
+    width: 88vw;
+    aspect-ratio: 4 / 5;
+    margin: 1.5rem auto 7.5rem 0;
   }
 
   .services {
-    padding: 0 7vw;
+    width: auto;
+    margin: 0;
+    padding: 0 6vw 7.5rem;
   }
 
   .service {
-    grid-template-columns: 45px 1fr;
-    gap: 20px;
-    padding: 50px 0;
+    grid-template-columns: 2.8rem minmax(0, 1fr);
+    row-gap: 1.4rem;
+    padding: 2.75rem 0;
   }
 
   .service h3 {
-    font-size: 36px;
+    font-size: clamp(2.25rem, 9vw, 3.75rem);
+  }
+
+  .service p {
+    grid-column: 2;
+  }
+
+  .image-stage--closing {
+    width: 100%;
+    aspect-ratio: 4 / 5;
   }
 
   .cta {
-    padding: 14vh 7vw;
+    padding: 7.5rem 6vw 8rem;
   }
 
   .cta h2 {
-    font-size: clamp(42px, 11vw, 65px);
+    max-width: none;
+    font-size: clamp(2.9rem, 11.5vw, 5.3rem);
   }
 
   .site-footer {
-    padding: 25px 6vw;
-    font-size: 8px;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1.65rem 6vw 1.9rem;
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero,
+  .introduction,
+  .services,
+  .cta {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: 3.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .image-stage img {
+    transform: none;
   }
 }

@@ -1,359 +1,403 @@
+:root {
+    --paper: #f5f4f0;
+    --ink: #171716;
+    --muted-ink: #66655f;
+    --rule: rgba(23, 23, 22, 0.18);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 * {
     box-sizing: border-box;
 }
 
 html {
-    margin: 0;
-    padding: 0;
     min-height: 100%;
-    background: #ffffff;
+    background: var(--paper);
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    min-width: 320px;
     min-height: 100vh;
-
-    background: #ffffff;
-    color: #111111;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
 
-
-/* =========================
-   ESTRUTURA
-   ========================= */
-
 .hub {
     width: 100%;
-    min-height: 100vh;
-
-    padding: 34px 32px 36px;
+    min-height: 100svh;
+    padding: clamp(1.75rem, 3.2vw, 3rem) clamp(1.5rem, 5vw, 5.5rem) clamp(2rem, 3.2vw, 3.5rem);
 }
 
 .container {
-    width: 100%;
-    max-width: 760px;
-    min-height: calc(100vh - 70px);
-
+    width: min(100%, 1500px);
+    min-height: calc(100svh - clamp(3.75rem, 6.4vw, 6.5rem));
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
 }
 
-
-/* =========================
-   MARCA
-   ========================= */
-
+/* A assinatura permanece independente de uma navegação convencional. */
 .header {
     width: 100%;
+    animation: fade-in 0.8s var(--ease-out) both;
 }
 
 .brand {
     display: inline-block;
-
-    color: #111111;
+    color: var(--ink);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.27em;
+    line-height: 1;
     text-decoration: none;
-
-    font-size: 12px;
-    font-weight: 500;
-
-    letter-spacing: 0.34em;
-
-    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    transition: opacity 260ms ease;
 }
 
 .brand:hover {
-    opacity: 0.55;
+    opacity: 0.58;
 }
 
-
-/* =========================
-   INTRODUÇÃO
-   ========================= */
+.brand:focus-visible,
+.nav-item:focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 0.45rem;
+}
 
 .intro {
-    margin-top: 96px;
-    margin-bottom: 72px;
+    display: grid;
+    grid-template-columns: minmax(9rem, 21%) minmax(0, 1fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+    align-items: start;
+    margin-top: clamp(8rem, 18vh, 14.5rem);
 }
 
 .eyebrow {
-    margin: 0 0 22px;
-
-    color: #999999;
-
-    font-size: 10px;
-    font-weight: 400;
-
-    letter-spacing: 0.22em;
+    margin: 0;
+    padding-top: 0.55rem;
+    color: var(--muted-ink);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    line-height: 1.4;
     text-transform: uppercase;
+    animation: reveal-up 0.85s 100ms var(--ease-out) both;
 }
 
 h1 {
+    max-width: 11ch;
     margin: 0;
-
-    max-width: 650px;
-
-    color: #111111;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: clamp(48px, 7vw, 72px);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4.5rem, 8.6vw, 9rem);
     font-weight: 400;
-
-    line-height: 0.96;
-
-    letter-spacing: -0.045em;
+    letter-spacing: -0.065em;
+    line-height: 0.84;
+    animation: reveal-up 1s 180ms var(--ease-out) both;
 }
 
-
-/* =========================
-   NAVEGAÇÃO
-   ========================= */
-
 .navigation {
-    width: 100%;
+    position: relative;
+    width: min(100%, 58rem);
+    align-self: flex-end;
+    margin-top: clamp(5.5rem, 13vh, 10rem);
+    animation: reveal-up 0.9s 360ms var(--ease-out) both;
+}
 
-    border-top: 1px solid #dddddd;
+.navigation::before,
+.nav-item::before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: var(--rule);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: draw-rule 780ms var(--ease-out) both;
+}
+
+.navigation::before {
+    top: 0;
+    animation-delay: 430ms;
 }
 
 .nav-item {
     position: relative;
-
-    width: 100%;
-    min-height: 82px;
-
     display: grid;
-
-    grid-template-columns: 48px 1fr 32px;
-
+    grid-template-columns: 5.5rem minmax(0, 1fr) 2.25rem;
     align-items: center;
-
-    border-bottom: 1px solid #dddddd;
-
-    color: #111111;
+    width: 100%;
+    min-height: clamp(5.4rem, 7.2vw, 6.75rem);
+    color: var(--ink);
     text-decoration: none;
-
-    transition:
-        padding-left 0.25s ease,
-        background-color 0.25s ease;
+    transition: opacity 320ms ease;
 }
 
-.nav-item:hover {
-    padding-left: 8px;
-    background-color: #fafafa;
+.nav-item::before {
+    bottom: 0;
+}
+
+.nav-item:nth-child(1)::before {
+    animation-delay: 500ms;
+}
+
+.nav-item:nth-child(2)::before {
+    animation-delay: 565ms;
+}
+
+.nav-item:nth-child(3)::before {
+    animation-delay: 630ms;
+}
+
+.nav-item:nth-child(4)::before {
+    animation-delay: 695ms;
+}
+
+.number {
+    color: var(--muted-ink);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    transition: color 320ms ease, transform 420ms var(--ease-out);
+}
+
+.label {
+    position: relative;
+    justify-self: start;
+    padding-bottom: 0.5rem;
+    color: var(--ink);
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1;
+    transition: transform 420ms var(--ease-out);
+}
+
+.label::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: currentColor;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 520ms var(--ease-out);
+}
+
+.arrow {
+    color: var(--muted-ink);
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1;
+    text-align: right;
+    transition: color 320ms ease, transform 420ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav-item:hover {
+        opacity: 0.7;
+    }
+
+    .nav-item:hover .number {
+        color: var(--ink);
+        transform: translateX(0.2rem);
+    }
+
+    .nav-item:hover .label {
+        transform: translateX(0.45rem);
+    }
+
+    .nav-item:hover .label::after {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+
+    .nav-item:hover .arrow {
+        color: var(--ink);
+        transform: translateX(0.35rem);
+    }
 }
 
 .nav-item:focus-visible {
-    outline: 1px solid #111111;
-    outline-offset: -1px;
+    opacity: 0.7;
 }
 
-
-/* =========================
-   NÚMEROS
-   ========================= */
-
-.number {
-    color: #999999;
-
-    font-size: 9px;
-    font-weight: 400;
-
-    letter-spacing: 0.12em;
+.nav-item:focus-visible .number {
+    color: var(--ink);
+    transform: translateX(0.2rem);
 }
 
-
-/* =========================
-   TÍTULOS
-   ========================= */
-
-.label {
-    color: #111111;
-
-    font-size: 14px;
-    font-weight: 400;
-
-    letter-spacing: 0.01em;
+.nav-item:focus-visible .label {
+    transform: translateX(0.45rem);
 }
 
-
-/* =========================
-   SETAS
-   ========================= */
-
-.arrow {
-    color: #888888;
-
-    font-size: 18px;
-    font-weight: 300;
-
-    text-align: right;
-
-    transition:
-        transform 0.25s ease,
-        color 0.25s ease;
+.nav-item:focus-visible .label::after {
+    transform: scaleX(1);
+    transform-origin: left center;
 }
 
-.nav-item:hover .arrow {
-    transform: translateX(4px);
-    color: #111111;
+.nav-item:focus-visible .arrow {
+    color: var(--ink);
+    transform: translateX(0.35rem);
 }
-
-
-/* =========================
-   RODAPÉ
-   ========================= */
 
 .footer {
-    margin-top: auto;
-    padding-top: 100px;
-
     display: flex;
     justify-content: space-between;
-
-    color: #999999;
-
-    font-size: 9px;
-    font-weight: 400;
-
-    letter-spacing: 0.18em;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: clamp(6rem, 11vh, 10rem);
+    color: var(--muted-ink);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.19em;
+    line-height: 1.4;
     text-transform: uppercase;
+    animation: fade-in 0.9s 580ms var(--ease-out) both;
 }
 
+@keyframes reveal-up {
+    from {
+        opacity: 0;
+        transform: translateY(0.9rem);
+    }
 
-/* =========================
-   TABLET
-   ========================= */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes draw-rule {
+    to {
+        transform: scaleX(1);
+    }
+}
 
 @media (max-width: 800px) {
-
     .hub {
-        padding: 30px 28px 32px;
-    }
-
-    .container {
-        min-height: calc(100vh - 62px);
+        padding-right: clamp(1.5rem, 5vw, 2.5rem);
+        padding-left: clamp(1.5rem, 5vw, 2.5rem);
     }
 
     .intro {
-        margin-top: 82px;
-        margin-bottom: 64px;
-    }
-
-    h1 {
-        font-size: clamp(44px, 8vw, 62px);
-    }
-}
-
-
-/* =========================
-   CELULAR
-   ========================= */
-
-@media (max-width: 600px) {
-
-    .hub {
-        padding: 28px 22px 30px;
-    }
-
-    .container {
-        min-height: calc(100vh - 58px);
-    }
-
-    .brand {
-        font-size: 10px;
-        letter-spacing: 0.30em;
-    }
-
-    .intro {
-        margin-top: 76px;
-        margin-bottom: 54px;
+        grid-template-columns: 1fr;
+        row-gap: 1.35rem;
+        margin-top: clamp(7rem, 16vh, 10rem);
     }
 
     .eyebrow {
-        margin-bottom: 18px;
-
-        font-size: 9px;
-        letter-spacing: 0.19em;
+        padding-top: 0;
     }
 
     h1 {
-        font-size: clamp(42px, 12vw, 54px);
-        line-height: 0.98;
+        max-width: none;
+        font-size: clamp(4.25rem, 12vw, 7rem);
     }
 
-    .nav-item {
-        min-height: 72px;
-
-        grid-template-columns: 38px 1fr 28px;
-    }
-
-    .number {
-        font-size: 8px;
-    }
-
-    .label {
-        font-size: 13px;
-    }
-
-    .arrow {
-        font-size: 17px;
-    }
-
-    .footer {
-        padding-top: 70px;
-
-        flex-direction: column;
-        gap: 10px;
-
-        font-size: 8px;
+    .navigation {
+        width: 100%;
+        margin-top: clamp(4.5rem, 11vh, 7rem);
     }
 }
 
-
-/* =========================
-   CELULARES MUITO PEQUENOS
-   ========================= */
-
-@media (max-width: 380px) {
-
+@media (max-width: 560px) {
     .hub {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding: 1.625rem 1.375rem 2rem;
+    }
+
+    .container {
+        min-height: calc(100svh - 3.625rem);
+    }
+
+    .brand {
+        font-size: 0.625rem;
+        letter-spacing: 0.23em;
     }
 
     .intro {
-        margin-top: 64px;
+        row-gap: 1.1rem;
+        margin-top: clamp(6.5rem, 14vh, 8rem);
+    }
+
+    .eyebrow {
+        font-size: 0.5rem;
+        letter-spacing: 0.18em;
     }
 
     h1 {
-        font-size: 40px;
+        font-size: clamp(2.875rem, 13.2vw, 4.5rem);
+        line-height: 0.88;
+    }
+
+    .navigation {
+        margin-top: clamp(4rem, 10vh, 5.5rem);
+    }
+
+    .nav-item {
+        grid-template-columns: 3rem minmax(0, 1fr) 1.75rem;
+        min-height: 5rem;
+    }
+
+    .number {
+        font-size: 0.5rem;
+    }
+
+    .label {
+        font-size: 1rem;
+    }
+
+    .arrow {
+        font-size: 1.125rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 5.5rem;
+        font-size: 0.5rem;
+        letter-spacing: 0.17em;
     }
 }
 
+@media (max-width: 360px) {
+    .hub {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
 
-/* =========================
-   REDUÇÃO DE MOVIMENTO
-   ========================= */
+    .brand {
+        letter-spacing: 0.18em;
+    }
+
+}
 
 @media (prefers-reduced-motion: reduce) {
-
-    .nav-item,
-    .arrow,
-    .brand {
-        transition: none;
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

@@ -8,69 +8,69 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Pegoraro Studio — Marketing para imóveis de temporada</title>
+  <title>Pegoraro Studio — Fotografia para imóveis de temporada</title>
 
   <meta
     name="description"
-    content="Pegoraro Studio — fotografia, apresentação e estratégia para imóveis de temporada."
+    content="Fotografia, direção visual e organização de anúncios para imóveis de temporada. Conheça o trabalho da Pegoraro Studio."
   >
 
-<link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="desktop-header">
+  <header class="desktop-header" aria-label="Cabeçalho principal">
 
-  <a href="./index.html" class="desktop-brand">
-    PEGORARO STUDIO
-  </a>
-
-  <nav class="desktop-nav" aria-label="Navegação principal">
-
-    <a href="./index.html">
-      HOME
+    <a href="./index.html" class="desktop-brand" aria-label="Pegoraro Studio — Home">
+      PEGORARO STUDIO
     </a>
 
-    <a href="./portfolio/index.html">
-      PORTFÓLIO
-    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
 
-    <a href="./company-profile/index.html">
-      COMPANY PROFILE
-    </a>
+      <a href="./index.html" aria-current="page">
+        HOME
+      </a>
 
-    <a href="./contato/index.html">
-      CONTATO
-    </a>
+      <a href="./portfolio/index.html">
+        PORTFÓLIO
+      </a>
 
-  </nav>
+      <a href="./company-profile/index.html">
+        COMPANY PROFILE
+      </a>
 
-</header>
+      <a href="./contato/index.html">
+        CONTATO
+      </a>
+
+    </nav>
+
+  </header>
 
 
   <main>
 
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
 
-      <div class="hero-content">
+      <div class="hero-content" data-reveal>
 
         <p class="eyebrow">
           PEGORARO STUDIO
         </p>
 
-    <h1>
-  Sua próxima<br>
-  reserva começa<br>
-  aqui.
-</h1>
+        <h1 id="hero-title">
+          Sua próxima<br>
+          reserva começa<br>
+          aqui.
+        </h1>
 
         <p class="hero-description">
-          Fotografia profissional, apresentação estratégica
-          e otimização para transformar imóveis de temporada
-          em experiências que despertam o desejo de reservar.
+          Fotografia, direção visual e organização de anúncios
+          para imóveis de temporada.
         </p>
 
         <a
@@ -85,30 +85,52 @@
 
     </section>
 
+    <figure class="image-stage image-stage--arrival" data-reveal>
+      <img
+        src="assets/company-profile/1.avif"
+        alt="Fotografia de imóvel realizada pela Pegoraro Studio"
+        width="7680"
+        height="4320"
+        decoding="async"
+        fetchpriority="high"
+      >
+    </figure>
 
-    <section class="introduction">
+    <section class="introduction" aria-labelledby="introduction-title" data-reveal>
 
       <p class="section-label">
-        O QUE FAZEMOS
+        O OLHAR
       </p>
 
-      <h2>
-        Mais do que apresentar<br>
-        um imóvel. Criamos<br>
-        percepção.
+      <h2 id="introduction-title">
+        O lugar está<br>
+        nos detalhes.
       </h2>
 
       <p class="section-text">
-        Unimos direção visual, fotografia e estratégia
-        para construir anúncios que valorizam o imóvel,
-        comunicam sua experiência e aumentam seu potencial
-        de conversão.
+        A luz que atravessa os ambientes, as texturas,
+        a relação entre os espaços. Fotografamos o que
+        dá identidade a cada lugar.
       </p>
 
     </section>
 
+    <figure class="image-stage image-stage--detail" data-reveal>
+      <img
+        src="assets/company-profile/10.avif"
+        alt="Fotografia de interior de imóvel realizada pela Pegoraro Studio"
+        width="7680"
+        height="4320"
+        loading="lazy"
+        decoding="async"
+      >
+    </figure>
 
-    <section class="services">
+    <section class="services" aria-labelledby="services-title" data-reveal>
+
+      <h2 id="services-title" class="visually-hidden">
+        Nossos serviços
+      </h2>
 
       <div class="service">
 
@@ -122,8 +144,8 @@
           </h3>
 
           <p>
-            Imagens pensadas para revelar o imóvel
-            com qualidade, intenção e desejo.
+            Captação dos ambientes e detalhes,
+            com atenção à luz e às proporções.
           </p>
         </div>
 
@@ -142,8 +164,8 @@
           </h3>
 
           <p>
-            Uma narrativa visual coerente que transforma
-            características em percepção de valor.
+            Seleção e sequência de imagens
+            para conduzir a leitura do imóvel.
           </p>
         </div>
 
@@ -162,8 +184,8 @@
           </h3>
 
           <p>
-            Otimização do anúncio para comunicar melhor,
-            destacar diferenciais e gerar mais interesse.
+            Revisão de título e descrição para informar
+            com clareza o que a estadia oferece.
           </p>
         </div>
 
@@ -171,17 +193,27 @@
 
     </section>
 
+    <figure class="image-stage image-stage--closing" data-reveal>
+      <img
+        src="assets/company-profile/34.avif"
+        alt="Fotografia arquitetônica de imóvel realizada pela Pegoraro Studio"
+        width="7680"
+        height="4320"
+        loading="lazy"
+        decoding="async"
+      >
+    </figure>
 
-    <section class="cta">
+    <section class="cta" aria-labelledby="cta-title" data-reveal>
 
       <p class="section-label">
         PEGORARO STUDIO
       </p>
 
-      <h2>
-  Seu imóvel pode ser<br>
-  percebido de outra forma.
-</h2>
+      <h2 id="cta-title">
+        Seu imóvel pode ser<br>
+        percebido de outra forma.
+      </h2>
 
       <a
         href="contato/index.html"
@@ -196,7 +228,7 @@
   </main>
 
 
-  <footer class="site-footer">
+  <footer class="site-footer" aria-label="Informações da Pegoraro Studio">
 
     <span>
       PEGORARO STUDIO
@@ -208,19 +240,47 @@
 
   </footer>
 
-<script>
-  const currentPath = window.location.pathname;
+  <script>
+    const normalizePath = function (path) {
+      const normalized = path.replace(/index\.html$/, "").replace(/\/$/, "");
+      return normalized || "/";
+    };
 
-  document.querySelectorAll(".desktop-nav a").forEach(function (link) {
-    const linkPath = new URL(link.href).pathname;
+    const currentPath = normalizePath(window.location.pathname);
 
-    if (
-      currentPath.replace(/\/$/, "") === linkPath.replace(/\/$/, "")
-    ) {
-      link.classList.add("active");
+    document.querySelectorAll(".desktop-nav a").forEach(function (link) {
+      const linkPath = normalizePath(new URL(link.href).pathname);
+
+      if (currentPath === linkPath) {
+        link.classList.add("active");
+      }
+    });
+
+    const revealElements = document.querySelectorAll("[data-reveal]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealElements.forEach(function (element) {
+        element.classList.add("is-visible");
+      });
+    } else {
+      const revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -4%"
+      });
+
+      revealElements.forEach(function (element) {
+        revealObserver.observe(element);
+      });
     }
-  });
-</script>
+  </script>
 
 </body>
 </html>
