@@ -1,0 +1,270 @@
+/* Isolated mobile navigation. No desktop or page-content selectors. */
+@media (max-width: 768px) {
+  .ps-mobile-nav {
+    --nav-height: 58px;
+    --nav-gutter: 22px;
+    --nav-paper: 247, 246, 243;
+    --nav-ink: #171717;
+    --nav-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1200;
+    height: var(--nav-height);
+    color: var(--nav-ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: normal;
+  }
+
+  .ps-mobile-nav[data-in-flow] {
+    position: sticky;
+  }
+
+  .ps-mobile-nav[data-theme="white"] {
+    --nav-paper: 255, 255, 255;
+  }
+
+  .ps-mobile-nav,
+  .ps-mobile-nav * {
+    box-sizing: border-box;
+  }
+
+  .ps-nav-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-height);
+    padding: 0 var(--nav-gutter);
+    background: rgba(var(--nav-paper), 0.78);
+    border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+
+  .ps-nav-brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    white-space: nowrap;
+    transition: opacity 180ms ease;
+  }
+
+  .ps-nav-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin: 0 -12px 0 0;
+    padding: 0;
+    gap: 5px;
+    border: 0;
+    border-radius: 0;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .ps-nav-toggle span {
+    display: block;
+    flex: 0 0 1px;
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    transform-origin: center;
+    transition: transform 240ms var(--nav-ease), opacity 160ms ease;
+  }
+
+  .ps-mobile-nav[data-open="true"] .ps-nav-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .ps-mobile-nav[data-open="true"] .ps-nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .ps-mobile-nav[data-open="true"] .ps-nav-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .ps-nav-overlay {
+    position: fixed;
+    inset: var(--nav-height) 0 0;
+    z-index: 1;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: rgba(var(--nav-paper), 0.90);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 220ms ease, transform 240ms var(--nav-ease), visibility 0s 240ms;
+  }
+
+  .ps-mobile-nav[data-open="true"] .ps-nav-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .ps-nav-inner {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px var(--nav-gutter) max(28px, env(safe-area-inset-bottom));
+  }
+
+  .ps-nav-link {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 22px;
+    min-height: 64px;
+    margin: 0;
+    padding: 22px 0;
+    color: #625f59;
+    text-decoration: none;
+    font-size: clamp(21px, 5.6vw, 27px);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: color 180ms ease, opacity 180ms ease;
+  }
+
+  .ps-nav-link::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    content: "";
+    background: rgba(23, 23, 23, 0.10);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms var(--nav-ease);
+  }
+
+  .ps-mobile-nav[data-open="true"] .ps-nav-link::before {
+    transform: scaleX(1);
+    transition-delay: var(--nav-delay, 0ms);
+  }
+
+  .ps-nav-number {
+    flex: 0 0 16px;
+    color: #77736d;
+    font-size: 8px;
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.12em;
+  }
+
+  .ps-nav-label {
+    display: inline-block;
+  }
+
+  .ps-nav-link[aria-current="page"] {
+    color: var(--nav-ink);
+    font-weight: 500;
+  }
+
+  /* One traveling line connects focus/touch/hover back to the current page. */
+  .ps-nav-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--nav-line-width, 0px);
+    height: 1px;
+    background: var(--nav-ink);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(var(--nav-line-x, 0px), var(--nav-line-y, 0px)) scaleX(0);
+    transform-origin: left;
+    transition: transform 240ms var(--nav-ease), width 240ms var(--nav-ease), opacity 160ms ease;
+  }
+
+  .ps-mobile-nav[data-open="true"] .ps-nav-indicator[data-visible="true"] {
+    opacity: 1;
+    transform: translate(var(--nav-line-x, 0px), var(--nav-line-y, 0px)) scaleX(1);
+  }
+
+  .ps-nav-link:focus-visible,
+  .ps-nav-brand:focus-visible,
+  .ps-nav-toggle:focus-visible {
+    outline: 1px solid var(--nav-ink);
+    outline-offset: 4px;
+  }
+
+  .ps-nav-link:focus-visible,
+  .ps-nav-link:active {
+    color: var(--nav-ink);
+  }
+
+  .ps-nav-brand:active,
+  .ps-nav-toggle:active {
+    opacity: 0.65;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .ps-nav-link:hover {
+      color: var(--nav-ink);
+    }
+
+    .ps-nav-brand:hover {
+      opacity: 0.6;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .ps-mobile-nav {
+      --nav-height: 54px;
+      --nav-gutter: 16px;
+    }
+
+    .ps-nav-brand {
+      font-size: 9px;
+      letter-spacing: 0.13em;
+    }
+  }
+
+  @media (min-width: 700px) {
+    .ps-mobile-nav {
+      --nav-height: 64px;
+      --nav-gutter: 32px;
+    }
+  }
+
+  /* Reserve only the header's own row in short landscape viewports, where the
+     existing page intro has too little top space for a fixed header. */
+  @media (max-height: 480px) {
+    .ps-mobile-nav {
+      position: sticky;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ps-mobile-nav *,
+    .ps-mobile-nav *::before,
+    .ps-mobile-nav *::after {
+      transition: none !important;
+      animation: none !important;
+      scroll-behavior: auto;
+    }
+  }
+}
