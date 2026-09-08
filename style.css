@@ -333,7 +333,7 @@ main {
   isolation: isolate;
   display: flex;
   align-items: flex-end;
-  min-height: min(82svh, 62rem);
+  min-height: 100svh;
   color: #fff;
   background: var(--dark);
 }
@@ -349,26 +349,61 @@ main {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(90deg, rgba(6, 10, 9, 0.68), rgba(6, 10, 9, 0.2) 72%), linear-gradient(0deg, rgba(6, 10, 9, 0.64), rgba(6, 10, 9, 0.04) 68%);
+  background: linear-gradient(90deg, rgba(6, 10, 9, 0.42) 0%, rgba(6, 10, 9, 0.12) 74%), linear-gradient(0deg, rgba(6, 10, 9, 0.84) 0%, rgba(6, 10, 9, 0.36) 41%, rgba(6, 10, 9, 0.06) 76%);
 }
 
 .cta {
   position: relative;
   z-index: 2;
-  width: min(100%, 94rem);
-  padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 8vw, 10rem) clamp(4rem, 7vw, 7rem);
+  width: 100%;
+  padding: 5rem 6vw calc(2.5rem + env(safe-area-inset-bottom));
 }
 
-.cta .section-label { margin-bottom: clamp(2rem, 4vw, 3.5rem); color: rgba(255, 255, 255, 0.72); }
+.cta .section-label { margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.72); }
 
 .cta h2 {
-  max-width: 9.5ch;
-  font-size: clamp(4.25rem, 7.5vw, 9rem);
-  letter-spacing: -0.07em;
-  line-height: 0.82;
+  max-width: 9.7ch;
+  font-size: clamp(3rem, 11.2vw, 4.5rem);
+  letter-spacing: -0.065em;
+  line-height: 0.87;
 }
 
-.cta .hero-link { margin-left: 0; }
+.cta .hero-link {
+  min-height: 44px;
+  margin-left: 0;
+  margin-top: 1.9rem;
+  padding-top: 0.35rem;
+}
+
+/* The deliberate offset belongs only to wide desktop compositions. */
+@media (min-width: 1025px) {
+  .closing-panel { min-height: min(82svh, 62rem); }
+
+  .image-stage--closing {
+    inset: 0 0 0 clamp(2rem, 3.5vw, 4.5rem);
+    width: auto;
+  }
+
+  .closing-scrim {
+    background: linear-gradient(90deg, rgba(6, 10, 9, 0.76) 0%, rgba(6, 10, 9, 0.4) 31%, rgba(6, 10, 9, 0.14) 76%), linear-gradient(0deg, rgba(6, 10, 9, 0.66), rgba(6, 10, 9, 0.04) 68%);
+  }
+
+  .cta {
+    width: min(100%, 94rem);
+    padding: clamp(5rem, 10vw, 10rem) clamp(2.5rem, 9vw, 11rem) clamp(4rem, 7vw, 7rem);
+  }
+
+  .cta .section-label { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+
+  .cta h2 {
+    max-width: 9.5ch;
+    font-size: clamp(4.25rem, 7.5vw, 9rem);
+    letter-spacing: -0.07em;
+    line-height: 0.82;
+  }
+
+  .cta .hero-link { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
+}
 
 .site-footer {
   display: flex;
@@ -446,12 +481,76 @@ main {
   .service h3 { font-size: clamp(2.65rem, 10vw, 4rem); }
   .service p { grid-column: 2; }
 
-  .closing-panel { min-height: 100svh; }
-  .image-stage--closing img { object-position: center center; }
-  .closing-scrim { background: linear-gradient(0deg, rgba(6, 10, 9, 0.76), rgba(6, 10, 9, 0.08) 70%); }
-  .cta { padding: 5rem 6vw 4rem; }
-  .cta h2 { max-width: 8.3ch; font-size: clamp(3.6rem, 13.2vw, 5.7rem); }
+  .closing-panel {
+    width: 100%;
+    min-height: 100svh;
+  }
+
+  .image-stage--closing {
+    inset: 0;
+    width: 100%;
+  }
+
+  .image-stage--closing img {
+    object-position: 50% center;
+  }
+
+  .closing-scrim {
+    background: linear-gradient(90deg, rgba(6, 10, 9, 0.42) 0%, rgba(6, 10, 9, 0.12) 74%), linear-gradient(0deg, rgba(6, 10, 9, 0.84) 0%, rgba(6, 10, 9, 0.36) 41%, rgba(6, 10, 9, 0.06) 76%);
+  }
+
+  .cta {
+    width: 100%;
+    padding: 5rem 6vw calc(2.5rem + env(safe-area-inset-bottom));
+  }
+
+  .cta .section-label { margin-bottom: 1.5rem; }
+
+  .cta h2 {
+    max-width: 9.7ch;
+    font-size: clamp(3rem, 11.2vw, 4.5rem);
+    letter-spacing: -0.065em;
+    line-height: 0.87;
+  }
+
+  .cta .hero-link { margin-top: 1.9rem; }
   .site-footer { flex-direction: column; gap: 0.45rem; padding: 1.65rem 6vw 1.9rem; font-size: 0.5rem; }
+}
+
+/* Some mobile browsers expose a wider CSS viewport than their physical screen.
+   Keep the closing composition full-bleed through compact tablet widths too. */
+@media (max-width: 1024px) {
+  .closing-panel {
+    width: 100%;
+    min-height: 100svh;
+  }
+
+  .image-stage--closing {
+    inset: 0;
+    width: 100%;
+  }
+
+  .image-stage--closing img { object-position: 50% center; }
+
+  .closing-scrim {
+    background: linear-gradient(90deg, rgba(6, 10, 9, 0.42) 0%, rgba(6, 10, 9, 0.12) 74%), linear-gradient(0deg, rgba(6, 10, 9, 0.84) 0%, rgba(6, 10, 9, 0.36) 41%, rgba(6, 10, 9, 0.06) 76%);
+  }
+
+  .cta {
+    width: 100%;
+    padding: 5rem 6vw calc(2.5rem + env(safe-area-inset-bottom));
+  }
+
+  .cta .section-label { margin-bottom: 1.5rem; }
+
+  .cta h2 {
+    max-width: 9.7ch;
+    font-size: clamp(3rem, 11.2vw, 4.5rem);
+    letter-spacing: -0.065em;
+    line-height: 0.87;
+  }
+
+  .cta .hero-link { margin-top: 1.9rem; }
 }
 
 @media (max-width: 360px) {
