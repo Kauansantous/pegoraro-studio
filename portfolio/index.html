@@ -9,6 +9,13 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <script>
+    (function () {
+      if (!/^https?:$/.test(window.location.protocol) || !/\/index\.html$/i.test(window.location.pathname)) return;
+      window.location.replace(window.location.pathname.replace(/\/index\.html$/i, "/") + window.location.search + window.location.hash);
+    }());
+  </script>
+
   <title>Portfólio — Pegoraro Studio</title>
 
   <meta
@@ -25,26 +32,26 @@
 
   <header class="desktop-header">
 
-  <a href="../index.html" class="desktop-brand desktop-brand--lockup" aria-label="Pegoraro Studio — Home">
+  <a href="/" class="desktop-brand desktop-brand--lockup" aria-label="Pegoraro Studio — Home">
     <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/brand/pegoraro-monogram-dark-centered.png" alt=""></span>
     <span class="brand-wordmark">PEGORARO STUDIO</span>
   </a>
 
   <nav class="desktop-nav" aria-label="Navegação principal">
 
-    <a href="../index.html">
+    <a href="/">
       HOME
     </a>
 
-    <a href="./index.html">
+    <a href="/portfolio/">
       PORTFÓLIO
     </a>
 
-    <a href="../company-profile/index.html">
+    <a href="/company-profile/">
       COMPANY PROFILE
     </a>
 
-    <a href="../contato/index.html">
+    <a href="/contato/">
       CONTATO
     </a>
 
@@ -206,7 +213,7 @@
       </h2>
 
       <a
-        href="../contato/"
+        href="/contato/"
         class="text-link"
       >
         Fale conosco

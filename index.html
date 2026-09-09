@@ -8,6 +8,13 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <script>
+    (function () {
+      if (!/^https?:$/.test(window.location.protocol) || !/\/index\.html$/i.test(window.location.pathname)) return;
+      window.location.replace(window.location.pathname.replace(/\/index\.html$/i, "/") + window.location.search + window.location.hash);
+    }());
+  </script>
+
   <style id="responsive-critical">
     .desktop-header {
       position: absolute;
@@ -55,7 +62,7 @@
 
   <!-- Fallback estrutural para navegadores móveis que carreguem o HTML antes do módulo de navegação. -->
   <header class="mobile-header" aria-label="Cabeçalho mobile">
-    <a href="./index.html" class="brand brand--logo" aria-label="Pegoraro Studio — Home">
+    <a href="/" class="brand brand--logo" aria-label="Pegoraro Studio — Home">
       <img class="brand-logo" src="assets/brand/pegoraro-monogram-centered.png" alt="">
     </a>
     <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -65,25 +72,25 @@
 
   <header class="desktop-header" aria-label="Cabeçalho principal">
 
-    <a href="./index.html" class="desktop-brand desktop-brand--logo" aria-label="Pegoraro Studio — Home">
+    <a href="/" class="desktop-brand desktop-brand--logo" aria-label="Pegoraro Studio — Home">
       <img class="brand-logo" src="assets/brand/pegoraro-monogram-centered.png" alt="">
     </a>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
 
-      <a href="./index.html" aria-current="page">
+      <a href="/" aria-current="page">
         HOME
       </a>
 
-      <a href="./portfolio/index.html">
+      <a href="/portfolio/">
         PORTFÓLIO
       </a>
 
-      <a href="./company-profile/index.html">
+      <a href="/company-profile/">
         COMPANY PROFILE
       </a>
 
-      <a href="./contato/index.html">
+      <a href="/contato/">
         CONTATO
       </a>
 
@@ -121,7 +128,7 @@
         </p>
 
         <a
-          href="company-profile/index.html"
+          href="/company-profile/"
           class="hero-link"
         >
           Conheça o nosso trabalho
@@ -267,7 +274,7 @@
       </h2>
 
       <a
-        href="contato/index.html"
+        href="/contato/"
         class="hero-link"
       >
         Fale conosco

@@ -9,6 +9,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <script>
+        (function () {
+            if (!/^https?:$/.test(window.location.protocol) || !/\/index\.html$/i.test(window.location.pathname)) return;
+            window.location.replace(window.location.pathname.replace(/\/index\.html$/i, "/") + window.location.search + window.location.hash);
+        }());
+    </script>
+
     <meta
         name="description"
         content="Pegoraro Studio — Fotografia, apresentação e estratégia para imóveis."
@@ -28,7 +35,7 @@
 
             <header class="header">
 
-                <a class="brand brand--lockup" href="../" aria-label="Pegoraro Studio — Home">
+                <a class="brand brand--lockup" href="/" aria-label="Pegoraro Studio — Home">
                     <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/brand/pegoraro-monogram-dark-centered.png" alt=""></span>
                     <span class="brand-wordmark">PEGORARO STUDIO</span>
                 </a>
@@ -52,7 +59,7 @@
 
             <nav class="navigation" aria-label="Navegação principal">
 
-                <a class="nav-item" href="../">
+                <a class="nav-item" href="/">
 
                     <span class="number">
                         01
@@ -69,7 +76,7 @@
                 </a>
 
 
-                <a class="nav-item" href="../portfolio">
+                <a class="nav-item" href="/portfolio/">
 
                     <span class="number">
                         02
@@ -86,7 +93,7 @@
                 </a>
 
 
-                <a class="nav-item" href="../company-profile">
+                <a class="nav-item" href="/company-profile/">
 
                     <span class="number">
                         03
@@ -103,7 +110,7 @@
                 </a>
 
 
-                <a class="nav-item" href="../contato">
+                <a class="nav-item" href="/contato/">
 
                     <span class="number">
                         04

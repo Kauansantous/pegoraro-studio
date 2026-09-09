@@ -10,6 +10,22 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <!-- Mantém os assets relativos estáveis enquanto a URL pública volta a /company-profile/. -->
+  <base href="./">
+
+  <script>
+    (function () {
+      if (!/^https?:$/.test(window.location.protocol)) return;
+
+      if (/\/index\.html$/i.test(window.location.pathname)) {
+        window.location.replace(window.location.pathname.replace(/\/index\.html$/i, "/") + window.location.search + window.location.hash);
+        return;
+      }
+
+      window.history.replaceState(null, "", new URL("../", window.location.href).pathname + window.location.search + window.location.hash);
+    }());
+  </script>
+
   <title>Pegoraro Studio — Company Profile</title>
 
   <meta
@@ -43,7 +59,7 @@
   <header class="mobile-header">
 
     <a
-      href="../../index.html"
+      href="/"
       class="brand"
       aria-label="Pegoraro Studio — Home"
     >
@@ -81,22 +97,22 @@
 
     <div class="mobile-menu-inner">
 
-      <a href="../../index.html">
+      <a href="/">
         <span class="menu-number">01</span>
         <span>Home</span>
       </a>
 
-      <a href="../../portfolio/index.html">
+      <a href="/portfolio/">
         <span class="menu-number">02</span>
         <span>Portfólio</span>
       </a>
 
-      <a href="../index.html">
+      <a href="/company-profile/">
         <span class="menu-number">03</span>
         <span>Company Profile</span>
       </a>
 
-      <a href="../../contato/index.html">
+      <a href="/contato/">
         <span class="menu-number">04</span>
         <span>Contato</span>
       </a>
@@ -674,7 +690,7 @@
       PEGORARO STUDIO
     </span>
 
-    <a href="../../contato/index.html">
+    <a href="/contato/">
       Fale conosco →
     </a>
 

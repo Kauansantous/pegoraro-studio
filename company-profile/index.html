@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script>
-    if (window.matchMedia("(max-width: 768px)").matches) {
-      window.location.replace("./mobile/index.html");
-    }
+    (function () {
+      if (/^https?:$/.test(window.location.protocol) && /\/index\.html$/i.test(window.location.pathname)) {
+        window.location.replace(window.location.pathname.replace(/\/index\.html$/i, "/") + window.location.search + window.location.hash);
+        return;
+      }
+
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        window.location.replace("./mobile/");
+      }
+    }());
   </script>
 
   <title>Company Profile — Pegoraro Studio</title>
@@ -34,25 +41,25 @@
   <!-- BARRA SUPERIOR -->
   <header class="desktop-header">
 
-    <a href="../index.html" class="desktop-brand desktop-brand--logo" aria-label="Pegoraro Studio — Home">
+    <a href="/" class="desktop-brand desktop-brand--logo" aria-label="Pegoraro Studio — Home">
       <img class="brand-logo" src="../assets/brand/pegoraro-monogram-dark-centered.png" alt="">
     </a>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
 
-      <a href="../index.html">
+      <a href="/">
         HOME
       </a>
 
-      <a href="../portfolio/index.html">
+      <a href="/portfolio/">
         PORTFÓLIO
       </a>
 
-      <a href="./index.html">
+      <a href="/company-profile/">
         COMPANY PROFILE
       </a>
 
-      <a href="../contato/index.html">
+      <a href="/contato/">
         CONTATO
       </a>
 
