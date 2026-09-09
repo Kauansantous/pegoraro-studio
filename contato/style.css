@@ -71,6 +71,32 @@ a {
   opacity: 0.5;
 }
 
+.desktop-brand--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(6.25rem, 7vw, 8.25rem);
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding-block: 0;
+  overflow: hidden;
+  line-height: 0;
+  position: static;
+}
+
+.desktop-brand--logo .brand-logo {
+  display: block;
+  width: 145%;
+  max-width: none;
+  height: auto;
+  filter: none;
+  mix-blend-mode: multiply;
+  margin: 0;
+  transform: none;
+  position: static;
+}
+
 .desktop-nav {
   display: flex;
   align-items: center;

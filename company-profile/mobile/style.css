@@ -27,7 +27,7 @@ body {
    ========================================================= */
 
 .mobile-header {
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 1000;
 
@@ -40,12 +40,17 @@ body {
 
   padding: 0 22px;
 
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.14);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.company-profile-page .mobile-header .brand-logo {
+  filter: none;
+  mix-blend-mode: multiply;
 }
 
 

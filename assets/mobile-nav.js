@@ -52,11 +52,21 @@
     brand.href = sourceBrand.getAttribute('href');
     const sourceLogo = sourceBrand.querySelector('.brand-logo');
     if (sourceLogo) {
-      const logo = sourceLogo.cloneNode(true);
-      logo.setAttribute('aria-hidden', 'true');
-      logo.alt = '';
       brand.classList.add('has-logo');
-      brand.replaceChildren(logo);
+      const sourceMark = sourceBrand.querySelector('.brand-mark');
+      const sourceWordmark = sourceBrand.querySelector('.brand-wordmark');
+      const mark = sourceMark ? sourceMark.cloneNode(true) : sourceLogo.cloneNode(true);
+      mark.setAttribute('aria-hidden', 'true');
+      const markLogo = mark.matches('.brand-logo') ? mark : mark.querySelector('.brand-logo');
+      if (markLogo) markLogo.alt = '';
+      brand.replaceChildren(mark);
+
+      if (sourceWordmark) {
+        const wordmark = sourceWordmark.cloneNode(true);
+        wordmark.setAttribute('aria-hidden', 'true');
+        brand.classList.add('has-wordmark');
+        brand.append(wordmark);
+      }
     } else {
       brand.textContent = sourceBrand.textContent.trim();
     }

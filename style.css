@@ -45,7 +45,7 @@ img { display: block; max-width: 100%; }
 
 /* Navigation remains one system, adapting its tone to the hero beneath it. */
 .desktop-header {
-  position: fixed;
+  position: absolute;
   inset: 0 0 auto;
   z-index: 20;
   display: flex;
@@ -56,18 +56,25 @@ img { display: block; max-width: 100%; }
   padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
   color: #f4f2ed;
   border-bottom: 1px solid rgba(244, 242, 237, 0.12);
-  background: rgba(14, 17, 16, 0.92);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: rgba(10, 15, 14, 0.14);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  backdrop-filter: blur(10px) saturate(130%);
   transition: color 260ms ease, background 260ms ease, border-color 260ms ease, backdrop-filter 260ms ease;
 }
 
 body.at-hero .desktop-header {
   color: #f4f2ed;
   border-color: rgba(244, 242, 237, 0.12);
-  background: rgba(14, 17, 16, 0.92);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: rgba(10, 15, 14, 0.14);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  backdrop-filter: blur(10px) saturate(130%);
+}
+
+body:not(.at-hero) .desktop-header {
+  position: fixed;
+  background: rgba(10, 15, 14, 0.56);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  backdrop-filter: blur(18px) saturate(145%);
 }
 
 .desktop-brand,
@@ -88,12 +95,17 @@ body.at-hero .desktop-header {
 /* The header mark is deliberately cropped from the supplied artwork so the
    camera monogram keeps the same quiet scale as the former word signature. */
 .desktop-brand--logo {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: clamp(6.25rem, 7vw, 8.25rem);
-  height: clamp(3.4rem, 4vw, 4.25rem);
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding-block: 0;
   overflow: hidden;
   line-height: 0;
+  position: static;
 }
 
 .brand-logo {
@@ -103,7 +115,9 @@ body.at-hero .desktop-header {
   height: auto;
   filter: grayscale(1) contrast(1.55) brightness(1.35);
   mix-blend-mode: screen;
-  transform: translateY(-20%);
+  margin: 0;
+  transform: none;
+  position: static;
 }
 
 .desktop-nav {
