@@ -227,6 +227,87 @@
     backdrop-filter: blur(18px);
   }
 
+  /* The open navigation owns its viewport. It never inherits the page header's
+     scroll tone, positioning, or stacking context. */
+  body.menu-open .ps-mobile-nav {
+    --nav-paper: 12, 16, 15;
+    --nav-ink: #f4f2ed;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    isolation: isolate;
+    color: #f4f2ed;
+    background: #0c100f;
+  }
+
+  body.menu-open .ps-mobile-nav[data-open] .ps-nav-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    min-height: calc(var(--nav-height) + env(safe-area-inset-top));
+    height: calc(var(--nav-height) + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) var(--nav-gutter) 0;
+    color: #f4f2ed;
+    background: rgba(12, 16, 15, 0.92);
+    border-bottom-color: rgba(244, 242, 237, 0.12);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    backdrop-filter: blur(18px) saturate(150%);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  body.menu-open .ps-mobile-nav[data-open] .ps-nav-brand,
+  body.menu-open .ps-mobile-nav[data-open] .ps-nav-toggle {
+    position: relative;
+    z-index: 3;
+    color: #f4f2ed;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  body.menu-open .ps-mobile-nav[data-open] .ps-nav-brand .brand-logo {
+    filter: grayscale(1) contrast(1.55) brightness(1.35);
+    mix-blend-mode: screen;
+  }
+
+  body.menu-open .ps-nav-overlay {
+    position: absolute;
+    inset: calc(var(--nav-height) + env(safe-area-inset-top)) 0 0;
+    z-index: 1;
+    height: auto;
+    background: #0c100f;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.menu-open .ps-nav-link {
+    color: rgba(244, 242, 237, 0.72);
+  }
+
+  body.menu-open .ps-nav-link[aria-current="page"],
+  body.menu-open .ps-nav-link:focus-visible,
+  body.menu-open .ps-nav-link:active {
+    color: #f4f2ed;
+  }
+
+  body.menu-open .ps-nav-number {
+    color: rgba(244, 242, 237, 0.48);
+  }
+
+  body.menu-open .ps-nav-link::before {
+    background: rgba(244, 242, 237, 0.16);
+  }
+
   .ps-nav-brand {
     display: inline-flex;
     align-items: center;
@@ -306,6 +387,13 @@
     pointer-events: auto;
     transform: translateY(0);
     transition-delay: 0s;
+  }
+
+  body.menu-open .ps-mobile-nav[data-open="true"] .ps-nav-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
   }
 
   .ps-nav-inner {

@@ -308,6 +308,7 @@ main {
   width: 100%;
   max-width: 100%;
   height: auto;
+  aspect-ratio: auto 1572 / 3408;
 
   margin: 0;
   padding: 0;
@@ -606,6 +607,103 @@ main {
 
 body.menu-open {
   overflow: hidden;
+}
+
+
+/* =====================================================
+   SUMÁRIO FLUTUANTE DAS SEÇÕES
+   ===================================================== */
+
+.company-profile-sections-nav {
+  position: fixed;
+  left: 50%;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 1100;
+
+  width: calc(100vw - 24px);
+  max-width: 680px;
+  padding: 5px;
+
+  overflow: hidden;
+
+  background: rgba(244, 245, 242, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  box-shadow: 0 12px 40px rgba(7, 12, 11, 0.14);
+  backdrop-filter: blur(22px) saturate(170%);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+}
+
+.company-profile-sections-nav.is-ready {
+  opacity: 1;
+  visibility: visible;
+}
+
+.company-profile-sections-nav__track {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+}
+
+.company-profile-sections-nav__track::-webkit-scrollbar {
+  display: none;
+}
+
+.company-profile-sections-nav__link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 0 15px;
+
+  color: rgba(20, 24, 23, 0.68);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.035em;
+}
+
+.company-profile-sections-nav__link:focus-visible {
+  color: #111513;
+  background: rgba(255, 255, 255, 0.34);
+  outline: 1px solid rgba(17, 21, 19, 0.62);
+  outline-offset: -2px;
+}
+
+.company-profile-sections-nav__link.is-active {
+  color: #101412;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+body.menu-open .company-profile-sections-nav {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .company-profile-sections-nav {
+    background: rgba(234, 236, 232, 0.9);
+  }
 }
 
 

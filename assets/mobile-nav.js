@@ -172,6 +172,7 @@
 
     function finishClose(restoreFocus, destination) {
       unlockPage();
+      document.body.classList.remove('menu-open');
       root.removeAttribute('role');
       root.removeAttribute('aria-modal');
       root.removeAttribute('aria-label');
@@ -196,6 +197,7 @@
     function openMenu() {
       window.clearTimeout(closeTimer);
       lockPage();
+      document.body.classList.add('menu-open');
       open = true;
       root.setAttribute('role', 'dialog');
       root.setAttribute('aria-modal', 'true');

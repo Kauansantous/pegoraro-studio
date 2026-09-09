@@ -28,11 +28,13 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../assets/mobile-nav.css?v=header-glass-20260908" media="(max-width: 768px)">
   <script src="../assets/mobile-nav.js" defer></script>
+  <script src="sections-nav.js" defer></script>
 
   <link
     rel="preload"
     as="image"
     href="../assets/company-profile/1.avif"
+    media="(min-width: 769px)"
   >
 </head>
 
@@ -71,38 +73,41 @@
   <main>
 
     <div class="page page-1">
-      <img src="../assets/company-profile/1.avif" alt="" loading="eager">
+      <picture>
+        <source media="(min-width: 769px)" srcset="../assets/company-profile/1.avif">
+        <img alt="" loading="eager">
+      </picture>
     </div>
 
-    <div class="page">
+    <div class="page" id="manifesto" data-section-title="Manifesto">
       <img src="../assets/company-profile/2.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="o-problema" data-section-title="O Problema">
       <img src="../assets/company-profile/3.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="janela-de-decisao" data-section-title="Janela de Decisão">
       <img src="../assets/company-profile/4.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="quem-somos" data-section-title="Quem Somos">
       <img src="../assets/company-profile/5.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="nossa-solucao" data-section-title="Nossa Solução">
       <img src="../assets/company-profile/6.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="metodologia" data-section-title="Metodologia">
       <img src="../assets/company-profile/7.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="nossa-visao" data-section-title="Nossa Visão">
       <img src="../assets/company-profile/8.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="portfolio" data-section-title="Portfólio">
       <img src="../assets/company-profile/9.avif" alt="" loading="lazy">
     </div>
 
@@ -142,19 +147,19 @@
       <img src="../assets/company-profile/18.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="diferenciais" data-section-title="Diferenciais">
       <img src="../assets/company-profile/19.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="transformacao" data-section-title="Transformação">
       <img src="../assets/company-profile/20.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="plano-de-acao-estrategico" data-section-title="Plano de Ação Estratégico">
       <img src="../assets/company-profile/21.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="comparacao-de-apresentacao" data-section-title="Comparação de Apresentação">
       <img src="../assets/company-profile/22.avif" alt="" loading="lazy">
     </div>
 
@@ -166,11 +171,11 @@
       <img src="../assets/company-profile/24.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="resultados-observados" data-section-title="Resultados Observados">
       <img src="../assets/company-profile/25.avif" alt="" loading="lazy">
     </div>
 
-    <div class="page">
+    <div class="page" id="alem-da-propriedade" data-section-title="Além da Propriedade">
       <img src="../assets/company-profile/26.avif" alt="" loading="lazy">
     </div>
 
@@ -274,6 +279,8 @@
     </div>
 
   </main>
+
+  <nav class="company-profile-sections-nav" aria-label="Seções do Company Profile"></nav>
 
 <script>
   const currentPath = window.location.pathname;
