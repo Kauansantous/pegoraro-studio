@@ -326,8 +326,8 @@ a {
   }
 
   .contact-option {
-    grid-template-columns: 32px minmax(0, 1fr) 18px;
-    gap: clamp(8px, 3vw, 12px);
+    grid-template-columns: 24px minmax(0, 1fr) 18px;
+    gap: 8px;
     padding: 50px 0;
   }
 
@@ -336,12 +336,7 @@ a {
   }
 
   .contact-main h2 {
-    font-size: clamp(1.65rem, 7vw, 2.15rem);
-  }
-
-  .contact-option--email .contact-main h2 {
-    font-size: clamp(1.12rem, 4.75vw, 1.3rem);
-    letter-spacing: -0.04em;
+    font-size: clamp(1.18rem, 5.2vw, 1.42rem);
     white-space: nowrap;
     word-break: normal;
     overflow-wrap: normal;

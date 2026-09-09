@@ -328,6 +328,90 @@ main {
   line-height: 1.75;
 }
 
+/* Editorial approach: an anchored introduction and three chapters. */
+.services {
+  display: grid;
+  grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+  gap: clamp(3rem, 6vw, 7rem);
+  min-height: 110svh;
+  padding: clamp(5rem, 8vw, 9rem) 6vw;
+  background: #151c19;
+}
+
+.services-intro {
+  position: sticky;
+  top: max(7rem, calc(50svh - 10rem));
+  align-self: start;
+  margin-block: clamp(3rem, 9svh, 7rem);
+  min-width: 0;
+}
+
+.services-intro .section-label { color: #a9b1ab; margin-bottom: 2.25rem; }
+.services-intro h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(2.75rem, 4.2vw, 5.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+.services-summary {
+  max-width: 27ch;
+  margin: 2rem 0 0;
+  color: #a9b1ab;
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  line-height: 1.8;
+}
+.services-chapters { min-width: 0; }
+.services .service {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 2.5rem);
+  align-items: center;
+  min-height: 29svh;
+  padding: clamp(2.5rem, 4vw, 5rem) 0;
+  border-color: rgba(222, 230, 222, 0.18);
+}
+.services .service > div { min-width: 0; text-align: right; }
+.services .service-number {
+  padding: 0;
+  font-size: clamp(1.35rem, 2.2vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #89958d;
+  transition: color 200ms ease;
+}
+.services .service h3 {
+  font-size: clamp(2.3rem, 4.2vw, 5.5rem);
+  line-height: 1.05;
+  color: #dadfd9;
+  transition: color 200ms ease;
+}
+.services .service:last-child h3 { font-size: clamp(2.5rem, 4.5vw, 5.8rem); color: #eeeFE8; }
+.services .service p {
+  max-width: 35ch;
+  margin: 1.35rem 0 0 auto;
+  color: #a9b1ab;
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  line-height: 1.75;
+}
+@media (hover: hover) and (pointer: fine) {
+  .services .service:hover h3 { color: #faf8f0; }
+  .services .service:hover .service-number { color: #c4cec5; }
+}
+@media (max-width: 768px) {
+  .services.services {
+    display: block;
+    min-height: 0;
+    padding: 4rem 6vw;
+  }
+  .services-intro { position: static; margin: 0 0 3.5rem; }
+  .services-intro h2 { font-size: clamp(2.75rem, 10vw, 4.5rem); }
+  .services .service { min-height: 0; padding: 2.5rem 0; gap: 0.75rem; }
+  .services .service-number { font-size: 1.3rem; }
+  .services .service h3 { font-size: clamp(2rem, 8.1vw, 3.9rem); }
+  .services .service:last-child h3 { font-size: clamp(2.2rem, 8.6vw, 4.1rem); }
+}
+
 /* A final photograph and call to action share a single frame. */
 .closing-panel {
   position: relative;
@@ -438,6 +522,80 @@ main {
   .hero-link:hover { gap: 1.25rem; opacity: 0.72; }
   .hero-link:hover::after { transform: scaleX(1); }
   .js .image-stage.is-visible:hover img, .image-stage:hover img { transform: scale(1.018); }
+}
+
+/* The second and final desktop photographs are shown at their complete native frame.
+   Their charcoal stage is intentionally retained whenever their proportions differ. */
+@media (min-width: 769px) {
+  .image-stage--detail {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    margin: clamp(-5rem, -6vw, -3rem) 0 0;
+  }
+
+  .image-stage--detail picture {
+    width: 100%;
+    height: auto;
+  }
+
+  .image-stage--detail img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .image-stage--detail img,
+  .image-stage--closing img {
+    object-fit: contain;
+    object-position: center center;
+    transform: none !important;
+    transition: none;
+  }
+}
+
+/* The closing photograph has its own full-bleed desktop geometry. */
+@media (min-width: 1025px) {
+  main > .closing-panel {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    min-height: 0;
+    aspect-ratio: 2560 / 1408;
+  }
+
+  main > .closing-panel > .cta {
+    width: min(65%, 72rem);
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: clamp(2.5rem, 8vw, 10rem);
+    padding-left: clamp(1.5rem, 3vw, 4rem);
+    text-align: right;
+  }
+
+  main > .closing-panel > .cta h2 {
+    max-width: none;
+    font-size: clamp(4.25rem, 6vw, 7rem);
+  }
+
+  main > .closing-panel > .cta h2 br {
+    display: none;
+  }
+
+  main > .closing-panel > .closing-scrim {
+    background:
+      linear-gradient(270deg, rgba(6, 10, 9, 0.68) 0%, rgba(6, 10, 9, 0.34) 34%, rgba(6, 10, 9, 0.06) 72%),
+      linear-gradient(0deg, rgba(6, 10, 9, 0.66), rgba(6, 10, 9, 0.04) 68%);
+  }
+
+  main > .closing-panel > .image-stage--closing {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+  }
 }
 
 @media (max-width: 768px) {
