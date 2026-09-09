@@ -58,7 +58,23 @@
       const mark = sourceMark ? sourceMark.cloneNode(true) : sourceLogo.cloneNode(true);
       mark.setAttribute('aria-hidden', 'true');
       const markLogo = mark.matches('.brand-logo') ? mark : mark.querySelector('.brand-logo');
-      if (markLogo) markLogo.alt = '';
+      if (markLogo) {
+        markLogo.alt = '';
+
+        const source = markLogo.getAttribute('src') || '';
+        const lightSource = source
+          .replace('pegoraro-monogram-dark-centered.png', 'pegoraro-monogram-centered.png')
+          .replace('pegoraro-monogram-dark.png', 'pegoraro-monogram.png');
+
+        if (lightSource !== source) {
+          markLogo.dataset.menuDarkSrc = source;
+          markLogo.dataset.menuLightSrc = lightSource;
+
+          // Load the white mark before the menu opens, avoiding a dark-logo flash.
+          const preloadedLightMark = new Image();
+          preloadedLightMark.src = lightSource;
+        }
+      }
       brand.replaceChildren(mark);
 
       if (sourceWordmark) {
@@ -71,6 +87,13 @@
       brand.textContent = sourceBrand.textContent.trim();
     }
     brand.setAttribute('aria-label', 'Pegoraro Studio — Home');
+    const brandLogo = brand.querySelector('.brand-logo');
+
+    function setMenuBrandVariant(menuIsOpen) {
+      if (!brandLogo?.dataset.menuLightSrc) return;
+      brandLogo.src = menuIsOpen ? brandLogo.dataset.menuLightSrc : brandLogo.dataset.menuDarkSrc;
+    }
+
     const toggle = root.querySelector('.ps-nav-toggle');
     const overlay = root.querySelector('.ps-nav-overlay');
     const inner = root.querySelector('.ps-nav-inner');
@@ -173,6 +196,7 @@
     function finishClose(restoreFocus, destination) {
       unlockPage();
       document.body.classList.remove('menu-open');
+      setMenuBrandVariant(false);
       root.removeAttribute('role');
       root.removeAttribute('aria-modal');
       root.removeAttribute('aria-label');
@@ -197,6 +221,7 @@
     function openMenu() {
       window.clearTimeout(closeTimer);
       lockPage();
+      setMenuBrandVariant(true);
       document.body.classList.add('menu-open');
       open = true;
       root.setAttribute('role', 'dialog');

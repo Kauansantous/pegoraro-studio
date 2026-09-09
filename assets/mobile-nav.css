@@ -274,8 +274,8 @@
   }
 
   body.menu-open .ps-mobile-nav[data-open] .ps-nav-brand .brand-logo {
-    filter: grayscale(1) contrast(1.55) brightness(1.35);
-    mix-blend-mode: screen;
+    filter: none;
+    mix-blend-mode: normal;
   }
 
   body.menu-open .ps-nav-overlay {
