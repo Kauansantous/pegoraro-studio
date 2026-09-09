@@ -211,6 +211,20 @@ main {
   padding: 0;
 }
 
+[id^="portfolio-projeto-"] {
+  scroll-margin-top: 74px;
+}
+
+.portfolio-project-link {
+  display: block;
+  cursor: pointer;
+}
+
+.portfolio-project-link:focus-visible {
+  outline: 1px solid rgba(17, 21, 19, 0.72);
+  outline-offset: -8px;
+}
+
 
 /* =====================================================
    SUMÁRIO FLUTUANTE DAS SEÇÕES

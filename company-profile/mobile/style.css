@@ -316,6 +316,20 @@ main {
   border: 0;
 }
 
+[id^="portfolio-projeto-"] {
+  scroll-margin-top: calc(58px + env(safe-area-inset-top) + 10px);
+}
+
+.portfolio-project-link {
+  display: block;
+  cursor: pointer;
+}
+
+.portfolio-project-link:focus-visible {
+  outline: 1px solid rgba(17, 21, 19, 0.72);
+  outline-offset: -6px;
+}
+
 
 /* =========================================================
    PÁGINA 39 — ORÇAMENTO
