@@ -63,11 +63,11 @@ img { display: block; max-width: 100%; }
 }
 
 body.at-hero .desktop-header {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.1);
-  background: rgba(12, 15, 14, 0.14);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  color: #f4f2ed;
+  border-color: rgba(244, 242, 237, 0.12);
+  background: rgba(14, 17, 16, 0.92);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .desktop-brand,
@@ -83,6 +83,27 @@ body.at-hero .desktop-header {
   letter-spacing: 0.24em;
   line-height: 1;
   white-space: nowrap;
+}
+
+/* The header mark is deliberately cropped from the supplied artwork so the
+   camera monogram keeps the same quiet scale as the former word signature. */
+.desktop-brand--logo {
+  display: grid;
+  place-items: center;
+  width: clamp(6.25rem, 7vw, 8.25rem);
+  height: clamp(3.4rem, 4vw, 4.25rem);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.brand-logo {
+  display: block;
+  width: 145%;
+  max-width: none;
+  height: auto;
+  filter: grayscale(1) contrast(1.55) brightness(1.35);
+  mix-blend-mode: screen;
+  transform: translateY(-20%);
 }
 
 .desktop-nav {

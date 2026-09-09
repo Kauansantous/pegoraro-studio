@@ -50,7 +50,16 @@
 
     const brand = root.querySelector('.ps-nav-brand');
     brand.href = sourceBrand.getAttribute('href');
-    brand.textContent = sourceBrand.textContent.trim();
+    const sourceLogo = sourceBrand.querySelector('.brand-logo');
+    if (sourceLogo) {
+      const logo = sourceLogo.cloneNode(true);
+      logo.setAttribute('aria-hidden', 'true');
+      logo.alt = '';
+      brand.classList.add('has-logo');
+      brand.replaceChildren(logo);
+    } else {
+      brand.textContent = sourceBrand.textContent.trim();
+    }
     brand.setAttribute('aria-label', 'Pegoraro Studio — Home');
     const toggle = root.querySelector('.ps-nav-toggle');
     const overlay = root.querySelector('.ps-nav-overlay');
