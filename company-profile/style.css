@@ -251,11 +251,20 @@ main {
   opacity: 0;
   visibility: hidden;
   transform: translateX(-50%);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 .company-profile-sections-nav.is-ready {
   opacity: 1;
   visibility: visible;
+}
+
+.company-profile-sections-nav.is-content-obstructed {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(8px);
 }
 
 .company-profile-sections-nav__track {

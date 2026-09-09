@@ -9,8 +9,10 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const track = document.createElement("div");
   const links = new Map();
+  const protectedAreas = [];
   let activeId = "";
   let scrollFrame = 0;
+  let collisionFrame = 0;
   let suppressPassiveHashUntil = 0;
   let pendingNavigationId = "";
   let pendingNavigationExpires = 0;
@@ -29,6 +31,50 @@
 
   nav.appendChild(track);
   nav.classList.add("is-ready");
+
+  document.querySelectorAll(".proposal-link, .email-link, .whatsapp-link, .mobile-footer a").forEach(function (element) {
+    protectedAreas.push(element);
+
+    const page = element.closest(".page");
+    if (page && !protectedAreas.includes(page)) protectedAreas.push(page);
+  });
+
+  function updateContentCollision() {
+    collisionFrame = 0;
+
+    const navRect = nav.getBoundingClientRect();
+    const clearance = 16;
+    const isColliding = protectedAreas.some(function (element) {
+      const rect = element.getBoundingClientRect();
+
+      return (
+        rect.bottom > navRect.top - clearance
+        && rect.top < navRect.bottom + clearance
+        && rect.right > navRect.left - clearance
+        && rect.left < navRect.right + clearance
+      );
+    });
+
+    nav.classList.toggle("is-content-obstructed", isColliding);
+    nav.toggleAttribute("inert", isColliding);
+    nav.setAttribute("aria-hidden", String(isColliding));
+  }
+
+  function scheduleContentCollisionCheck() {
+    if (collisionFrame) return;
+
+    collisionFrame = window.requestAnimationFrame(updateContentCollision);
+  }
+
+  if ("IntersectionObserver" in window) {
+    const collisionObserver = new IntersectionObserver(scheduleContentCollisionCheck, {
+      threshold: [0, 0.01, 0.5, 1]
+    });
+
+    protectedAreas.forEach(function (element) {
+      collisionObserver.observe(element);
+    });
+  }
 
   function getHeaderOffset() {
     const header = document.querySelector(".ps-nav-header, .desktop-header, .mobile-header");
@@ -144,6 +190,7 @@
     scrollFrame = window.requestAnimationFrame(function () {
       scrollFrame = 0;
       syncActiveSection(true);
+      scheduleContentCollisionCheck();
     });
   }, { passive: true });
 
@@ -153,6 +200,7 @@
     scrollFrame = window.requestAnimationFrame(function () {
       scrollFrame = 0;
       syncActiveSection(false);
+      scheduleContentCollisionCheck();
     });
   }, { passive: true });
 
@@ -184,6 +232,7 @@
   }
 
   restoreHashTarget();
+  scheduleContentCollisionCheck();
 
   if (document.readyState !== "complete") {
     window.addEventListener("load", restoreHashTarget, { once: true });
