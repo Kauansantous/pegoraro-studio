@@ -211,7 +211,8 @@ main {
   padding: 0;
 }
 
-[id^="portfolio-projeto-"] {
+[id^="portfolio-projeto-"],
+#portfolio {
   scroll-margin-top: 74px;
 }
 

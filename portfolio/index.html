@@ -26,12 +26,23 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=portfolio-editorial-20260912a">
   <link rel="stylesheet" href="../assets/mobile-nav.css?v=header-glass-20260908" media="(max-width: 768px)">
   <script src="../assets/mobile-nav.js" defer></script>
 </head>
 
 <body>
+
+  <!-- Assinatura inicial do mobile; o módulo compartilhado a reutiliza ao montar o menu. -->
+  <header class="mobile-header" aria-label="Cabeçalho mobile">
+    <a href="/" class="brand desktop-brand--lockup" aria-label="Pegoraro Studio — Home">
+      <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/brand/pegoraro-monogram-dark-centered.png" alt=""></span>
+      <span class="brand-wordmark">PEGORARO STUDIO</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
   <header class="desktop-header">
 
@@ -91,8 +102,8 @@
 
         <div class="project-image">
           <picture>
-            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-01-mobile.avif">
-            <img src="../assets/portfolio/projeto-01-desktop.avif" alt="The Sunset View" loading="lazy" decoding="async">
+            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-01-mobile.avif" width="1280" height="960">
+            <img src="../assets/portfolio/projeto-01-desktop.avif" alt="The Sunset View" width="2560" height="1919" loading="lazy" decoding="async">
           </picture>
         </div>
 
@@ -125,8 +136,8 @@
 
         <div class="project-image">
           <picture>
-            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-02-mobile.avif">
-            <img src="../assets/portfolio/projeto-02-desktop.avif" alt="Casa Noronha" loading="lazy" decoding="async">
+            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-02-mobile.avif" width="1280" height="960">
+            <img src="../assets/portfolio/projeto-02-desktop.avif" alt="Casa Noronha" width="2560" height="1920" loading="lazy" decoding="async">
           </picture>
         </div>
 
@@ -152,6 +163,32 @@
 
       </article>
 
+      <article class="project project-large project--poente-atlantico" id="projeto-05" data-project="poente-atlantico">
+
+        <a class="project-link" href="/company-profile/#portfolio" aria-label="Ver Poente Atlântico no Company Profile">
+
+          <div class="project-image">
+            <picture>
+              <source media="(max-width: 768px)" srcset="../assets/portfolio/poente-atlantico-mobile.avif" width="1280" height="960">
+              <img src="../assets/portfolio/poente-atlantico-desktop.avif" alt="Poente Atlântico" width="2560" height="1920" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <span class="project-number">05</span>
+              <h2>Poente Atlântico</h2>
+            </div>
+
+            <span class="project-category">
+              FOTOGRAFIA · DIREÇÃO VISUAL
+            </span>
+          </div>
+
+        </a>
+
+      </article>
+
 
       <article class="project project-small" id="projeto-03">
 
@@ -159,8 +196,8 @@
 
         <div class="project-image">
           <picture>
-            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-03-mobile.avif">
-            <img src="../assets/portfolio/projeto-03-desktop.avif" alt="Maralto" loading="lazy" decoding="async">
+            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-03-mobile.avif" width="1280" height="960">
+            <img src="../assets/portfolio/projeto-03-desktop.avif" alt="Maralto" width="2100" height="1575" loading="lazy" decoding="async">
           </picture>
         </div>
 
@@ -193,8 +230,8 @@
 
         <div class="project-image">
           <picture>
-            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-04-mobile.avif">
-            <img src="../assets/portfolio/projeto-04-desktop.avif" alt="Morada Contemporânea" loading="lazy" decoding="async">
+            <source media="(max-width: 768px)" srcset="../assets/portfolio/projeto-04-mobile.avif" width="1280" height="960">
+            <img src="../assets/portfolio/projeto-04-desktop.avif" alt="Morada Contemporânea" width="2048" height="1536" loading="lazy" decoding="async">
           </picture>
         </div>
 

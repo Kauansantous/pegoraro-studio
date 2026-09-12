@@ -154,7 +154,8 @@ body:not(.at-hero) .desktop-header {
 
 .desktop-brand:focus-visible,
 .desktop-nav a:focus-visible,
-.hero-link:focus-visible {
+.hero-link:focus-visible,
+.diagnostic-link:focus-visible {
   outline: 1px solid currentColor;
   outline-offset: 0.45rem;
 }
@@ -241,6 +242,14 @@ main {
   line-height: 1.75;
 }
 
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem clamp(2rem, 3.5vw, 4rem);
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0 clamp(0rem, 34vw, 33rem);
+}
+
 .hero-link {
   position: relative;
   display: inline-flex;
@@ -270,6 +279,44 @@ main {
 }
 
 .hero-link span { font-size: 1.125rem; font-weight: 300; line-height: 0.7; }
+
+.hero-actions .hero-link { margin: 0; }
+
+.diagnostic-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 44px;
+  padding: 0.35rem 0 0.72rem;
+  color: rgba(235, 213, 169, 0.94);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: gap 360ms var(--ease-out), opacity 220ms ease;
+}
+
+.diagnostic-link::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform-origin: left center;
+  transition: width 360ms var(--ease-out);
+}
+
+.diagnostic-link span {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 0.7;
+  transition: transform 360ms var(--ease-out);
+}
 
 /* The manifesto starts the next chapter without an empty white interruption. */
 .introduction {
@@ -556,6 +603,9 @@ main {
   .desktop-nav a:hover::after { transform: scaleX(1); }
   .hero-link:hover { gap: 1.25rem; opacity: 0.72; }
   .hero-link:hover::after { transform: scaleX(1); }
+  .diagnostic-link:hover { gap: 1.25rem; opacity: 0.72; }
+  .diagnostic-link:hover::after { width: 100%; }
+  .diagnostic-link:hover span { transform: translateX(2px); }
   .js .image-stage.is-visible:hover img, .image-stage:hover img { transform: scale(1.018); }
 }
 
@@ -648,6 +698,14 @@ main {
   .hero h1 { max-width: 7.8ch; font-size: clamp(4rem, 15.2vw, 6.4rem); line-height: 0.8; }
   .hero-description, .hero-link { margin-left: 0; }
   .hero-description { max-width: 21rem; margin-top: 2.4rem; font-size: 0.875rem; }
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin: 1.75rem 0 0;
+  }
+  .hero-actions .hero-link { min-height: 44px; padding-top: 0.35rem; }
+  .diagnostic-link { min-height: 44px; }
 
   .introduction {
     display: block;
