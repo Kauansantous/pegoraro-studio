@@ -222,8 +222,7 @@ a {
 /* INTRO */
 
 .portfolio-intro {
-  padding: 16vh 8vw 13vh;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  padding: clamp(8rem, 16vh, 13rem) 8vw clamp(6rem, 11vh, 9rem);
 }
 
 .eyebrow,
@@ -257,11 +256,11 @@ a {
 
 .projects {
   --project-gutter: clamp(24px, 5vw, 88px);
-  padding: clamp(5.5rem, 9vw, 10rem) 0 clamp(8rem, 13vw, 15rem);
+  padding: clamp(5rem, 8vw, 9rem) 0 clamp(8rem, 13vw, 15rem);
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: clamp(1.5rem, 3.2vw, 4.75rem);
-  row-gap: clamp(7rem, 11vw, 14rem);
+  row-gap: clamp(6.5rem, 10vw, 12rem);
 }
 
 .project {
@@ -284,8 +283,7 @@ a {
   outline-offset: 8px;
 }
 
-.project-large,
-.project--poente-atlantico {
+.project-large {
   grid-column: 1 / -1;
 }
 
@@ -299,6 +297,28 @@ a {
   align-self: start;
   margin-top: clamp(5rem, 9vw, 10rem);
   padding-right: var(--project-gutter);
+}
+
+/* The final three projects form a deliberate editorial coda: a full-width
+   statement, a quieter wide frame, then a vertical closing image. */
+@media (min-width: 769px) {
+  .project--poente-atlantico {
+    grid-column: 1 / 11;
+  }
+
+  .project--solar-itacuruca {
+    grid-column: 4 / -1;
+    padding-right: var(--project-gutter);
+  }
+
+  .project--poente-atlantico .project-info {
+    padding-left: var(--project-gutter);
+  }
+
+  .project--solar-itacuruca .project-info {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 .project-image {
@@ -334,7 +354,7 @@ a {
 }
 
 .project-info {
-  padding-top: clamp(18px, 1.7vw, 28px);
+  padding-top: clamp(18px, 1.9vw, 30px);
   display: flex;
   justify-content: space-between;
   gap: 30px;
@@ -380,9 +400,8 @@ a {
 /* CTA */
 
 .portfolio-cta {
-  padding: 16vh 8vw;
-  border-top: 1px solid rgba(23, 23, 23, 0.15);
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  padding: clamp(8rem, 15vh, 13rem) 8vw;
+  background: #f1f0ec;
 }
 
 .portfolio-cta h2 {

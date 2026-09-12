@@ -172,7 +172,7 @@ main {
   display: flex;
   align-items: flex-end;
   min-height: 100svh;
-  padding: clamp(8rem, 15vh, 11rem) clamp(1.5rem, 5vw, 6rem) clamp(4.5rem, 7vw, 7.5rem);
+  padding: clamp(8rem, 15vh, 11rem) clamp(1.5rem, 5vw, 6rem) clamp(4.75rem, 7.5vw, 8rem);
   color: #fff;
   background: var(--dark);
 }
@@ -197,13 +197,13 @@ main {
 .hero-scrim {
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(6, 10, 9, 0.5) 0%, rgba(6, 10, 9, 0.16) 64%, rgba(6, 10, 9, 0.26) 100%),
-    linear-gradient(0deg, rgba(6, 10, 9, 0.58) 0%, rgba(6, 10, 9, 0.06) 58%, rgba(6, 10, 9, 0.2) 100%);
+    linear-gradient(90deg, rgba(6, 10, 9, 0.46) 0%, rgba(6, 10, 9, 0.12) 64%, rgba(6, 10, 9, 0.22) 100%),
+    linear-gradient(0deg, rgba(6, 10, 9, 0.62) 0%, rgba(6, 10, 9, 0.04) 58%, rgba(6, 10, 9, 0.18) 100%);
 }
 
 .hero-content {
   width: min(100%, 96rem);
-  padding-top: 2rem;
+  padding-top: clamp(1rem, 2vh, 2rem);
 }
 
 .eyebrow,
@@ -228,15 +228,15 @@ main {
 }
 
 .hero h1 {
-  max-width: 9.5ch;
-  font-size: clamp(5.5rem, 10.1vw, 12rem);
-  letter-spacing: -0.075em;
+  max-width: 9ch;
+  font-size: clamp(5.25rem, 9.8vw, 11.5rem);
+  letter-spacing: -0.078em;
   line-height: 0.79;
 }
 
 .hero-description {
-  max-width: 29rem;
-  margin: clamp(2.5rem, 5vw, 4rem) 0 0 clamp(0rem, 34vw, 33rem);
+  max-width: 30rem;
+  margin: clamp(2.35rem, 4.5vw, 3.6rem) 0 0 clamp(0rem, 34vw, 33rem);
   color: rgba(255, 255, 255, 0.86);
   font-size: clamp(0.875rem, 1.05vw, 1rem);
   line-height: 1.75;
@@ -247,7 +247,7 @@ main {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem clamp(2rem, 3.5vw, 4rem);
-  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0 clamp(0rem, 34vw, 33rem);
+  margin: clamp(1.9rem, 3.2vw, 2.7rem) 0 0 clamp(0rem, 34vw, 33rem);
 }
 
 .hero-link {
@@ -323,7 +323,7 @@ main {
   display: grid;
   grid-template-columns: minmax(9rem, 22%) minmax(0, 1fr);
   column-gap: clamp(2.5rem, 7vw, 9rem);
-  padding: clamp(7rem, 12vw, 12rem) clamp(1.5rem, 8vw, 10rem) clamp(8rem, 14vw, 14rem);
+  padding: clamp(7.5rem, 12vw, 12rem) clamp(1.5rem, 8vw, 10rem) clamp(7rem, 12vw, 12rem);
   color: var(--paper);
   background: var(--dark);
 }
@@ -366,7 +366,7 @@ main {
   z-index: 2;
   width: min(78vw, 90rem);
   aspect-ratio: 4 / 3;
-  margin: clamp(-5rem, -6vw, -3rem) 0 0 auto;
+  margin: clamp(-6.5rem, -7vw, -3.75rem) 0 0 auto;
 }
 
 /* Services use type and rules instead of cards. */
