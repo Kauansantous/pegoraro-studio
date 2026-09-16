@@ -20,8 +20,11 @@ h1 { margin:28px 0 30px; font-family:Georgia,"Times New Roman",serif; font-size:
 .document { padding:clamp(50px,7vw,100px) clamp(20px,6vw,88px) 180px; background:var(--paper); }
 .document-heading { display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:22px; border-bottom:1px solid rgba(23,26,25,.2); padding-bottom:18px; }
 .document-heading p:last-child { margin:0; color:var(--muted); font-size:13px; }
-.figma-report { overflow:hidden; width:100%; height:min(82vh,980px); background:#e7e5df; box-shadow:0 18px 50px rgba(23,26,25,.13); }
-.figma-report iframe { display:block; width:100%; height:100%; border:0; }
+.pdf-viewer { display:grid; gap:clamp(18px,3vw,34px); justify-items:center; }
+.pdf-sheet { position:relative; width:100%; max-width:900px; background:#fff; box-shadow:0 18px 50px rgba(23,26,25,.13); line-height:0; }
+.pdf-sheet canvas { display:block; width:100%; height:auto; }
+.pdf-link { position:absolute; z-index:2; display:block; cursor:pointer; }
+.pdf-link:hover { background:rgba(198,161,90,.14); outline:1px solid rgba(198,161,90,.8); }
 .report-cta { margin-top:clamp(40px,7vw,92px); padding:clamp(34px,5vw,64px); color:var(--paper); background:var(--ink); }
 .report-cta h2 { margin:18px 0 28px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,5vw,68px); font-weight:400; letter-spacing:-.05em; line-height:.95; }
 .fallback { margin:16px 0 0; color:var(--muted); font-size:12px; }
@@ -30,4 +33,4 @@ h1 { margin:28px 0 30px; font-family:Georgia,"Times New Roman",serif; font-size:
 .floating-bar span { font-size:12px; }
 .floating-bar a { display:inline-flex; gap:8px; align-items:center; color:var(--gold); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; white-space:nowrap; }
 .floating-bar a span { font-size:16px; }
-@media (max-width:700px) { .site-header { height:64px; padding-inline:18px; } .brand { width:70px; } nav { gap:12px; } nav a { font-size:8px; letter-spacing:.08em; } nav a:nth-child(1),nav a:nth-child(2) { display:none; } .intro { padding-top:80px; } h1 { font-size:clamp(52px,15vw,82px); } .document-heading { display:block; } .document-heading p:last-child { margin-top:12px; line-height:1.5; } .figma-report { height:72vh; } .floating-bar { right:12px; bottom:12px; left:12px; justify-content:space-between; gap:10px; padding:13px 16px; } .floating-bar > span { font-size:11px; } .floating-bar a { font-size:9px; } }
+@media (max-width:700px) { .site-header { height:64px; padding-inline:18px; } .brand { width:70px; } nav { gap:12px; } nav a { font-size:8px; letter-spacing:.08em; } nav a:nth-child(1),nav a:nth-child(2) { display:none; } .intro { padding-top:80px; } h1 { font-size:clamp(52px,15vw,82px); } .document-heading { display:block; } .document-heading p:last-child { margin-top:12px; line-height:1.5; } .pdf-viewer { gap:14px; } .floating-bar { right:12px; bottom:12px; left:12px; justify-content:space-between; gap:10px; padding:13px 16px; } .floating-bar > span { font-size:11px; } .floating-bar a { font-size:9px; } }
