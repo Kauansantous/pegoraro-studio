@@ -62,6 +62,7 @@
 </head>
 
 <body class="home-page at-hero">
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <!-- Fallback estrutural para navegadores móveis que carreguem o HTML antes do módulo de navegação. -->
   <header class="mobile-header" aria-label="Cabeçalho mobile">
@@ -343,6 +344,13 @@
     window.addEventListener("scroll", updateHeaderTone, { passive: true });
 
     const revealElements = document.querySelectorAll("[data-reveal]");
+    const progress = document.querySelector('.scroll-progress span');
+    const updateProgress = function () {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${max ? window.scrollY / max : 0})`;
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion || !("IntersectionObserver" in window)) {
