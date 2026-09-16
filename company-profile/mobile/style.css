@@ -623,6 +623,7 @@ main {
 body.menu-open {
   overflow: hidden;
 }
+.mobile-footer .copyright { display:block; margin-top:12px; opacity:.72; font-size:10px; letter-spacing:.08em; }
 
 
 /* =====================================================

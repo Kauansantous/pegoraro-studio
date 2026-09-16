@@ -884,6 +884,7 @@ main {
   .hero, .introduction, .services, .cta { padding-right: 1.25rem; padding-left: 1.25rem; }
   .hero h1 { font-size: clamp(2.65rem, 13vw, 3.75rem); }
 }
+.copyright { display:block; color:inherit; opacity:.72; font-size:.65rem; letter-spacing:.08em; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
