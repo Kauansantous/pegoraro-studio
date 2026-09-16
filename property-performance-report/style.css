@@ -22,6 +22,8 @@ h1 { margin:28px 0 30px; font-family:Georgia,"Times New Roman",serif; font-size:
 .document-heading p:last-child { margin:0; color:var(--muted); font-size:13px; }
 .report-pages { display:grid; gap:clamp(18px,3vw,34px); }
 .report-pages img { display:block; width:100%; height:auto; background:#fff; box-shadow:0 18px 50px rgba(23,26,25,.13); }
+.report-cta { margin-top:clamp(40px,7vw,92px); padding:clamp(34px,5vw,64px); color:var(--paper); background:var(--ink); }
+.report-cta h2 { margin:18px 0 28px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,5vw,68px); font-weight:400; letter-spacing:-.05em; line-height:.95; }
 .fallback { margin:16px 0 0; color:var(--muted); font-size:12px; }
 .fallback a { color:var(--ink); text-decoration:underline; }
 .floating-bar { position:fixed; right:clamp(16px,4vw,64px); bottom:22px; z-index:20; display:flex; align-items:center; gap:26px; max-width:calc(100vw - 32px); padding:15px 20px 15px 24px; border:1px solid rgba(23,26,25,.18); border-radius:999px; color:var(--paper); background:rgba(23,26,25,.95); box-shadow:0 14px 38px rgba(23,26,25,.2); backdrop-filter:blur(14px); }
