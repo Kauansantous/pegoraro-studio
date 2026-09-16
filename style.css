@@ -724,10 +724,13 @@ main {
   .eyebrow { margin-bottom: 1.35rem; }
   .hero h1 {
     max-width: none;
-    font-size: clamp(3.25rem, 13.15vw, 4.5rem);
+    font-size: clamp(2.85rem, 13.15vw, 4.5rem);
     letter-spacing: -0.072em;
     line-height: 0.84;
-    white-space: nowrap;
+    /* Allow the title to wrap on narrow Android viewports instead of being
+       clipped when the browser reports a slightly smaller CSS width. */
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
   .hero-description, .hero-link { margin-left: 0; }
   .hero-description { max-width: 19rem; font-size: 0.8125rem; line-height: 1.65; }
@@ -879,7 +882,7 @@ main {
 
 @media (max-width: 360px) {
   .hero, .introduction, .services, .cta { padding-right: 1.25rem; padding-left: 1.25rem; }
-  .hero h1 { font-size: 3.75rem; }
+  .hero h1 { font-size: clamp(2.65rem, 13vw, 3.75rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
