@@ -7,6 +7,32 @@
   <title>Casa Verde — Pegoraro Studio</title>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    @media (max-width:700px) {
+      .hero { min-height:92svh; }
+      .hero > img { transform:scale(1.08); object-position:58% center; }
+      .intro { padding:96px 7vw 112px; }
+      .gallery { position:relative; display:block; padding:0 0 110px; background:#17231e; overflow:hidden; }
+      .gallery::before { content:'RETRATOS DA CASA'; display:block; padding:24px 7vw 42px; color:rgba(244,242,237,.52); font-size:9px; font-weight:600; letter-spacing:.18em; }
+      .gallery figure { position:relative; box-shadow:0 26px 46px rgba(0,0,0,.32); }
+      .gallery .portrait { width:76vw; min-height:510px; margin:0 0 18px 7vw; }
+      .gallery .wide { width:86vw; min-height:330px; margin:0 0 18px auto; }
+      .gallery .landscape { width:70vw; min-height:400px; margin:0 0 0 12vw; }
+      .gallery .portrait img { object-position:54% center; }
+      .gallery .landscape img { object-position:55% center; }
+      .gallery-note { width:66vw; margin:0 0 0 auto; padding:42px 7vw 0 0; color:#f4f2ed; font-size:30px; line-height:1.02; }
+      .mobile-reveal { opacity:0; transform:translateY(38px) scale(.97); transition:opacity .8s ease,transform 1s cubic-bezier(.22,1,.36,1); }
+      .mobile-reveal.is-visible { opacity:1; transform:translateY(0) scale(1); }
+      .gallery .wide.mobile-reveal { transition-delay:.08s; }
+      .gallery .landscape.mobile-reveal { transition-delay:.14s; }
+      .materials { padding:88px 0 0; }
+      .materials > .eyebrow,.materials > h2 { margin-left:7vw; margin-right:7vw; }
+      .materials > h2 { font-size:clamp(44px,13vw,70px); }
+      .material-grid { margin-top:48px; }
+      .material-card { padding:34px 7vw; }
+      .material-card h3 { font-size:clamp(52px,15vw,76px); }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -33,10 +59,10 @@
     </section>
 
     <section class="gallery" aria-label="Retratos da Casa Verde">
-      <figure class="portrait"><img src="../assets/portfolio/projeto-02-desktop.avif" alt="Detalhe arquitetônico da Casa Verde" loading="lazy"></figure>
-      <figure class="wide"><img src="../assets/portfolio/projeto-03-desktop.avif" alt="Ambiente da Casa Verde" loading="lazy"></figure>
-      <figure class="landscape"><img src="../assets/portfolio/projeto-04-desktop.avif" alt="Paisagem ao redor da Casa Verde" loading="lazy"></figure>
-      <p class="gallery-note">Cada detalhe convida você a permanecer.</p>
+      <figure class="portrait mobile-reveal"><img src="../assets/portfolio/projeto-02-desktop.avif" alt="Detalhe arquitetônico da Casa Verde" loading="lazy"></figure>
+      <figure class="wide mobile-reveal"><img src="../assets/portfolio/projeto-03-desktop.avif" alt="Ambiente da Casa Verde" loading="lazy"></figure>
+      <figure class="landscape mobile-reveal"><img src="../assets/portfolio/projeto-04-desktop.avif" alt="Paisagem ao redor da Casa Verde" loading="lazy"></figure>
+      <p class="gallery-note mobile-reveal">Cada detalhe convida você a permanecer.</p>
     </section>
 
     <section class="materials" id="materiais" aria-labelledby="materials-title">
@@ -70,5 +96,13 @@
   <footer class="site-footer">
     <span>CASA VERDE</span><span>PEGORARO STUDIO</span><small>© Pegoraro Studio — Todos os direitos reservados.</small>
   </footer>
+  <script>
+    if (window.matchMedia('(max-width: 700px)').matches) {
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+      }), { threshold: 0.18, rootMargin: '0px 0px -8%' });
+      document.querySelectorAll('.mobile-reveal').forEach((item) => observer.observe(item));
+    }
+  </script>
 </body>
 </html>
