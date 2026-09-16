@@ -21,7 +21,7 @@ h1 { margin:28px 0 30px; font-family:Georgia,"Times New Roman",serif; font-size:
 .document-heading { display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:22px; border-bottom:1px solid rgba(23,26,25,.2); padding-bottom:18px; }
 .document-heading p:last-child { margin:0; color:var(--muted); font-size:13px; }
 .pdf-viewer { display:grid; gap:clamp(18px,3vw,34px); justify-items:center; }
-.pdf-sheet { position:relative; width:100%; max-width:900px; background:#fff; box-shadow:0 18px 50px rgba(23,26,25,.13); line-height:0; }
+.pdf-sheet { position:relative; width:min(100%,1240px); background:#fff; box-shadow:0 18px 50px rgba(23,26,25,.13); line-height:0; overflow:hidden; }
 .pdf-sheet canvas { display:block; width:100%; height:auto; }
 .pdf-link { position:absolute; z-index:2; display:block; cursor:pointer; }
 .pdf-link:hover { background:rgba(198,161,90,.14); outline:1px solid rgba(198,161,90,.8); }

@@ -23,10 +23,10 @@
 
   <main>
     <section class="intro" aria-labelledby="report-title">
-      <p class="eyebrow">PEGORARO STUDIO · PROPERTY INTELLIGENCE</p>
+      <p class="eyebrow" id="report-eyebrow">PEGORARO STUDIO · PROPERTY INTELLIGENCE</p>
       <h1 id="report-title">Property Performance<br>Report</h1>
-      <p class="intro-copy">Uma leitura estratégica da presença, percepção e potencial do seu imóvel.</p>
-      <a class="download-button" href="#report-viewer">
+      <p class="intro-copy" id="report-intro">Uma leitura estratégica da presença, percepção e potencial do seu imóvel.</p>
+      <a class="download-button" id="top-download" href="#report-viewer">
         <span aria-hidden="true">↓</span> Ver avaliação completa
       </a>
     </section>
@@ -34,13 +34,13 @@
     <section class="document" aria-labelledby="document-title">
       <div class="document-heading">
         <p class="eyebrow" id="document-title">DOCUMENTO COMPLETO</p>
-        <p>Descubra como revelar o potencial do seu imóvel e elevar a percepção de valor.</p>
+        <p id="document-message">Descubra como revelar o potencial do seu imóvel e elevar a percepção de valor.</p>
       </div>
       <div id="report-viewer" class="pdf-viewer" aria-label="Property Performance Report"></div>
       <div class="report-cta">
-        <p class="eyebrow">RELATÓRIO INTERATIVO</p>
-        <h2>Navegue pelo material original.</h2>
-        <a class="download-button" href="#report-viewer">
+        <p class="eyebrow" id="cta-eyebrow">RELATÓRIO INTERATIVO</p>
+        <h2 id="cta-title">Navegue pelo material original.</h2>
+        <a class="download-button" id="bottom-download" href="#report-viewer">
           <span aria-hidden="true">↑</span> Voltar para o relatório
         </a>
       </div>
@@ -56,7 +56,29 @@
   import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs';
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
   const viewer = document.querySelector('#report-viewer');
-  const pdf = await pdfjsLib.getDocument('../assets/reports/property-performance-report.pdf').promise;
+  const requestedSlug = new URLSearchParams(window.location.search).get('report') || 'property-performance-report';
+  const slug = /^[a-z0-9-]+$/i.test(requestedSlug) ? requestedSlug : 'property-performance-report';
+  const packageBase = `../assets/reports/${slug}/`;
+  const config = await fetch(`${packageBase}report.json`).then(response => {
+    if (!response.ok) throw new Error('Relatório não encontrado.');
+    return response.json();
+  });
+  document.title = `${config.title} — Pegoraro Studio`;
+  document.querySelector('#report-eyebrow').textContent = config.eyebrow;
+  document.querySelector('#report-title').textContent = config.title;
+  document.querySelector('#report-intro').textContent = config.intro;
+  document.querySelector('#document-title').textContent = config.documentLabel;
+  document.querySelector('#document-message').textContent = config.documentMessage;
+  document.querySelector('#cta-eyebrow').textContent = config.ctaEyebrow;
+  document.querySelector('#cta-title').textContent = config.ctaTitle;
+  const pdf = await pdfjsLib.getDocument(`${packageBase}${config.pdf}`).promise;
+  const pdfUrl = `${packageBase}${config.pdf}`;
+  for (const id of ['top-download','bottom-download']) {
+    const button = document.getElementById(id);
+    button.href = pdfUrl;
+    button.download = `${slug}.pdf`;
+    button.innerHTML = '<span aria-hidden="true">↓</span> Baixar avaliação em PDF';
+  }
   for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
     const page = await pdf.getPage(pageNumber);
     const base = page.getViewport({ scale: 1 });
@@ -71,9 +93,9 @@
     sheet.appendChild(canvas); viewer.appendChild(sheet);
     await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
     const annotations = await page.getAnnotations();
-    annotations.filter(annotation => annotation.subtype === 'Link' && annotation.url).forEach(annotation => {
+    annotations.filter(annotation => annotation.subtype === 'Link' && (annotation.url || annotation.unsafeUrl)).forEach(annotation => {
       const link = document.createElement('a');
-      link.href = annotation.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      link.href = annotation.url || annotation.unsafeUrl; link.target = '_blank'; link.rel = 'noopener noreferrer';
       link.className = 'pdf-link'; link.setAttribute('aria-label', 'Abrir referência externa');
       const [x1, y1, x2, y2] = viewport.convertToViewportRectangle(annotation.rect);
       link.style.left = `${Math.min(x1, x2)}px`; link.style.top = `${Math.min(y1, y2)}px`;
