@@ -8,7 +8,7 @@
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="is-loading">
   <header class="site-header" aria-label="Cabeçalho principal">
     <a class="brand" href="../" aria-label="Pegoraro Studio — Home">
       <img src="../assets/brand/pegoraro-monogram-centered.png" alt="">
@@ -60,12 +60,15 @@
   import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs';
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
   const viewer = document.querySelector('#report-viewer');
-  const slug = 'casa-capricornio';
-  const packageBase = `../assets/reports/${slug}/`;
+  // Cada cópia da página usa automaticamente o nome da própria pasta como slug.
+  // Assim, ao duplicar /casa-capricornio/ para /casa-serra/, não é preciso editar o código.
+  const slug = window.location.pathname.split('/').filter(Boolean).at(-1) || 'casa-capricornio';
+  const packageBase = './';
   const config = await fetch(`${packageBase}report.json`).then(response => {
     if (!response.ok) throw new Error('Relatório não encontrado.');
     return response.json();
   });
+  document.body.classList.remove('is-loading');
   document.title = `${config.title} — Pegoraro Studio`;
   document.querySelector('#report-eyebrow').textContent = config.eyebrow;
   document.querySelector('#report-title').textContent = config.title;
