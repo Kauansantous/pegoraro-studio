@@ -303,11 +303,17 @@ a {
 .site-footer {
   padding: 30px 5vw;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
   font-size: 10px;
   letter-spacing: 0.16em;
   color: #777;
 }
+.site-footer > span, .site-footer .copyright { flex: 1 1 30%; }
+.site-footer > span:nth-child(2) { text-align:center; }
+.site-footer .copyright { text-align:right; white-space:nowrap; }
 
 
 /* =========================
@@ -384,6 +390,9 @@ a {
   .site-footer {
     padding: 25px 6vw;
     font-size: 8px;
+    gap: 10px;
   }
+.site-footer > span:nth-child(2), .site-footer .copyright { text-align:left; }
+.site-footer .copyright { flex-basis:100%; white-space:normal; }
 
 }

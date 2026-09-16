@@ -440,3 +440,17 @@ main {
     transition: none;
   }
 }
+
+.copyright-footer {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:64px;
+  padding:18px 5vw;
+  color:rgba(244,242,237,.58);
+  background:#171a19;
+  font:10px/1.4 Arial,Helvetica,sans-serif;
+  letter-spacing:.12em;
+  text-align:center;
+  text-transform:uppercase;
+}
