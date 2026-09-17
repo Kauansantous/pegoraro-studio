@@ -1,267 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     (function () {
       if (!/^https?:$/.test(window.location.protocol) || !/\/index\.html$/i.test(window.location.pathname)) return;
       window.location.replace(window.location.pathname.replace(/\/index\.html$/i, "/") + window.location.search + window.location.hash);
     }());
   </script>
-
   <title>Contato — Pegoraro Studio</title>
-
-  <meta
-    name="description"
-    content="Fale com a Pegoraro Studio sobre seu imóvel. Encontre nossos canais de contato por telefone, WhatsApp, Instagram e e-mail."
-  >
-
-
+  <meta name="description" content="Fale com a Pegoraro Studio sobre seu imóvel. Encontre nossos canais de contato por telefone, WhatsApp, Instagram e e-mail.">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="shortcut icon" href="/favicon.ico">
-
-
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../assets/mobile-nav.css?v=header-glass-20260908" media="(max-width: 768px)">
+  <link rel="stylesheet" href="contact-experience.css">
   <script src="../assets/mobile-nav.js" defer></script>
+  <script src="contact.js" defer></script>
 </head>
 
-<body>
-
- <header class="desktop-header">
-
-  <a href="/" class="desktop-brand desktop-brand--logo" aria-label="Pegoraro Studio — Home">
-    <img class="brand-logo" src="../assets/brand/pegoraro-monogram-dark-centered.png" alt="">
-  </a>
-
-  <nav class="desktop-nav" aria-label="Navegação principal">
-
-    <a href="/">
-      HOME
+<body class="contact-page">
+  <header class="desktop-header">
+    <a href="/" class="desktop-brand desktop-brand--logo" aria-label="Pegoraro Studio — Home">
+      <img class="brand-logo" src="../assets/brand/pegoraro-monogram-dark-centered.png" alt="">
     </a>
-
-    <a href="/portfolio/">
-      PORTFÓLIO
-    </a>
-
-    <a href="/company-profile/">
-      COMPANY PROFILE
-    </a>
-
-    <a href="/contato/">
-      CONTATO
-    </a>
-
-  </nav>
-
-</header>
-
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="/">HOME</a>
+      <a href="/portfolio/">PORTFÓLIO</a>
+      <a href="/company-profile/">COMPANY PROFILE</a>
+      <a href="/contato/">CONTATO</a>
+    </nav>
+  </header>
 
   <main>
-
-    <section class="contact-hero">
-
+    <section class="contact-hero" aria-labelledby="contact-title">
       <div>
-
-        <p class="eyebrow">
-          CONTATO
-        </p>
-
-        <h1>
-          Vamos conversar<br>
-          sobre seu imóvel.
-        </h1>
-
+        <p class="eyebrow" id="contact-label">CONTATO</p>
+        <h1 id="contact-title">Vamos conversar<br>sobre seu imóvel.</h1>
       </div>
-
-      <p class="contact-intro">
-        Conte onde fica o imóvel e o que você está planejando.
-        Se já houver um anúncio, envie o link.
-      </p>
-
+      <p class="contact-intro" id="contact-intro">Conte onde fica o imóvel e o que você está planejando. Se já houver um anúncio, envie o link.</p>
+      <span class="contact-status" id="contact-status">ATENDIMENTO DIGITAL · BRASIL</span>
     </section>
 
+    <section class="contact-options" id="contact-list" aria-label="Canais de contato"></section>
 
-    <section class="contact-options">
-
-
-      <!-- TELEFONE -->
-
-      <a
-        class="contact-option"
-        href="tel:+5513920034981"
-      >
-
-        <span class="contact-number">
-          01
-        </span>
-
-        <div class="contact-main">
-
-          <span class="contact-label">
-            TELEFONE
-          </span>
-
-          <h2>
-            (13) 92003-4981
-          </h2>
-
-        </div>
-
-        <span class="contact-arrow">
-          →
-        </span>
-
-      </a>
-
-
-      <!-- WHATSAPP -->
-
-      <a
-        class="contact-option"
-        href="https://wa.me/5513920034981"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <span class="contact-number">
-          02
-        </span>
-
-        <div class="contact-main">
-
-          <span class="contact-label">
-            WHATSAPP
-          </span>
-
-          <h2>
-            Fale conosco
-          </h2>
-
-        </div>
-
-        <span class="contact-arrow">
-          →
-        </span>
-
-      </a>
-
-
-      <!-- INSTAGRAM -->
-
-      <a
-        class="contact-option"
-        href="https://www.instagram.com/pegorarostudio/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <span class="contact-number">
-          03
-        </span>
-
-        <div class="contact-main">
-
-          <span class="contact-label">
-            INSTAGRAM
-          </span>
-
-          <h2>
-            @pegoraro<wbr>studio
-          </h2>
-
-        </div>
-
-        <span class="contact-arrow">
-          →
-        </span>
-
-      </a>
-
-
-      <!-- E-MAIL -->
-
-      <a
-        class="contact-option"
-        href="mailto:contato@pegorarostudio.com"
-      >
-
-        <span class="contact-number">
-          04
-        </span>
-
-        <div class="contact-main">
-
-          <span class="contact-label">
-            E-MAIL
-          </span>
-
-          <h2>
-            contato@pegorarostudio.com
-          </h2>
-
-        </div>
-
-        <span class="contact-arrow">
-          →
-        </span>
-
-      </a>
-
-
+    <section class="contact-closing" aria-labelledby="closing-title">
+      <p class="section-label" id="closing-label">PEGORARO STUDIO</p>
+      <h2 id="closing-title">Pelo canal<br>que preferir.</h2>
+      <a class="closing-link" id="closing-link" href="https://wa.me/5513920034981" target="_blank" rel="noopener noreferrer">Iniciar conversa <span aria-hidden="true">↗</span></a>
     </section>
-
-
-    <section class="contact-closing">
-
-      <p class="section-label">
-        PEGORARO STUDIO
-      </p>
-
-      <h2>
-        Pelo canal<br>
-        que preferir.
-      </h2>
-
-    </section>
-
   </main>
 
-
-  <footer class="site-footer">
-
-    <span>
-      PEGORARO STUDIO
-    </span>
-
-    <span>
-      CARAGUATATUBA · SP
-    </span>
-    <small class="copyright">© Pegoraro Studio — Todos os direitos reservados.</small>
-
+  <footer class="site-footer" aria-label="Informações da Pegoraro Studio">
+    <span id="footer-studio">PEGORARO STUDIO</span>
+    <span id="footer-location">CARAGUATATUBA · SP</span>
+    <small class="copyright" id="footer-copyright">© Pegoraro Studio — Todos os direitos reservados.</small>
   </footer>
-<script>
-  const currentPath = window.location.pathname;
-
-  document.querySelectorAll(".desktop-nav a").forEach(function (link) {
-    const linkPath = new URL(link.href).pathname;
-
-    if (
-      currentPath.replace(/\/$/, "") === linkPath.replace(/\/$/, "")
-    ) {
-      link.classList.add("active");
-    }
-  });
-</script>
 </body>
-
 </html>

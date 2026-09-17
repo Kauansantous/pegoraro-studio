@@ -1,0 +1,27 @@
+{
+  "page": {
+    "title": "Contato — Pegoraro Studio",
+    "label": "CONTATO",
+    "headline": ["Vamos conversar", "sobre seu imóvel."],
+    "intro": "Conte onde fica o imóvel e o que você está planejando. Se já houver um anúncio, envie o link.",
+    "status": "ATENDIMENTO DIGITAL · BRASIL"
+  },
+  "channels": [
+    { "label": "TELEFONE", "value": "(13) 92003-4981", "href": "tel:+5513920034981" },
+    { "label": "WHATSAPP", "value": "Fale conosco", "href": "https://wa.me/5513920034981", "external": true },
+    { "label": "INSTAGRAM", "value": "@pegorarostudio", "href": "https://www.instagram.com/pegorarostudio/", "external": true },
+    { "label": "E-MAIL", "value": "contato@pegorarostudio.com", "href": "mailto:contato@pegorarostudio.com" }
+  ],
+  "closing": {
+    "label": "PEGORARO STUDIO",
+    "headline": ["Pelo canal", "que preferir."],
+    "linkLabel": "Iniciar conversa",
+    "href": "https://wa.me/5513920034981",
+    "external": true
+  },
+  "footer": {
+    "studio": "PEGORARO STUDIO",
+    "location": "CARAGUATATUBA · SP",
+    "copyright": "© Pegoraro Studio — Todos os direitos reservados."
+  }
+}
