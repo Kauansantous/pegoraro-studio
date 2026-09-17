@@ -300,6 +300,11 @@ a {
   padding-right: var(--project-gutter);
 }
 
+#projeto-06 {
+  grid-column: 1 / 7;
+  padding-left: var(--project-gutter);
+}
+
 /* The final three projects form a deliberate editorial coda: a full-width
    statement, a quieter wide frame, then a vertical closing image. */
 @media (min-width: 769px) {
@@ -520,7 +525,10 @@ a {
 
   .project,
   #projeto-02,
-  #projeto-03 {
+  #projeto-03,
+  #projeto-04,
+  #projeto-05,
+  #projeto-06 {
     width: 100%;
     margin: 0 0 clamp(5.5rem, 22vw, 8rem);
     padding: 0;
