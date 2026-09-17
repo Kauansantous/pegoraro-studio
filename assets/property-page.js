@@ -75,7 +75,6 @@ try {
   bindMaterial('book', property.materials.book);
 
   setText('#footer-property', property.footer.property);
-  setText('#footer-studio', property.footer.studio);
   setText('#footer-copyright', property.footer.copyright);
 } catch (error) {
   console.error('Não foi possível carregar a configuração do imóvel.', error);
