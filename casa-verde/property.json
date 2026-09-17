@@ -1,15 +1,28 @@
 {
-  "title": "Casa Verde",
-  "heroEyebrow": "APRESENTAÇÃO DO IMÓVEL",
-  "heroSubtitle": "Um lugar para desacelerar, observar e ficar.",
-  "introTitle": "Uma casa pensada para viver o tempo com mais calma.",
-  "introCopy": "Arquitetura, luz e paisagem se encontram em uma estadia desenhada para ser simples, confortável e memorável.",
-  "guideTitle": "Guia do Hóspede",
-  "guideCopy": "Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.",
-  "bookTitle": "Book do Imóvel",
-  "bookCopy": "Uma apresentação editorial para conhecer os espaços, diferenciais e a história da casa.",
-  "footerProperty": "CASA VERDE",
-  "footerStudio": "PEGORARO STUDIO",
-  "footerCopyright": "© Pegoraro Studio — Todos os direitos reservados.",
-  "materials": { "guide": "guia-do-hospede.pdf", "book": "book-do-imovel.pdf" }
+  "meta": { "title": "Casa Verde — Pegoraro Studio", "description": "Casa Verde — experiência editorial do imóvel." },
+  "brand": { "homeHref": "../", "ariaLabel": "Pegoraro Studio — Home", "logo": { "src": "../assets/brand/pegoraro-monogram-centered.png", "alt": "" } },
+  "navigation": { "materialsLabel": "Acessar materiais" },
+  "hero": {
+    "eyebrow": "APRESENTAÇÃO DO IMÓVEL", "titleLines": ["Casa", "Verde"],
+    "subtitle": "Um lugar para desacelerar, observar e ficar.", "scrollLabel": "Role para descobrir",
+    "image": { "src": "images/foto-01.avif", "alt": "Vista da Casa Verde", "position": "58% center" }
+  },
+  "intro": {
+    "eyebrow": "A EXPERIÊNCIA", "title": "Uma casa pensada para viver o tempo com mais calma.",
+    "copy": "Arquitetura, luz e paisagem se encontram em uma estadia desenhada para ser simples, confortável e memorável."
+  },
+  "gallery": {
+    "ariaLabel": "Retratos da Casa Verde", "label": "RETRATOS DA CASA", "note": "Cada detalhe convida você a permanecer.",
+    "images": [
+      { "src": "images/foto-02.avif", "alt": "Detalhe arquitetônico da Casa Verde", "position": "54% center" },
+      { "src": "images/foto-03.avif", "alt": "Ambiente da Casa Verde", "position": "center" },
+      { "src": "images/foto-04.avif", "alt": "Paisagem ao redor da Casa Verde", "position": "55% center" }
+    ]
+  },
+  "materials": {
+    "eyebrow": "MATERIAIS DA CASA", "title": "Tudo o que você precisa, em um só lugar.",
+    "guide": { "number": "01", "eyebrow": "PARA A ESTADIA", "titleLines": ["Guia do", "Hóspede"], "copy": "Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.", "file": "guia-do-hospede.pdf", "openLabel": "Abrir guia", "downloadLabel": "Baixar PDF" },
+    "book": { "number": "02", "eyebrow": "SOBRE O IMÓVEL", "titleLines": ["Book do", "Imóvel"], "copy": "Uma apresentação editorial para conhecer os espaços, diferenciais e a história da casa.", "file": "book-do-imovel.pdf", "openLabel": "Abrir book", "downloadLabel": "Baixar PDF" }
+  },
+  "footer": { "property": "CASA VERDE", "studio": "PEGORARO STUDIO", "copyright": "© Pegoraro Studio — Todos os direitos reservados." }
 }

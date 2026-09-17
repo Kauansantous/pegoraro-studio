@@ -1,19 +1,18 @@
-# Casa Verde — hub editorial
+# Página editorial do imóvel
 
-Para criar outro imóvel, duplique a pasta inteira e edite somente `property.json` para trocar nome, textos, rodapé e nomes dos PDFs.
+## O único arquivo que você edita
 
-As quatro imagens exibidas estão na pasta `images/`. Para trocar as fotos, substitua os arquivos mantendo estes nomes:
+Abra `property.json`. Nele estão todos os textos, títulos, imagens, PDFs, botões, descrição do Google e rodapé desta página.
 
-- `foto-01.avif` — imagem principal da abertura
-- `foto-02.avif` — retrato vertical
-- `foto-03.avif` — ambiente horizontal
-- `foto-04.avif` — paisagem/detalhe
+Para trocar uma foto, coloque o novo arquivo dentro de `images/` e altere somente o campo `src` correspondente no `property.json`.
 
-Você pode usar JPG, mas precisa manter o nome e a extensão `.avif` ou então alterar a extensão no `index.html`.
+Para trocar os PDFs, copie os arquivos para esta pasta e altere somente `materials.guide.file` e `materials.book.file`.
 
-Coloque os dois PDFs nesta pasta com estes nomes exatos:
+Para criar outro imóvel:
 
-- `guia-do-hospede.pdf`
-- `book-do-imovel.pdf`
+1. Duplique a pasta inteira.
+2. Renomeie a pasta com o endereço desejado.
+3. Edite somente `property.json`.
+4. Coloque as fotos em `images/` e os dois PDFs na pasta do imóvel.
 
-Os botões **Abrir** abrem o PDF no leitor nativo do navegador; os botões **Baixar** fazem o download do mesmo arquivo.
+Não altere `index.html`, `style.css` nem os arquivos compartilhados em `assets/`.

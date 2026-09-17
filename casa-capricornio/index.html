@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="content-loading">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Casa Verde — experiência editorial do imóvel">
-  <title>Casa Verde — Pegoraro Studio</title>
+  <meta name="description" content="Experiência editorial do imóvel — Pegoraro Studio">
+  <title>Pegoraro Studio</title>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../assets/property-experience.css">
   <style>
     @media (max-width:700px) {
       .hero { min-height:92svh; }
@@ -14,7 +15,7 @@
       .hero h1 { font-size:clamp(54px,15.5vw,92px); line-height:.86; letter-spacing:-.075em; white-space:nowrap; word-break:normal; overflow-wrap:normal; }
       .intro { padding:96px 7vw 112px; }
       .gallery { position:relative; display:block; padding:0 0 110px; background:#17231e; overflow:hidden; }
-      .gallery::before { content:'RETRATOS DA CASA'; display:block; padding:24px 7vw 42px; color:rgba(244,242,237,.52); font-size:9px; font-weight:600; letter-spacing:.18em; }
+      .gallery::before { content:attr(data-gallery-label); display:block; padding:24px 7vw 42px; color:rgba(244,242,237,.52); font-size:9px; font-weight:600; letter-spacing:.18em; }
       .gallery figure { position:relative; box-shadow:0 26px 46px rgba(0,0,0,.32); }
       .gallery .portrait { width:76vw; min-height:510px; margin:0 0 18px 7vw; }
       .gallery .wide { width:86vw; min-height:330px; margin:0 0 18px auto; }
@@ -44,7 +45,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="../" aria-label="Pegoraro Studio — Home"><img src="../assets/brand/pegoraro-monogram-centered.png" alt=""></a>
-    <a class="header-link" href="#materiais">Acessar materiais <span>↓</span></a>
+    <a class="header-link" href="#materiais"><span class="label">Acessar materiais</span> <span>↓</span></a>
   </header>
 
   <main>
@@ -56,7 +57,7 @@
         <h1 id="title">Casa<br>Verde.</h1>
         <p id="hero-subtitle">Um lugar para desacelerar, observar e ficar.</p>
       </div>
-      <p class="scroll-note">Role para descobrir <span>↓</span></p>
+      <p class="scroll-note"><span class="label">Role para descobrir</span> <span>↓</span></p>
     </section>
 
     <section class="intro" aria-labelledby="intro-title">
@@ -76,24 +77,24 @@
       <p class="eyebrow">MATERIAIS DA CASA</p>
       <h2 id="materials-title">Tudo o que você precisa, em um só lugar.</h2>
       <div class="material-grid">
-        <article class="material-card">
+        <article class="material-card" data-card="guide">
           <span class="material-number">01</span>
-          <p class="eyebrow">PARA A ESTADIA</p>
+          <p class="eyebrow material-kind">PARA A ESTADIA</p>
           <h3 id="guide-title">Guia do<br>Hóspede</h3>
           <p id="guide-copy">Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.</p>
           <div class="material-actions">
-            <a data-material="guide" href="guia-do-hospede.pdf" target="_blank" rel="noopener">Abrir guia <span>→</span></a>
-            <a class="download" data-material="guide" href="guia-do-hospede.pdf" download>Baixar PDF <span>↓</span></a>
+            <a data-action="open" href="guia-do-hospede.pdf" target="_blank" rel="noopener">Abrir guia <span>→</span></a>
+            <a class="download" data-action="download" href="guia-do-hospede.pdf" download>Baixar PDF <span>↓</span></a>
           </div>
         </article>
-        <article class="material-card material-card--dark">
+        <article class="material-card material-card--dark" data-card="book">
           <span class="material-number">02</span>
-          <p class="eyebrow">SOBRE O IMÓVEL</p>
+          <p class="eyebrow material-kind">SOBRE O IMÓVEL</p>
           <h3 id="book-title">Book do<br>Imóvel</h3>
           <p id="book-copy">Uma apresentação editorial para conhecer os espaços, diferenciais e a história da casa.</p>
           <div class="material-actions">
-            <a data-material="book" href="book-do-imovel.pdf" target="_blank" rel="noopener">Abrir book <span>→</span></a>
-            <a class="download" data-material="book" href="book-do-imovel.pdf" download>Baixar PDF <span>↓</span></a>
+            <a data-action="open" href="book-do-imovel.pdf" target="_blank" rel="noopener">Abrir book <span>→</span></a>
+            <a class="download" data-action="download" href="book-do-imovel.pdf" download>Baixar PDF <span>↓</span></a>
           </div>
         </article>
       </div>
@@ -103,31 +104,6 @@
   <footer class="site-footer">
     <span id="footer-property">CASA VERDE</span><span id="footer-studio">PEGORARO STUDIO</span><small id="footer-copyright">© Pegoraro Studio — Todos os direitos reservados.</small>
   </footer>
-  <script type="module">
-    const property = await fetch('property.json').then((response) => response.json());
-    document.title = `${property.title} — Pegoraro Studio`;
-    document.querySelector('#title').innerHTML = property.title.replace(/\s+/g, '<br>');
-    document.querySelector('#hero-eyebrow').textContent = property.heroEyebrow;
-    document.querySelector('#hero-subtitle').textContent = property.heroSubtitle;
-    document.querySelector('#intro-title').textContent = property.introTitle;
-    document.querySelector('#intro-copy').textContent = property.introCopy;
-    document.querySelector('#guide-title').innerHTML = property.guideTitle.replace(' ', '<br>');
-    document.querySelector('#guide-copy').textContent = property.guideCopy;
-    document.querySelector('#book-title').innerHTML = property.bookTitle.replace(' ', '<br>');
-    document.querySelector('#book-copy').textContent = property.bookCopy;
-    document.querySelector('#footer-property').textContent = property.footerProperty;
-    document.querySelector('#footer-studio').textContent = property.footerStudio;
-    document.querySelector('#footer-copyright').textContent = property.footerCopyright;
-    document.querySelectorAll('[data-material]').forEach((link) => {
-      const file = property.materials[link.dataset.material];
-      link.href = file;
-    });
-    if (window.matchMedia('(max-width: 700px)').matches) {
-      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
-      }), { threshold: 0.18, rootMargin: '0px 0px -8%' });
-      document.querySelectorAll('.mobile-reveal').forEach((item) => observer.observe(item));
-    }
-  </script>
+  <script type="module" src="../assets/property-page.js"></script>
 </body>
 </html>
