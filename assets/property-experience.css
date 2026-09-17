@@ -41,6 +41,7 @@ body{transition:opacity .35s ease}
   .hero-copy .eyebrow,.hero-copy h1,.hero-copy>p:last-child{margin-left:0;margin-right:0}
   .hero-copy>p:last-child{font-size:13px;line-height:1.45;max-width:30ch}
   .header-link{gap:7px;font-size:clamp(7px,2vw,8px)!important;letter-spacing:.13em}
+  .header-link .label{font-size:clamp(7px,2vw,8px)!important;font-weight:600;letter-spacing:.13em}
   .header-link span:last-child{font-size:12px}
   .scroll-note{right:18px;bottom:22px;font-size:7px;letter-spacing:.13em}
   .scroll-note span:last-child{margin-left:6px;font-size:12px}
