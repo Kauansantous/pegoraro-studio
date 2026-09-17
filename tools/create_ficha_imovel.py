@@ -224,28 +224,28 @@ line = HexColor("#B8B2A7")
 
 pages = [
     ("BRIEFING DO ANFITRIÃO", "Ficha do imóvel", "Preencha à caneta tudo o que estiver definido. Onde ainda houver dúvida, escreva 'a confirmar'.", [
-        ("VOCÊ JÁ POSSUI ANÚNCIO ATIVO", 1), ("LINK DO ANÚNCIO ATUAL", 1), ("NOME DE QUEM PREENCHE ESTA FICHA", 1), ("WHATSAPP E E-MAIL PARA APROVAÇÕES", 2), ("O QUE AINDA FALTA ENVIAR  FOTOS, VÍDEOS, REGRAS OU REFERÊNCIAS", 3)
+        ("O imóvel já tem anúncio ativo?  [ ] SIM  [ ] NÃO", 1), ("Se sim, qual é o link?", 1), ("Quem será nosso contato para aprovar o material?  Nome + WhatsApp + e-mail", 2), ("O que ainda será enviado?  [ ] FOTOS  [ ] VÍDEOS  [ ] REGRAS  [ ] OUTROS", 2)
     ]),
     ("02  IDENTIDADE E POSICIONAMENTO", "O imóvel em palavras", "Informações que guiam a capa, a ordem das fotos, o texto e a percepção do anúncio.", [
-        ("NOME OFICIAL DO IMÓVEL", 1), ("ENDEREÇO COMPLETO, COMPLEMENTO E PONTO DE REFERÊNCIA", 2), ("CIDADE, BAIRRO E PERFIL DE HÓSPEDE PRIORITÁRIO", 2), ("CAPACIDADE MÁXIMA E TRÊS DIFERENCIAIS QUE NÃO PODEM FALTAR", 3), ("COMO O IMÓVEL DEVE SER PERCEBIDO", 3)
+        ("Qual é o nome oficial do imóvel?", 1), ("Qual é o endereço completo e um ponto de referência?", 2), ("Em qual cidade/bairro fica? Quem você quer receber primeiro?", 2), ("Quantas pessoas podem se hospedar? Liste até 3 diferenciais.", 2), ("Complete: quero que o hóspede perceba esta casa como...", 2)
     ]),
     ("03  ESTRUTURA E ACOMODAÇÕES", "O que a casa oferece", "Dados técnicos para o anúncio e o manual do hóspede.", [
-        ("QUARTOS, SUÍTES E CAMA DE CADA QUARTO", 3), ("BANHEIROS, LAVABOS, ÁGUA QUENTE E ROUPARIA", 3), ("AMBIENTES DISPONÍVEIS  SALA, VARANDA, JARDIM, PISCINA E OUTROS", 3), ("COZINHA  ELETROS, CAFÉ, ÁGUA, FREEZER, LIXO E RECICLAGEM", 3), ("COMODIDADES  WI-FI, TV, AR, LAVANDERIA E GARAGEM", 2)
+        ("Quantos quartos e camas existem? Ex.: Suíte 1 — 1 cama queen.", 3), ("Quantos banheiros/lavabos? Há água quente em todos?", 2), ("Quais ambientes o hóspede pode usar? [ ] SALA [ ] VARANDA [ ] JARDIM [ ] PISCINA [ ] OUTROS", 2), ("O que existe na cozinha? Marque os itens disponíveis e indique alguma instrução especial.", 3), ("Quais comodidades existem? [ ] WI-FI [ ] TV [ ] AR [ ] LAVANDERIA [ ] GARAGEM [ ] OUTRAS", 2)
     ]),
     ("04  CHEGADA E ACESSO", "Como o hóspede entra", "Detalhes para um check-in sem chamadas de última hora.", [
-        ("HORÁRIO DE CHECK-IN E CHECK-OUT", 1), ("ENDEREÇO PARA GPS E LINK DO MAPA", 2), ("COMO ENTRAR  PORTARIA, PORTÃO, SENHA, CHAVE OU RECEPÇÃO", 3), ("CÓDIGO, RETIRADA DE CHAVE, CHAVE RESERVA E CONTROLES", 3), ("ESTACIONAMENTO  VAGAS, LOCAL E RESTRIÇÕES", 2), ("CONTATO PARA PROBLEMAS NA CHEGADA", 1)
+        ("Qual é o horário de entrada? E de saída?", 1), ("Qual endereço deve ser usado no GPS? Envie também o link do mapa.", 2), ("Como o hóspede entra na propriedade? Explique em até 3 passos.", 2), ("Existe senha, chave, controle ou chave reserva? Onde ficam?", 2), ("Há quantas vagas? Onde o hóspede deve estacionar?", 1), ("Quem deve ser chamado se houver problema na chegada?", 1)
     ]),
     ("05  FUNCIONAMENTO DA CASA", "Informações que evitam dúvidas", "Explique apenas o que o hóspede precisa saber para usar a casa com autonomia.", [
-        ("WI-FI  REDE E SENHA", 1), ("TV, STREAMING, AR-CONDICIONADO, VENTILADORES E CONTROLES", 3), ("COZINHA E LAVANDERIA  COMO USAR OS PRINCIPAIS ITENS", 3), ("PISCINA, HIDRO, SAUNA, CHURRASQUEIRA, JARDIM OU PRAIA", 3), ("ITENS OU ÁREAS QUE NÃO PODEM SER USADOS PELO HÓSPEDE", 2)
+        ("Qual é o nome da rede Wi-Fi e a senha?", 1), ("Quais aparelhos precisam de instrução? Ex.: TV, ar, aquecedor.", 2), ("Existe algum cuidado para usar cozinha ou lavanderia?", 2), ("Há horário ou regra para piscina, hidro, sauna, churrasqueira ou jardim?", 2), ("Existe alguma área, armário ou equipamento que o hóspede não deve usar?", 1)
     ]),
     ("06  REGRAS SEGURANÇA E SAÍDA", "O que precisa ficar claro", "Informações objetivas para uma convivência tranquila e uma saída organizada.", [
-        ("SILÊNCIO, FUMO, PETS, VISITAS, FESTAS E CAPACIDADE", 3), ("CUIDADOS DO DIA A DIA E ÁREAS RESTRITAS", 2), ("PRIMEIROS SOCORROS, DISJUNTORES, GÁS, EXTINTOR E SEGURANÇA", 3), ("HOSPITAL, UPA, SAMU, BOMBEIROS E RESPONSÁVEL LOCAL", 3), ("CHECK-OUT  LOUÇA, LIXO, LUZES, AR, PORTAS, CHAVE E AVISO", 3)
+        ("Quais são as regras para silêncio, fumo, pets, visitas e festas?", 2), ("Existe algum cuidado diário ou área restrita?", 1), ("Onde ficam extintor, disjuntores, registro de gás e primeiros socorros?", 2), ("Qual é o contato de emergência local? Informe hospital, UPA e responsável.", 2), ("O que o hóspede deve fazer antes de sair? Marque: [ ] LOUÇA [ ] LIXO [ ] LUZES [ ] AR [ ] PORTAS [ ] CHAVE", 2)
     ]),
     ("07  EXPERIÊNCIA DO HÓSPEDE", "O que vale recomendar", "Dicas e contatos que tornam a estadia mais fácil e mais especial.", [
-        ("ANFITRIÃO, GESTOR, WHATSAPP, E-MAIL, EMERGÊNCIA E AVALIAÇÃO", 3), ("RESTAURANTE, CAFÉ, PADARIA, MERCADO E FARMÁCIA", 3), ("PRAIA, PASSEIO, TRILHA OU EXPERIÊNCIA IMPERDÍVEL", 2), ("CAFÉ DA MANHÃ, PÔR DO SOL, PAUSA OU RITUAL SUGERIDO", 2), ("MENSAGEM DE BOAS-VINDAS E ASSINATURA DO ANFITRIÃO", 2)
+        ("Quem é o anfitrião ou gestor? Informe nome, WhatsApp e e-mail.", 2), ("Indique 1 restaurante, 1 café, 1 mercado e 1 farmácia próximos.", 2), ("Qual passeio ou experiência você recomenda ao hóspede?", 2), ("Existe um momento especial da casa que vale sugerir?", 1), ("Há alguma mensagem de boas-vindas que você gostaria de deixar?", 2)
     ]),
     ("08  FOTOS PUBLICAÇÃO E APROVAÇÃO", "Antes de colocar no ar", "Última checagem para publicar com consistência e sem improvisos.", [
-        ("LINK DAS FOTOS E VÍDEOS EXISTENTES", 1), ("AMBIENTES OBRIGATÓRIOS E ITENS QUE NÃO PODEM APARECER", 3), ("FOTO PREFERIDA PARA CAPA E MOTIVO", 2), ("PLATAFORMAS DE PUBLICAÇÃO E COMODIDADES A CONFIRMAR", 2), ("RESPONSÁVEL POR APROVAR, PRAZO E AUTORIZAÇÃO PARA PORTFÓLIO", 3)
+        ("Onde estão as fotos e vídeos? Cole aqui o link da pasta.", 1), ("Existe algum ambiente ou item que precisa aparecer? E algo que não pode aparecer?", 2), ("Você já tem uma foto de capa preferida? Qual e por quê?", 1), ("Onde o imóvel será publicado? [ ] AIRBNB [ ] BOOKING [ ] SITE [ ] OUTRO", 1), ("Quem aprova o material? Qual prazo? Podemos mostrar o projeto no portfólio? [ ] SIM [ ] NÃO", 2)
     ]),
 ]
 
