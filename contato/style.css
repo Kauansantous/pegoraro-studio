@@ -89,19 +89,6 @@ a {
 .contact-closing { animation-delay: .1s; }
 .site-footer { animation: contact-fade-in .9s .16s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
-.contact-options::before {
-  position: absolute;
-  top: 0;
-  right: 8vw;
-  left: 8vw;
-  height: 1px;
-  content: "";
-  background: rgba(23, 23, 23, .15);
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: contact-draw-rule .78s .45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 .contact-option {
   position: relative;
   transition: transform .42s cubic-bezier(0.22, 1, 0.36, 1), opacity .32s ease;
@@ -134,14 +121,6 @@ a {
   to { opacity: 1; }
 }
 
-@keyframes contact-draw-rule {
-  to { transform: scaleX(1); }
-}
-
-@media (max-width: 768px) {
-  .contact-options::before { right: 7vw; left: 7vw; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .desktop-header,
   .contact-hero > div,
@@ -149,9 +128,6 @@ a {
   .contact-options,
   .contact-closing,
   .site-footer,
-  .contact-options::before {
-    animation: none;
-  }
 }
 
 .desktop-brand--logo {
