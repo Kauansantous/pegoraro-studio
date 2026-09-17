@@ -37,22 +37,6 @@
   };
   hero && hero.addEventListener('pointermove', setHeroLight, { passive: true });
 
-  if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
-    document.querySelectorAll('.hero-link,.diagnostic-link').forEach(function (link) {
-      link.addEventListener('pointermove', function (event) {
-        var rect = link.getBoundingClientRect();
-        var x = (event.clientX - rect.left - rect.width / 2) * .11;
-        var y = (event.clientY - rect.top - rect.height / 2) * .11;
-        link.style.setProperty('--magnet-x', x.toFixed(1) + 'px');
-        link.style.setProperty('--magnet-y', y.toFixed(1) + 'px');
-      });
-      link.addEventListener('pointerleave', function () {
-        link.style.setProperty('--magnet-x', '0px');
-        link.style.setProperty('--magnet-y', '0px');
-      });
-    });
-  }
-
   var ticking = false;
   var render = function () {
     var scroll = Math.max(0, window.scrollY);

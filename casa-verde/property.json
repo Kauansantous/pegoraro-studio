@@ -4,7 +4,7 @@
   "navigation": { "materialsLabel": "Acessar materiais" },
   "hero": {
     "eyebrow": "APRESENTAÇÃO DO IMÓVEL", "titleLines": ["Casa", "Verde"],
-    "subtitle": "Um lugar para desacelerar, observar e ficar.", "scrollLabel": "Role para descobrir",
+    "subtitle": "Um lugar para desacelerar, observar e ficar.",
     "image": { "src": "images/foto-01.avif", "alt": "Vista da Casa Verde", "position": "58% center" }
   },
   "intro": {

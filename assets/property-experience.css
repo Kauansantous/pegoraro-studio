@@ -7,6 +7,7 @@ body{transition:opacity .35s ease}
 .hero>img{animation:none;transform:translate3d(0,var(--hero-y,0),0) scale(var(--hero-scale,1.06));will-change:transform}
 .hero-shade{opacity:var(--hero-shade-opacity,1);will-change:opacity}
 .hero-copy{opacity:var(--hero-copy-opacity,1);transform:translate3d(0,var(--hero-copy-y,0),0);will-change:transform,opacity}
+.hero-copy>p:last-child{font-size:14px;line-height:1.5}
 .hero .eyebrow,.hero h1,.hero-copy>p:last-child{transition:letter-spacing .7s cubic-bezier(.22,1,.36,1)}
 .hero:hover h1{letter-spacing:-.075em}
 .intro h2{background:linear-gradient(90deg,var(--ink) 0,var(--ink) var(--intro-reveal,0%),rgba(23,35,30,.16) var(--intro-reveal,0%),rgba(23,35,30,.16) 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
@@ -21,6 +22,7 @@ body{transition:opacity .35s ease}
 .material-actions a:hover{opacity:1;background:#17231e;color:#f4f2ed;border-color:#17231e}
 .material-card--dark .material-actions a:hover{background:#f4f2ed;color:#17231e;border-color:#f4f2ed}
 .section-rail{position:fixed;z-index:12;top:50%;right:24px;display:grid;gap:12px;transform:translateY(-50%)}
+.scroll-note{display:none!important}
 .section-rail button{position:relative;width:22px;height:8px;margin:0;padding:0;border:0;background:transparent;cursor:pointer}
 .section-rail button::before{content:"";position:absolute;top:50%;right:0;width:8px;height:1px;background:rgba(244,242,237,.5);transition:width .35s ease,background-color .35s ease;box-shadow:0 1px 5px rgba(0,0,0,.35)}
 .section-rail button.is-active::before,.section-rail button:hover::before{width:22px;background:#d4b166}
@@ -35,6 +37,9 @@ body{transition:opacity .35s ease}
   .hero>img{transform:translate3d(0,var(--hero-y,0),0) scale(var(--hero-scale,1.08))}
   .hero-copy{transform:none}
   .site-header.is-scrolled{height:58px}
+  .hero-copy{left:clamp(18px,6vw,32px);right:clamp(18px,6vw,32px);max-width:none}
+  .hero-copy .eyebrow,.hero-copy h1,.hero-copy>p:last-child{margin-left:0;margin-right:0}
+  .hero-copy>p:last-child{font-size:13px;line-height:1.45;max-width:30ch}
   .header-link{gap:7px;font-size:clamp(7px,2vw,8px)!important;letter-spacing:.13em}
   .header-link span:last-child{font-size:12px}
   .scroll-note{right:18px;bottom:22px;font-size:7px;letter-spacing:.13em}
