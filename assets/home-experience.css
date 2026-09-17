@@ -7,7 +7,7 @@
 .home-page .hero-content{opacity:var(--hero-copy-opacity);transform:translate3d(0,var(--hero-copy-y),0);will-change:transform,opacity}
 .home-page .hero h1{transition:none}
 .home-page .hero-link::before{display:none}
-.home-page .introduction h2{background:linear-gradient(90deg,#f4f2ed 0,#f4f2ed var(--intro-reveal),rgba(244,242,237,.25) var(--intro-reveal),rgba(244,242,237,.25) 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.home-page .introduction h2{background:none;background-clip:initial;-webkit-background-clip:initial;color:#f4f2ed}
 .home-page .services .service{transition:border-color .45s ease,background-color .45s ease,transform .45s cubic-bezier(.22,1,.36,1)}
 .home-page .services .service.is-current{border-color:rgba(216,184,117,.68);transform:translateX(-.75rem)}
 .home-page .services .service.is-current h3{color:#fff}
