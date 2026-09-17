@@ -85,10 +85,45 @@ try {
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const header = document.querySelector('.site-header');
+const hero = document.querySelector('.hero');
+const intro = document.querySelector('.intro');
+const galleryFigures = [...document.querySelectorAll('.gallery figure')];
 const progressBar = document.createElement('div');
 progressBar.className = 'property-progress';
 progressBar.setAttribute('aria-hidden', 'true');
 document.body.prepend(progressBar);
+
+const sections = [
+  { element: hero, label: 'Abertura' },
+  { element: intro, label: 'Experiência' },
+  { element: document.querySelector('.gallery'), label: 'Galeria' },
+  { element: document.querySelector('.materials'), label: 'Materiais' }
+].filter((item) => item.element);
+
+sections.forEach((item, index) => {
+  if (!item.element.id) item.element.id = `secao-${index + 1}`;
+});
+
+const rail = document.createElement('nav');
+rail.className = 'section-rail';
+rail.setAttribute('aria-label', 'Navegação desta página');
+sections.forEach((item, index) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.setAttribute('aria-label', `Ir para ${item.label}`);
+  button.innerHTML = `<span>${item.label}</span>`;
+  button.addEventListener('click', () => item.element.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }));
+  rail.append(button);
+});
+document.body.append(rail);
+
+document.querySelectorAll('.material-card').forEach((card) => {
+  card.addEventListener('pointermove', (event) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
+  });
+});
 const revealItems = document.querySelectorAll('.intro>* ,.gallery figure,.gallery-note,.materials>.eyebrow,.materials>h2,.material-card');
 
 revealItems.forEach((item) => item.classList.add('experience-reveal'));
@@ -112,9 +147,31 @@ const renderScroll = () => {
   root.style.setProperty('--hero-y', `${progress * 28}px`);
   root.style.setProperty('--hero-scale', String(1.06 + progress * .05));
   root.style.setProperty('--hero-copy-y', `${progress * -22}px`);
+  root.style.setProperty('--hero-copy-opacity', String(1 - progress * .72));
+  root.style.setProperty('--hero-shade-opacity', String(1 - progress * .2));
   const pageMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   progressBar.style.transform = `scaleX(${Math.min(1, scroll / pageMax)})`;
   header?.classList.toggle('is-scrolled', scroll > 20);
+
+  if (intro && window.innerWidth > 700) {
+    const rect = intro.getBoundingClientRect();
+    const reveal = Math.max(0, Math.min(100, ((window.innerHeight * .82 - rect.top) / (window.innerHeight * .62)) * 100));
+    intro.style.setProperty('--intro-reveal', `${reveal}%`);
+  }
+
+  if (window.innerWidth > 700) {
+    galleryFigures.forEach((figure, index) => {
+      const rect = figure.getBoundingClientRect();
+      const centerOffset = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      figure.style.setProperty('--gallery-y', `${centerOffset * (index % 2 ? -20 : 20)}px`);
+    });
+  }
+
+  let activeIndex = 0;
+  sections.forEach((item, index) => {
+    if (item.element.getBoundingClientRect().top <= window.innerHeight * .48) activeIndex = index;
+  });
+  [...rail.children].forEach((button, index) => button.classList.toggle('is-active', index === activeIndex));
   ticking = false;
 };
 
