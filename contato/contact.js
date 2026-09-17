@@ -8,14 +8,6 @@
     if (!element || !Array.isArray(lines)) return;
     element.replaceChildren(...lines.flatMap((line, index) => index ? [document.createElement('br'), document.createTextNode(line)] : [document.createTextNode(line)]));
   };
-  const setAction = (selector, label, arrow = '↗') => {
-    const element = document.querySelector(selector);
-    if (!element || !label) return;
-    const icon = document.createElement('span');
-    icon.setAttribute('aria-hidden', 'true');
-    icon.textContent = arrow;
-    element.replaceChildren(document.createTextNode(label), icon);
-  };
   const createChannel = (channel, index) => {
     const link = document.createElement('a');
     link.className = 'contact-option'; link.href = channel.href || '#';
@@ -25,7 +17,7 @@
     const label = document.createElement('span'); label.className = 'contact-label'; label.textContent = channel.label || '';
     const title = document.createElement('h2'); title.textContent = channel.value || '';
     const main = document.createElement('div'); main.className = 'contact-main'; main.append(label, title);
-    const arrow = document.createElement('span'); arrow.className = 'contact-arrow'; arrow.textContent = '↗'; arrow.setAttribute('aria-hidden', 'true');
+    const arrow = document.createElement('span'); arrow.className = 'contact-arrow'; arrow.textContent = '→'; arrow.setAttribute('aria-hidden', 'true');
     link.append(number, main, arrow); return link;
   };
   const setActiveNavigation = () => {
@@ -56,11 +48,9 @@
       const config = await response.json();
       document.title = config.page?.title || document.title;
       setText('#contact-label', config.page?.label); setLines('#contact-title', config.page?.headline);
-      setText('#contact-intro', config.page?.intro); setText('#contact-status', config.page?.status);
+      setText('#contact-intro', config.page?.intro);
       document.querySelector('#contact-list').replaceChildren(...(config.channels || []).map(createChannel));
-      setText('#closing-label', config.closing?.label); setLines('#closing-title', config.closing?.headline); setAction('#closing-link', config.closing?.linkLabel);
-      const closingLink = document.querySelector('#closing-link'); closingLink.href = config.closing?.href || '#';
-      if (config.closing?.external) { closingLink.target = '_blank'; closingLink.rel = 'noopener noreferrer'; }
+      setText('#closing-label', config.closing?.label); setLines('#closing-title', config.closing?.headline);
       setText('#footer-studio', config.footer?.studio); setText('#footer-location', config.footer?.location); setText('#footer-copyright', config.footer?.copyright);
     } catch (error) { console.error(error); }
     setActiveNavigation(); enableExperience();

@@ -3,10 +3,8 @@
     "title": "Portfólio — Pegoraro Studio",
     "label": "PORTFÓLIO",
     "headline": ["Cada imagem antecipa", "uma experiência."],
-    "intro": "Uma seleção de projetos em que direção visual, atmosfera e narrativa transformam imóveis em experiências desejadas.",
-    "index": "SELECTED WORKS · 2026"
+    "intro": "Uma seleção de projetos em que direção visual, atmosfera e narrativa transformam imóveis em experiências desejadas."
   },
-  "projectAction": "Explorar projeto",
   "projects": [
     { "id": "projeto-01", "layout": "large", "title": "The Sunset View", "category": "FOTOGRAFIA · APRESENTAÇÃO", "href": "/company-profile/#portfolio-projeto-01", "mobileImage": "../assets/portfolio/projeto-01-mobile.avif", "desktopImage": "../assets/portfolio/projeto-01-desktop.avif", "alt": "The Sunset View" },
     { "id": "projeto-02", "layout": "small", "title": "Casa Noronha", "category": "FOTOGRAFIA · ESTRATÉGIA", "href": "/company-profile/#portfolio-projeto-02", "mobileImage": "../assets/portfolio/projeto-02-mobile.avif", "desktopImage": "../assets/portfolio/projeto-02-desktop.avif", "alt": "Casa Noronha" },

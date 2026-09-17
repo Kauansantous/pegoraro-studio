@@ -34,8 +34,7 @@
     const title = document.createElement('h2'); title.textContent = project.title || `Projeto ${index + 1}`;
     const titleBox = document.createElement('div'); titleBox.append(number, title);
     const category = document.createElement('span'); category.className = 'project-category'; category.textContent = project.category || '';
-    const projectAction = document.createElement('span'); projectAction.className = 'project-action'; projectAction.textContent = action; projectAction.setAttribute('aria-hidden', 'true');
-    const info = document.createElement('div'); info.className = 'project-info'; info.append(titleBox, category, projectAction);
+    const info = document.createElement('div'); info.className = 'project-info'; info.append(titleBox, category);
     link.append(image, info); article.append(link); return article;
   };
   const enableExperience = () => {

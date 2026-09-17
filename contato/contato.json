@@ -3,8 +3,7 @@
     "title": "Contato — Pegoraro Studio",
     "label": "CONTATO",
     "headline": ["Vamos conversar", "sobre seu imóvel."],
-    "intro": "Conte onde fica o imóvel e o que você está planejando. Se já houver um anúncio, envie o link.",
-    "status": "ATENDIMENTO DIGITAL · BRASIL"
+    "intro": "Conte onde fica o imóvel e o que você está planejando. Se já houver um anúncio, envie o link."
   },
   "channels": [
     { "label": "TELEFONE", "value": "(13) 92003-4981", "href": "tel:+5513920034981" },
@@ -14,10 +13,7 @@
   ],
   "closing": {
     "label": "PEGORARO STUDIO",
-    "headline": ["Pelo canal", "que preferir."],
-    "linkLabel": "Iniciar conversa",
-    "href": "https://wa.me/5513920034981",
-    "external": true
+    "headline": ["Pelo canal", "que preferir."]
   },
   "footer": {
     "studio": "PEGORARO STUDIO",
