@@ -288,12 +288,12 @@ a {
   grid-column: 1 / -1;
 }
 
-#projeto-02 {
+#projeto-03 {
   grid-column: 1 / 7;
   padding-left: var(--project-gutter);
 }
 
-#projeto-03 {
+#projeto-04 {
   grid-column: 7 / -1;
   align-self: start;
   margin-top: clamp(5rem, 9vw, 10rem);
