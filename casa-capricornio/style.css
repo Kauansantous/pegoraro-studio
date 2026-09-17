@@ -1,9 +1,10 @@
 :root{--ink:#17231e;--paper:#f4f2ed;--sage:#aab7a4;--cream:#ebe5d9;--line:rgba(23,35,30,.18)}
 html,body{overflow-x:hidden;max-width:100%}
+@media (min-width:701px){.hero-copy>p:last-child{transform:translateY(28px)}}
 @media (max-width:700px){
   .hero{min-height:100svh;width:100%;}
   .hero-copy{left:clamp(18px,6vw,32px);right:clamp(18px,6vw,32px);max-width:none;}
-  .hero h1{font-size:clamp(56px,17vw,104px);line-height:.86;letter-spacing:-.075em;overflow-wrap:anywhere;max-width:100%;}
+  .hero h1{font-size:clamp(54px,15.5vw,92px);line-height:.86;letter-spacing:-.075em;white-space:nowrap;word-break:normal;overflow-wrap:normal;max-width:100%;}
   .hero-copy>p:last-child{font-size:clamp(14px,4vw,16px);}
   .scroll-note{right:clamp(18px,6vw,32px);}
   .site-header{padding-inline:clamp(16px,5vw,28px);}
