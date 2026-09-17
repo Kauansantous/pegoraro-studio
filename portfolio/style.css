@@ -475,6 +475,12 @@ a {
   .projects .project:nth-child(3),
   .projects .project:nth-child(5),
   .projects .project:nth-child(8) { width: min(100%, 760px); }
+
+  /* Solar de Itacuruçá closes the sequence as a centered vertical frame. */
+  .projects .project:nth-child(8) {
+    align-self: center;
+    width: min(100%, 980px);
+  }
 }
 
 
