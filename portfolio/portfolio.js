@@ -26,8 +26,11 @@
     const picture = document.createElement('picture');
     const source = document.createElement('source'); source.media = '(max-width: 768px)'; source.srcset = project.mobileImage || project.desktopImage;
     const img = document.createElement('img');
-    img.src = project.desktopImage || project.mobileImage; img.alt = project.alt || project.title || '';
+    const mobile = window.matchMedia('(max-width: 768px)').matches;
+    img.src = (mobile ? project.mobileImage : project.desktopImage) || project.desktopImage || project.mobileImage;
+    img.alt = project.alt || project.title || '';
     img.loading = index < 2 ? 'eager' : 'lazy'; img.decoding = 'async';
+    if (index === 0) img.fetchPriority = 'high';
     picture.append(source, img);
     const image = document.createElement('div'); image.className = 'project-image'; image.append(picture);
     const number = document.createElement('span'); number.className = 'project-number'; number.textContent = String(index + 1).padStart(2, '0');

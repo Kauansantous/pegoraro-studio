@@ -237,10 +237,10 @@ a {
 .portfolio-intro h1 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
-  font-size: clamp(58px, 8vw, 120px);
+  font-size: clamp(58px, 7vw, 120px);
   line-height: 0.92;
   letter-spacing: -0.045em;
-  max-width: 900px;
+  max-width: 1250px;
 }
 
 .intro-text {
@@ -504,7 +504,8 @@ a {
   }
 
   .portfolio-intro h1 {
-    font-size: clamp(48px, 14vw, 78px);
+    font-size: clamp(48px, 13.2vw, 78px);
+    max-width: 100%;
   }
 
   .intro-text {
