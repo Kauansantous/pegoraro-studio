@@ -269,7 +269,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+  border-bottom: 0;
 }
 
 .eyebrow,
@@ -305,6 +305,7 @@ a {
 
 .contact-options {
   padding: 0 8vw;
+  border-top: 1px solid rgba(23, 23, 23, 0.15);
 }
 
 .contact-option {
@@ -372,7 +373,7 @@ a {
 
 .site-footer {
   width: 100%;
-  border-top: 1px solid rgba(23, 23, 23, 0.18);
+  border-top: .5px solid rgba(23, 23, 23, 0.15);
   padding: 30px 5vw;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -426,6 +427,7 @@ a {
 
   .contact-options {
     padding: 0 7vw;
+    border-top-width: .5px;
   }
 
   .contact-option {
