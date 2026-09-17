@@ -2,112 +2,131 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Property Performance Report — Pegoraro Studio">
-  <title>Property Performance Report — Pegoraro Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Casa Verde — experiência editorial do imóvel">
+  <title>Casa Verde — Pegoraro Studio</title>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    @media (max-width:700px) {
+      .hero { min-height:92svh; }
+      .hero > img { transform:scale(1.08); object-position:58% center; }
+      .intro { padding:96px 7vw 112px; }
+      .gallery { position:relative; display:block; padding:0 0 110px; background:#17231e; overflow:hidden; }
+      .gallery::before { content:'RETRATOS DA CASA'; display:block; padding:24px 7vw 42px; color:rgba(244,242,237,.52); font-size:9px; font-weight:600; letter-spacing:.18em; }
+      .gallery figure { position:relative; box-shadow:0 26px 46px rgba(0,0,0,.32); }
+      .gallery .portrait { width:76vw; min-height:510px; margin:0 0 18px 7vw; }
+      .gallery .wide { width:86vw; min-height:330px; margin:0 0 18px auto; }
+      .gallery .landscape { width:70vw; min-height:400px; margin:0 0 0 12vw; }
+      .gallery .portrait img { object-position:54% center; }
+      .gallery .landscape img { object-position:55% center; }
+      .gallery-note { width:66vw; margin:0 0 0 auto; padding:42px 7vw 0 0; color:#f4f2ed; font-size:30px; line-height:1.02; }
+      .mobile-reveal { opacity:0; transform:translateY(38px) scale(.97); transition:opacity .8s ease,transform 1s cubic-bezier(.22,1,.36,1); }
+      .mobile-reveal.is-visible { opacity:1; transform:translateY(0) scale(1); }
+      .gallery .wide.mobile-reveal { transition-delay:.08s; }
+      .gallery .landscape.mobile-reveal { transition-delay:.14s; }
+      .materials { padding:88px 0 72px; }
+      .materials > .eyebrow,.materials > h2 { margin-left:7vw; margin-right:7vw; }
+      .materials > h2 { font-size:clamp(44px,13vw,70px); }
+      .material-grid { display:grid; gap:14px; margin:48px 7vw 0; background:transparent; }
+      .material-card { min-height:0; padding:28px 24px 24px; box-shadow:0 18px 38px rgba(23,35,30,.10); }
+      .material-number { margin:0 0 42px; }
+      .material-card h3 { margin:14px 0 16px; font-size:clamp(42px,12vw,58px); }
+      .material-card > p:not(.eyebrow) { font-size:13px; line-height:1.6; }
+      .material-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:28px; padding-top:16px; }
+      .material-actions a { display:flex; align-items:center; justify-content:space-between; min-height:46px; padding:0 12px; border:1px solid rgba(23,35,30,.22); font-size:8px; }
+      .material-card--dark .material-actions a { border-color:rgba(244,242,237,.24); }
+      .material-actions span { margin-left:5px; }
+    }
+  </style>
 </head>
-<body class="is-loading">
-  <header class="site-header" aria-label="Cabeçalho principal">
-    <a class="brand" href="../" aria-label="Pegoraro Studio — Home">
-      <img src="../assets/brand/pegoraro-monogram-centered.png" alt="">
-    </a>
-    <nav aria-label="Navegação principal">
-      <a href="../">HOME</a>
-      <a href="../portfolio/">PORTFÓLIO</a>
-      <a href="../company-profile/">COMPANY PROFILE</a>
-      <a href="../contato/">CONTATO</a>
-    </nav>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Pegoraro Studio — Home"><img src="../assets/brand/pegoraro-monogram-centered.png" alt=""></a>
+    <a class="header-link" href="#materiais">Acessar materiais <span>↓</span></a>
   </header>
 
   <main>
-    <section class="intro" aria-labelledby="report-title">
-      <p class="eyebrow" id="report-eyebrow">PEGORARO STUDIO · PROPERTY INTELLIGENCE</p>
-      <h1 id="report-title">Property Performance<br>Report</h1>
-      <p class="intro-copy" id="report-intro">Uma leitura estratégica da presença, percepção e potencial do seu imóvel.</p>
-      <a class="download-button" id="top-download" href="#report-viewer">
-        <span aria-hidden="true">↓</span> Ver avaliação completa
-      </a>
+    <section class="hero" aria-labelledby="title">
+      <img src="images/foto-01.avif" alt="Vista da Casa Verde" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow" id="hero-eyebrow">APRESENTAÇÃO DO IMÓVEL</p>
+        <h1 id="title">Casa<br>Verde.</h1>
+        <p id="hero-subtitle">Um lugar para desacelerar, observar e ficar.</p>
+      </div>
+      <p class="scroll-note">Role para descobrir <span>↓</span></p>
     </section>
 
-    <section class="document" aria-labelledby="document-title">
-      <div class="document-heading">
-        <p class="eyebrow" id="document-title">DOCUMENTO COMPLETO</p>
-        <p id="document-message">Descubra como revelar o potencial do seu imóvel e elevar a percepção de valor.</p>
-      </div>
-      <div id="report-viewer" class="pdf-viewer" aria-label="Property Performance Report"></div>
-      <div class="report-cta">
-        <p class="eyebrow" id="cta-eyebrow">RELATÓRIO INTERATIVO</p>
-        <h2 id="cta-title">Navegue pelo material original.</h2>
-        <a class="download-button" id="bottom-download" href="#report-viewer">
-          <span aria-hidden="true">↑</span> Voltar para o relatório
-        </a>
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">A EXPERIÊNCIA</p>
+      <h2 id="intro-title">Uma casa pensada para viver o tempo com mais calma.</h2>
+      <p id="intro-copy">Arquitetura, luz e paisagem se encontram em uma estadia desenhada para ser simples, confortável e memorável.</p>
+    </section>
+
+    <section class="gallery" aria-label="Retratos da Casa Verde">
+      <figure class="portrait mobile-reveal"><img src="images/foto-02.avif" alt="Detalhe arquitetônico da Casa Verde" loading="lazy"></figure>
+      <figure class="wide mobile-reveal"><img src="images/foto-03.avif" alt="Ambiente da Casa Verde" loading="lazy"></figure>
+      <figure class="landscape mobile-reveal"><img src="images/foto-04.avif" alt="Paisagem ao redor da Casa Verde" loading="lazy"></figure>
+      <p class="gallery-note mobile-reveal">Cada detalhe convida você a permanecer.</p>
+    </section>
+
+    <section class="materials" id="materiais" aria-labelledby="materials-title">
+      <p class="eyebrow">MATERIAIS DA CASA</p>
+      <h2 id="materials-title">Tudo o que você precisa, em um só lugar.</h2>
+      <div class="material-grid">
+        <article class="material-card">
+          <span class="material-number">01</span>
+          <p class="eyebrow">PARA A ESTADIA</p>
+          <h3 id="guide-title">Guia do<br>Hóspede</h3>
+          <p id="guide-copy">Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.</p>
+          <div class="material-actions">
+            <a data-material="guide" href="guia-do-hospede.pdf" target="_blank" rel="noopener">Abrir guia <span>→</span></a>
+            <a class="download" data-material="guide" href="guia-do-hospede.pdf" download>Baixar PDF <span>↓</span></a>
+          </div>
+        </article>
+        <article class="material-card material-card--dark">
+          <span class="material-number">02</span>
+          <p class="eyebrow">SOBRE O IMÓVEL</p>
+          <h3 id="book-title">Book do<br>Imóvel</h3>
+          <p id="book-copy">Uma apresentação editorial para conhecer os espaços, diferenciais e a história da casa.</p>
+          <div class="material-actions">
+            <a data-material="book" href="book-do-imovel.pdf" target="_blank" rel="noopener">Abrir book <span>→</span></a>
+            <a class="download" data-material="book" href="book-do-imovel.pdf" download>Baixar PDF <span>↓</span></a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
-  <footer class="site-footer" aria-label="Informações da Pegoraro Studio">
-    <span>PEGORARO STUDIO</span><span>CARAGUATATUBA · SP</span>
-    <small class="copyright">© Pegoraro Studio — Todos os direitos reservados.</small>
-  </footer>
 
-  <aside class="floating-bar" aria-label="Conheça a Pegoraro Studio">
-    <span>Conheça a visão por trás dos projetos.</span>
-    <a href="../company-profile/">Ver Company Profile <span aria-hidden="true">→</span></a>
-  </aside>
-</body>
-<script type="module">
-  import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs';
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
-  const viewer = document.querySelector('#report-viewer');
-  // Cada cópia da página usa automaticamente o nome da própria pasta como slug.
-  // Assim, ao duplicar /casa-capricornio/ para /casa-serra/, não é preciso editar o código.
-  const slug = window.location.pathname.split('/').filter(Boolean).at(-1) || 'casa-capricornio';
-  const packageBase = './';
-  const config = await fetch(`${packageBase}report.json`).then(response => {
-    if (!response.ok) throw new Error('Relatório não encontrado.');
-    return response.json();
-  });
-  document.body.classList.remove('is-loading');
-  document.title = `${config.title} — Pegoraro Studio`;
-  document.querySelector('#report-eyebrow').textContent = config.eyebrow;
-  document.querySelector('#report-title').textContent = config.title;
-  document.querySelector('#report-intro').textContent = config.intro;
-  document.querySelector('#document-title').textContent = config.documentLabel;
-  document.querySelector('#document-message').textContent = config.documentMessage;
-  document.querySelector('#cta-eyebrow').textContent = config.ctaEyebrow;
-  document.querySelector('#cta-title').textContent = config.ctaTitle;
-  const pdf = await pdfjsLib.getDocument(`${packageBase}${config.pdf}`).promise;
-  const pdfUrl = `${packageBase}${config.pdf}`;
-  for (const id of ['top-download','bottom-download']) {
-    const button = document.getElementById(id);
-    button.href = pdfUrl;
-    button.download = `${slug}.pdf`;
-    button.innerHTML = '<span aria-hidden="true">↓</span> Baixar avaliação em PDF';
-  }
-  for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
-    const page = await pdf.getPage(pageNumber);
-    const base = page.getViewport({ scale: 1 });
-    const scale = Math.min(1.15, Math.max(0.5, (viewer.clientWidth - 4) / base.width));
-    const viewport = page.getViewport({ scale });
-    const sheet = document.createElement('article');
-    sheet.className = 'pdf-sheet';
-    sheet.setAttribute('aria-label', `Página ${pageNumber} de ${pdf.numPages}`);
-    const canvas = document.createElement('canvas');
-    canvas.width = viewport.width; canvas.height = viewport.height;
-    canvas.setAttribute('aria-hidden', 'true');
-    sheet.appendChild(canvas); viewer.appendChild(sheet);
-    await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-    const annotations = await page.getAnnotations();
-    annotations.filter(annotation => annotation.subtype === 'Link' && (annotation.url || annotation.unsafeUrl)).forEach(annotation => {
-      const link = document.createElement('a');
-      link.href = annotation.url || annotation.unsafeUrl; link.target = '_blank'; link.rel = 'noopener noreferrer';
-      link.className = 'pdf-link'; link.setAttribute('aria-label', 'Abrir referência externa');
-      const [x1, y1, x2, y2] = viewport.convertToViewportRectangle(annotation.rect);
-      link.style.left = `${Math.min(x1, x2)}px`; link.style.top = `${Math.min(y1, y2)}px`;
-      link.style.width = `${Math.abs(x2 - x1)}px`; link.style.height = `${Math.abs(y2 - y1)}px`;
-      sheet.appendChild(link);
+  <footer class="site-footer">
+    <span id="footer-property">CASA VERDE</span><span id="footer-studio">PEGORARO STUDIO</span><small id="footer-copyright">© Pegoraro Studio — Todos os direitos reservados.</small>
+  </footer>
+  <script type="module">
+    const property = await fetch('property.json').then((response) => response.json());
+    document.title = `${property.title} — Pegoraro Studio`;
+    document.querySelector('#title').innerHTML = property.title.replace(/\s+/g, '<br>');
+    document.querySelector('#hero-eyebrow').textContent = property.heroEyebrow;
+    document.querySelector('#hero-subtitle').textContent = property.heroSubtitle;
+    document.querySelector('#intro-title').textContent = property.introTitle;
+    document.querySelector('#intro-copy').textContent = property.introCopy;
+    document.querySelector('#guide-title').innerHTML = property.guideTitle.replace(' ', '<br>');
+    document.querySelector('#guide-copy').textContent = property.guideCopy;
+    document.querySelector('#book-title').innerHTML = property.bookTitle.replace(' ', '<br>');
+    document.querySelector('#book-copy').textContent = property.bookCopy;
+    document.querySelector('#footer-property').textContent = property.footerProperty;
+    document.querySelector('#footer-studio').textContent = property.footerStudio;
+    document.querySelector('#footer-copyright').textContent = property.footerCopyright;
+    document.querySelectorAll('[data-material]').forEach((link) => {
+      const file = property.materials[link.dataset.material];
+      link.href = file;
     });
-  }
-</script>
+    if (window.matchMedia('(max-width: 700px)').matches) {
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+      }), { threshold: 0.18, rootMargin: '0px 0px -8%' });
+      document.querySelectorAll('.mobile-reveal').forEach((item) => observer.observe(item));
+    }
+  </script>
+</body>
 </html>

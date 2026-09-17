@@ -1,0 +1,15 @@
+{
+  "title": "Casa Capricórnio",
+  "heroEyebrow": "APRESENTAÇÃO DO IMÓVEL",
+  "heroSubtitle": "Um lugar para desacelerar, observar e ficar.",
+  "introTitle": "Uma casa pensada para viver o tempo com mais calma.",
+  "introCopy": "Arquitetura, luz e paisagem se encontram em uma estadia desenhada para ser simples, confortável e memorável.",
+  "guideTitle": "Guia do Hóspede",
+  "guideCopy": "Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.",
+  "bookTitle": "Book do Imóvel",
+  "bookCopy": "Uma apresentação editorial para conhecer os espaços, diferenciais e a história da casa.",
+  "footerProperty": "CASA CAPRICÓRNIO",
+  "footerStudio": "PEGORARO STUDIO",
+  "footerCopyright": "© Pegoraro Studio — Todos os direitos reservados.",
+  "materials": { "guide": "guia-do-hospede.pdf", "book": "book-do-imovel.pdf" }
+}

@@ -25,12 +25,18 @@
       .mobile-reveal.is-visible { opacity:1; transform:translateY(0) scale(1); }
       .gallery .wide.mobile-reveal { transition-delay:.08s; }
       .gallery .landscape.mobile-reveal { transition-delay:.14s; }
-      .materials { padding:88px 0 0; }
+      .materials { padding:88px 0 72px; }
       .materials > .eyebrow,.materials > h2 { margin-left:7vw; margin-right:7vw; }
       .materials > h2 { font-size:clamp(44px,13vw,70px); }
-      .material-grid { margin-top:48px; }
-      .material-card { padding:34px 7vw; }
-      .material-card h3 { font-size:clamp(52px,15vw,76px); }
+      .material-grid { display:grid; gap:14px; margin:48px 7vw 0; background:transparent; }
+      .material-card { min-height:0; padding:28px 24px 24px; box-shadow:0 18px 38px rgba(23,35,30,.10); }
+      .material-number { margin:0 0 42px; }
+      .material-card h3 { margin:14px 0 16px; font-size:clamp(42px,12vw,58px); }
+      .material-card > p:not(.eyebrow) { font-size:13px; line-height:1.6; }
+      .material-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:28px; padding-top:16px; }
+      .material-actions a { display:flex; align-items:center; justify-content:space-between; min-height:46px; padding:0 12px; border:1px solid rgba(23,35,30,.22); font-size:8px; }
+      .material-card--dark .material-actions a { border-color:rgba(244,242,237,.24); }
+      .material-actions span { margin-left:5px; }
     }
   </style>
 </head>
@@ -42,12 +48,12 @@
 
   <main>
     <section class="hero" aria-labelledby="title">
-      <img src="../assets/portfolio/projeto-01-desktop.avif" alt="Vista da Casa Verde" fetchpriority="high">
+      <img src="images/foto-01.avif" alt="Vista da Casa Verde" fetchpriority="high">
       <div class="hero-shade"></div>
       <div class="hero-copy">
-        <p class="eyebrow">APRESENTAÇÃO DO IMÓVEL</p>
+        <p class="eyebrow" id="hero-eyebrow">APRESENTAÇÃO DO IMÓVEL</p>
         <h1 id="title">Casa<br>Verde.</h1>
-        <p>Um lugar para desacelerar, observar e ficar.</p>
+        <p id="hero-subtitle">Um lugar para desacelerar, observar e ficar.</p>
       </div>
       <p class="scroll-note">Role para descobrir <span>↓</span></p>
     </section>
@@ -55,13 +61,13 @@
     <section class="intro" aria-labelledby="intro-title">
       <p class="eyebrow">A EXPERIÊNCIA</p>
       <h2 id="intro-title">Uma casa pensada para viver o tempo com mais calma.</h2>
-      <p>Arquitetura, luz e paisagem se encontram em uma estadia desenhada para ser simples, confortável e memorável.</p>
+      <p id="intro-copy">Arquitetura, luz e paisagem se encontram em uma estadia desenhada para ser simples, confortável e memorável.</p>
     </section>
 
     <section class="gallery" aria-label="Retratos da Casa Verde">
-      <figure class="portrait mobile-reveal"><img src="../assets/portfolio/projeto-02-desktop.avif" alt="Detalhe arquitetônico da Casa Verde" loading="lazy"></figure>
-      <figure class="wide mobile-reveal"><img src="../assets/portfolio/projeto-03-desktop.avif" alt="Ambiente da Casa Verde" loading="lazy"></figure>
-      <figure class="landscape mobile-reveal"><img src="../assets/portfolio/projeto-04-desktop.avif" alt="Paisagem ao redor da Casa Verde" loading="lazy"></figure>
+      <figure class="portrait mobile-reveal"><img src="images/foto-02.avif" alt="Detalhe arquitetônico da Casa Verde" loading="lazy"></figure>
+      <figure class="wide mobile-reveal"><img src="images/foto-03.avif" alt="Ambiente da Casa Verde" loading="lazy"></figure>
+      <figure class="landscape mobile-reveal"><img src="images/foto-04.avif" alt="Paisagem ao redor da Casa Verde" loading="lazy"></figure>
       <p class="gallery-note mobile-reveal">Cada detalhe convida você a permanecer.</p>
     </section>
 
@@ -72,21 +78,21 @@
         <article class="material-card">
           <span class="material-number">01</span>
           <p class="eyebrow">PARA A ESTADIA</p>
-          <h3>Guia do<br>Hóspede</h3>
-          <p>Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.</p>
+          <h3 id="guide-title">Guia do<br>Hóspede</h3>
+          <p id="guide-copy">Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.</p>
           <div class="material-actions">
-            <a href="guia-do-hospede.pdf" target="_blank" rel="noopener">Abrir guia <span>→</span></a>
-            <a class="download" href="guia-do-hospede.pdf" download>Baixar PDF <span>↓</span></a>
+            <a data-material="guide" href="guia-do-hospede.pdf" target="_blank" rel="noopener">Abrir guia <span>→</span></a>
+            <a class="download" data-material="guide" href="guia-do-hospede.pdf" download>Baixar PDF <span>↓</span></a>
           </div>
         </article>
         <article class="material-card material-card--dark">
           <span class="material-number">02</span>
           <p class="eyebrow">SOBRE O IMÓVEL</p>
-          <h3>Book do<br>Imóvel</h3>
-          <p>Uma apresentação editorial para conhecer os espaços, diferenciais e a história da casa.</p>
+          <h3 id="book-title">Book do<br>Imóvel</h3>
+          <p id="book-copy">Uma apresentação editorial para conhecer os espaços, diferenciais e a história da casa.</p>
           <div class="material-actions">
-            <a href="book-do-imovel.pdf" target="_blank" rel="noopener">Abrir book <span>→</span></a>
-            <a class="download" href="book-do-imovel.pdf" download>Baixar PDF <span>↓</span></a>
+            <a data-material="book" href="book-do-imovel.pdf" target="_blank" rel="noopener">Abrir book <span>→</span></a>
+            <a class="download" data-material="book" href="book-do-imovel.pdf" download>Baixar PDF <span>↓</span></a>
           </div>
         </article>
       </div>
@@ -94,9 +100,27 @@
   </main>
 
   <footer class="site-footer">
-    <span>CASA VERDE</span><span>PEGORARO STUDIO</span><small>© Pegoraro Studio — Todos os direitos reservados.</small>
+    <span id="footer-property">CASA VERDE</span><span id="footer-studio">PEGORARO STUDIO</span><small id="footer-copyright">© Pegoraro Studio — Todos os direitos reservados.</small>
   </footer>
-  <script>
+  <script type="module">
+    const property = await fetch('property.json').then((response) => response.json());
+    document.title = `${property.title} — Pegoraro Studio`;
+    document.querySelector('#title').innerHTML = property.title.replace(/\s+/g, '<br>');
+    document.querySelector('#hero-eyebrow').textContent = property.heroEyebrow;
+    document.querySelector('#hero-subtitle').textContent = property.heroSubtitle;
+    document.querySelector('#intro-title').textContent = property.introTitle;
+    document.querySelector('#intro-copy').textContent = property.introCopy;
+    document.querySelector('#guide-title').innerHTML = property.guideTitle.replace(' ', '<br>');
+    document.querySelector('#guide-copy').textContent = property.guideCopy;
+    document.querySelector('#book-title').innerHTML = property.bookTitle.replace(' ', '<br>');
+    document.querySelector('#book-copy').textContent = property.bookCopy;
+    document.querySelector('#footer-property').textContent = property.footerProperty;
+    document.querySelector('#footer-studio').textContent = property.footerStudio;
+    document.querySelector('#footer-copyright').textContent = property.footerCopyright;
+    document.querySelectorAll('[data-material]').forEach((link) => {
+      const file = property.materials[link.dataset.material];
+      link.href = file;
+    });
     if (window.matchMedia('(max-width: 700px)').matches) {
       const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
         if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
