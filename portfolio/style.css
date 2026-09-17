@@ -430,6 +430,53 @@ a {
   }
 }
 
+/* Desktop portfolio reset: editorial rhythm without implicit grid rows. */
+@media (min-width: 769px) {
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(7rem, 13vw, 13rem);
+    padding: clamp(6rem, 10vw, 11rem) var(--project-gutter) clamp(10rem, 16vw, 18rem);
+  }
+
+  .projects .project,
+  .projects #projeto-02,
+  .projects #projeto-03,
+  .projects #projeto-04,
+  .projects #projeto-05,
+  .projects #projeto-06 {
+    width: min(100%, 1180px);
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    grid-column: auto;
+  }
+
+  .projects .project:nth-child(odd) { align-self: flex-start; }
+  .projects .project:nth-child(even) { align-self: flex-end; }
+  .projects .project--poente-atlantico,
+  .projects .project-large { width: min(100%, 1280px); }
+
+  .projects .project-image,
+  .projects .project-image picture,
+  .projects .project-image img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    object-fit: cover;
+  }
+
+  .projects .project-info,
+  .projects .project-large .project-info {
+    padding: clamp(1.25rem, 2vw, 2.5rem) 0 0;
+  }
+
+  .projects .project:nth-child(3),
+  .projects .project:nth-child(5),
+  .projects .project:nth-child(8) { width: min(100%, 760px); }
+}
+
 
 /* CTA */
 
