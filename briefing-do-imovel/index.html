@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Briefing editorial do imóvel — Pegoraro Studio">
+  <title>Briefing do Imóvel — Pegoraro Studio</title>
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="../"><img src="../assets/brand/pegoraro-monogram-centered.png" alt="Pegoraro Studio"></a><span>BRIEFING DO IMÓVEL · 01—07</span></header>
+  <main>
+    <section class="cover" aria-labelledby="page-title">
+      <img src="../assets/home/home-02-desktop.avif" alt="Arquitetura e interior de um imóvel" fetchpriority="high">
+      <div class="cover-shade"></div>
+      <div class="cover-copy"><p class="eyebrow">PEGORARO STUDIO</p><h1 id="page-title">Vamos dar forma<br>ao seu imóvel.</h1><p>Um briefing claro para transformar informações em uma experiência de hospedagem memorável.</p><a class="start" href="#formulario">Começar briefing <span>↓</span></a></div>
+    </section>
+    <section class="form-area" id="formulario">
+      <div class="form-intro"><p class="eyebrow">ANTES DE COMEÇAR</p><h2>Conte o essencial.<br>O resto, nós construímos.</h2><p>Leva cerca de 8 minutos. Você pode pausar e continuar depois no mesmo dispositivo.</p></div>
+      <form id="briefing-form" action="https://formsubmit.co/contato@pegorarostudio.com" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="_subject" value="Novo briefing de imóvel — Pegoraro Studio">
+        <input type="hidden" name="_next" value="https://pegorarostudio.com/briefing-do-imovel/?enviado=1">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div class="progress"><span><i></i></span><small><b id="step-number">01</b> / 07</small></div>
+        <fieldset class="step is-active" data-step="1"><p class="eyebrow">01 · CONTATO</p><h3>Quem está nos contando<br>sobre este imóvel?</h3><label>Seu nome<input name="nome" required autocomplete="name" placeholder="Nome completo"></label><label>WhatsApp para contato<input name="whatsapp" required inputmode="tel" placeholder="(00) 00000-0000"></label><label>E-mail para aprovações<input name="email" required type="email" autocomplete="email" placeholder="voce@email.com"></label></fieldset>
+        <fieldset class="step" data-step="2"><p class="eyebrow">02 · IDENTIDADE</p><h3>Como devemos apresentar<br>esta casa?</h3><label>Nome oficial do imóvel<input name="imovel" required placeholder="Ex.: Casa da Serra"></label><label>Cidade e bairro<input name="localidade" required placeholder="Onde o imóvel está localizado?"></label><label>Como você quer que o hóspede perceba o imóvel?<textarea name="percepcao" required placeholder="Ex.: acolhedor, silencioso, sofisticado e conectado à natureza."></textarea></label></fieldset>
+        <fieldset class="step" data-step="3"><p class="eyebrow">03 · ESTRUTURA</p><h3>O que a casa oferece<br>na prática?</h3><label>Capacidade máxima<input name="capacidade" required inputmode="numeric" placeholder="Quantos hóspedes?"></label><label>Quartos e camas<textarea name="quartos" required placeholder="Ex.: 2 suítes — 1 cama queen em cada. 1 quarto — 2 camas de solteiro."></textarea></label><label>Ambientes e diferenciais<textarea name="ambientes" required placeholder="Ex.: piscina, varanda, jardim, churrasqueira, vista... "></textarea></label></fieldset>
+        <fieldset class="step" data-step="4"><p class="eyebrow">04 · CHEGADA</p><h3>Como o hóspede<br>entra e estaciona?</h3><label>Horário de check-in e check-out<input name="horarios" required placeholder="Ex.: entrada às 14h · saída até 11h"></label><label>Como funciona a entrada?<textarea name="entrada" required placeholder="Portaria, senha, chave, cofre ou recepção. Explique em passos simples."></textarea></label><label>Estacionamento<textarea name="estacionamento" placeholder="Vagas, localização e alguma restrição."></textarea></label></fieldset>
+        <fieldset class="step" data-step="5"><p class="eyebrow">05 · FUNCIONAMENTO</p><h3>O que evita dúvidas<br>durante a estadia?</h3><label>Wi-Fi<input name="wifi" required placeholder="Rede e senha"></label><label>Regras essenciais<textarea name="regras" required placeholder="Silêncio, pets, festas, visitas, áreas restritas e cuidados importantes."></textarea></label><label>Contatos de emergência<textarea name="emergencia" placeholder="Responsável local, hospital, UPA, SAMU, bombeiros."></textarea></label></fieldset>
+        <fieldset class="step" data-step="6"><p class="eyebrow">06 · EXPERIÊNCIA</p><h3>O que você recomenda<br>para quem chega?</h3><label>Restaurante, café, mercado e farmácia<textarea name="recomendacoes" placeholder="Uma indicação de cada já é suficiente."></textarea></label><label>Experiência imperdível<textarea name="experiencia" placeholder="Passeio, praia, trilha ou ritual da casa."></textarea></label><label>Mensagem de boas-vindas<textarea name="boasvindas" placeholder="Se quiser, deixe uma mensagem em seu nome."></textarea></label></fieldset>
+        <fieldset class="step" data-step="7"><p class="eyebrow">07 · MATERIAIS</p><h3>Agora, envie o que<br>já estiver pronto.</h3><label>Link das fotos e vídeos<input name="link-fotos" type="url" placeholder="https://drive.google.com/..." ></label><label class="upload">Adicionar arquivos<input name="arquivos" type="file" multiple accept="image/*,video/*,.pdf"><span>Arraste aqui ou toque para escolher arquivos</span></label><label>Observações finais<textarea name="observacoes" placeholder="Alguma informação importante que ainda não perguntamos?"></textarea></label></fieldset>
+        <div class="form-actions"><button type="button" class="back" id="back">Voltar</button><button type="button" class="next" id="next">Continuar <span>→</span></button><button type="submit" class="finish">Revisar briefing <span>→</span></button></div>
+      </form>
+    </section>
+    <section class="success" id="success" hidden><p class="eyebrow">BRIEFING SALVO</p><h2>Obrigado por confiar<br>este imóvel a nós.</h2><p>Suas respostas estão prontas para revisão. Em breve entraremos em contato para confirmar os próximos passos.</p><a href="../contato/">Falar com a Pegoraro Studio <span>→</span></a></section>
+  </main>
+  <footer><span>PEGORARO STUDIO</span><span>BRIEFING DO IMÓVEL</span><small>© Todos os direitos reservados.</small></footer>
+  <script src="script.js"></script>
+</body>
+</html>
