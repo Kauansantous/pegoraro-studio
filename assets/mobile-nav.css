@@ -141,10 +141,10 @@
     position: absolute;
     inset: 0 0 auto;
     color: #f4f2ed;
-    background: rgba(10, 15, 14, 0.14);
-    border-bottom-color: rgba(244, 242, 237, 0.1);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
+    background: transparent;
+    border-bottom-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .home-page .ps-mobile-nav {
@@ -153,19 +153,18 @@
   }
 
   .home-page .ps-nav-header {
-    background: rgba(10, 15, 14, 0.14);
-    border-bottom-color: rgba(244, 242, 237, 0.1);
-    -webkit-backdrop-filter: blur(10px) saturate(130%);
-    backdrop-filter: blur(10px) saturate(130%);
-    transition: background 220ms ease, border-color 220ms ease, -webkit-backdrop-filter 220ms ease, backdrop-filter 220ms ease;
+    background: transparent;
+    border-bottom-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transition: none;
   }
 
-  .home-page .ps-mobile-nav[data-scrolled="true"] .ps-nav-header,
-  .home-page .ps-mobile-nav[data-open="true"] .ps-nav-header {
-    background: rgba(10, 15, 14, 0.56);
-    border-bottom-color: rgba(244, 242, 237, 0.12);
-    -webkit-backdrop-filter: blur(18px) saturate(145%);
-    backdrop-filter: blur(18px) saturate(145%);
+  .home-page .ps-mobile-nav[data-scrolled="true"] .ps-nav-header {
+    background: transparent;
+    border-bottom-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .home-page .ps-mobile-nav[data-in-flow] { position: absolute; }
