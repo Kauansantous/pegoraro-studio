@@ -60,18 +60,21 @@ html { scrollbar-color: rgba(198,161,90,.75) var(--dark); scrollbar-width: thin;
   padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
   color: #f4f2ed;
   border-bottom: 0;
-  background: rgba(10, 15, 14, 0.14);
-  -webkit-backdrop-filter: blur(10px) saturate(130%);
-  backdrop-filter: blur(10px) saturate(130%);
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   transition: color 260ms ease, background 260ms ease, border-color 260ms ease, backdrop-filter 260ms ease;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
 }
 
 body.at-hero .desktop-header {
   color: #f4f2ed;
-  border-color: rgba(244, 242, 237, 0.12);
-  background: rgba(10, 15, 14, 0.14);
-  -webkit-backdrop-filter: blur(10px) saturate(130%);
-  backdrop-filter: blur(10px) saturate(130%);
+  border-color: transparent;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 body:not(.at-hero) .desktop-header {
@@ -79,6 +82,9 @@ body:not(.at-hero) .desktop-header {
   background: rgba(10, 15, 14, 0.56);
   -webkit-backdrop-filter: blur(18px) saturate(145%);
   backdrop-filter: blur(18px) saturate(145%);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .desktop-brand,
