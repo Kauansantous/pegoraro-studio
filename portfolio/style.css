@@ -635,6 +635,14 @@ a {
   animation: portfolio-reveal-up .82s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Keep the opening headline stable on the first paint; JSON hydration must
+   never make the typography flash, jump or briefly disappear. */
+.portfolio-intro > * {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
 .portfolio-intro .eyebrow { animation-delay: .04s; }
 .portfolio-intro h1 { animation-delay: .1s; }
 .portfolio-intro .intro-text { animation-delay: .18s; }
