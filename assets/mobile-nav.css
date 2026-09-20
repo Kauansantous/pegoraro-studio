@@ -161,10 +161,11 @@
   }
 
   .home-page .ps-mobile-nav[data-scrolled="true"] .ps-nav-header {
-    background: transparent;
+    background: rgba(10, 15, 14, 0.56);
     border-bottom-color: transparent;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+    backdrop-filter: blur(18px) saturate(145%);
+    transition: background 220ms ease, -webkit-backdrop-filter 220ms ease, backdrop-filter 220ms ease;
   }
 
   .home-page .ps-mobile-nav[data-in-flow] { position: absolute; }
