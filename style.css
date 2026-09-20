@@ -59,7 +59,7 @@ html { scrollbar-color: rgba(198,161,90,.75) var(--dark); scrollbar-width: thin;
   height: 4.75rem;
   padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
   color: #f4f2ed;
-  border-bottom: 1px solid rgba(244, 242, 237, 0.12);
+  border-bottom: 0;
   background: rgba(10, 15, 14, 0.14);
   -webkit-backdrop-filter: blur(10px) saturate(130%);
   backdrop-filter: blur(10px) saturate(130%);

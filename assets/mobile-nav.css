@@ -16,7 +16,7 @@
     padding: 0 22px;
     color: #171717;
     background: rgba(247, 246, 243, 0.78);
-    border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    border-bottom: 0;
     -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
   }
