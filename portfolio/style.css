@@ -469,7 +469,20 @@ a {
 
   .projects .project-info,
   .projects .project-large .project-info {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    z-index: auto;
+    align-items: initial;
     padding: clamp(1.25rem, 2vw, 2.5rem) 0 0;
+    color: #171717;
+    background: none;
+  }
+
+  .projects .project-large .project-number,
+  .projects .project-large .project-category {
+    color: #777;
   }
 
   .projects .project:nth-child(3),
