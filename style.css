@@ -640,8 +640,7 @@ main {
   .js .image-stage.is-visible:hover img, .image-stage:hover img { transform: scale(1.018); }
 }
 
-/* The second and final desktop photographs are shown at their complete native frame.
-   Their charcoal stage is intentionally retained whenever their proportions differ. */
+/* The detail image preserves its native frame; the final CTA image fills its stage. */
 @media (min-width: 769px) {
   .image-stage--detail {
     width: 100%;
@@ -662,8 +661,7 @@ main {
     object-fit: contain;
   }
 
-  .image-stage--detail img,
-  .image-stage--closing img {
+  .image-stage--detail img {
     object-fit: contain;
     object-position: center center;
     transform: none !important;
@@ -679,7 +677,7 @@ main {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     min-height: 0;
-    aspect-ratio: 2560 / 1408;
+    aspect-ratio: 16 / 9;
   }
 
   main > .closing-panel > .cta {
@@ -711,6 +709,13 @@ main {
     width: 100%;
     height: 100%;
     max-width: none;
+  }
+
+  main > .closing-panel > .image-stage--closing img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
   }
 }
 
