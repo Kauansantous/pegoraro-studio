@@ -21,8 +21,8 @@
   },
   "materials": {
     "eyebrow": "MATERIAIS DA CASA", "title": "Tudo o que você precisa, em um só lugar.",
-    "guide": { "number": "01", "eyebrow": "PARA A ESTADIA", "titleLines": ["Guia do", "Hóspede"], "copy": "Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.", "file": "guia-do-hospede.pdf", "openLabel": "Abrir guia", "downloadLabel": "Baixar PDF" },
-    "book": { "number": "02", "eyebrow": "SOBRE O IMÓVEL", "titleLines": ["Book do", "Imóvel"], "copy": "Uma apresentação editorial para conhecer os ambientes, diferenciais e a história da casa.", "file": "book-do-imovel.pdf", "openLabel": "Abrir book", "downloadLabel": "Baixar PDF" }
+    "guide": { "number": "01", "eyebrow": "PARA A ESTADIA", "titleLines": ["Guia do", "Hóspede"], "copy": "Boas-vindas, orientações da casa, acessos, recomendações e informações úteis.", "file": "guia-casa-capricornio.pdf", "openLabel": "Abrir guia", "downloadLabel": "Baixar PDF" },
+    "book": { "number": "02", "eyebrow": "SOBRE O IMÓVEL", "titleLines": ["Book do", "Imóvel"], "copy": "Uma apresentação editorial para conhecer os ambientes, diferenciais e a história da casa.", "file": "casa-capricornio-projeto-completo.pdf", "openLabel": "Abrir book", "downloadLabel": "Baixar PDF" }
   },
   "footer": { "property": "CASA CAPRICÓRNIO", "copyright": "© Pegoraro Studio — Todos os direitos reservados." }
 }

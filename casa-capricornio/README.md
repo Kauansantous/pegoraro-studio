@@ -6,7 +6,7 @@ Abra `property.json`. Nele estão todos os textos, títulos, imagens, PDFs, bot�
 
 Para trocar uma foto, coloque o novo arquivo dentro de `images/` e altere somente o campo `src` correspondente no `property.json`.
 
-Para trocar os PDFs, copie os arquivos para esta pasta e altere somente `materials.guide.file` e `materials.book.file`.
+Para trocar o PDF, copie o arquivo para esta pasta e altere `materials.guide.file` e `materials.book.file` no `property.json`. Os dois cartões podem apontar para o mesmo projeto completo ou para arquivos separados.
 
 Para criar outro imóvel:
 
