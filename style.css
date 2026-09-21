@@ -684,6 +684,7 @@ main {
     width: min(65%, 72rem);
     margin-left: auto;
     margin-right: 0;
+    transform: translateY(-6vh);
     padding-right: clamp(2.5rem, 8vw, 10rem);
     padding-left: clamp(1.5rem, 3vw, 4rem);
     text-align: right;
@@ -700,7 +701,8 @@ main {
 
   main > .closing-panel > .closing-scrim {
     background:
-      linear-gradient(270deg, rgba(6, 10, 9, 0.68) 0%, rgba(6, 10, 9, 0.34) 34%, rgba(6, 10, 9, 0.06) 72%),
+      linear-gradient(270deg, rgba(6, 10, 9, 0.78) 0%, rgba(6, 10, 9, 0.5) 38%, rgba(6, 10, 9, 0.2) 72%),
+      radial-gradient(ellipse at 70% 43%, rgba(6, 10, 9, 0.34), transparent 48%),
       linear-gradient(0deg, rgba(6, 10, 9, 0.66), rgba(6, 10, 9, 0.04) 68%);
   }
 
