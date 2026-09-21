@@ -20,7 +20,10 @@
       position: absolute;
       inset: 0 0 auto;
       color: #f4f2ed;
-      background: rgba(10, 15, 14, 0.14);
+      background: transparent;
+      opacity: 0;
+      transform: translateY(-110%);
+      pointer-events: none;
       -webkit-backdrop-filter: blur(10px) saturate(130%);
       backdrop-filter: blur(10px) saturate(130%);
     }
@@ -295,10 +298,10 @@
         <picture>
           <source media="(max-width: 768px)" srcset="assets/home/home-03-mobile.avif" type="image/avif">
           <img
-            src="assets/home/home-03-desktop.avif"
-            alt="Vista de imóvel à beira-mar"
-            width="2560"
-            height="1408"
+            src="assets/home/home-03-desktop.jpeg"
+            alt="Vista aérea da piscina e áreas externas de um imóvel"
+            width="2048"
+            height="1536"
             loading="lazy"
             decoding="async"
           >
@@ -364,7 +367,9 @@
 
     const header = document.querySelector(".desktop-header");
     const updateHeaderTone = function () {
-      document.body.classList.toggle("at-hero", window.scrollY < window.innerHeight * 0.72);
+      const isScrolled = window.scrollY > 24;
+      document.body.classList.toggle("at-hero", !isScrolled);
+      document.body.classList.toggle("is-scrolled", isScrolled);
     };
 
     updateHeaderTone();
