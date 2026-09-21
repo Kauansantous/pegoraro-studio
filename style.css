@@ -684,7 +684,7 @@ main {
     width: min(65%, 72rem);
     margin-left: auto;
     margin-right: 0;
-    transform: translateY(-16vh);
+    transform: translateY(-20vh);
     padding-right: clamp(2.5rem, 8vw, 10rem);
     padding-left: clamp(1.5rem, 3vw, 4rem);
     text-align: right;
