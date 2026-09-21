@@ -717,6 +717,19 @@ main {
     object-fit: cover;
     object-position: center center;
   }
+
+  /* Do not inherit the editorial photo-stage width: this last frame is edge to edge. */
+  main > .closing-panel,
+  main > .closing-panel > .image-stage--closing,
+  main > .closing-panel > .image-stage--closing picture,
+  main > .closing-panel > .image-stage--closing img {
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: none;
+  }
 }
 
 @media (max-width: 768px) {
