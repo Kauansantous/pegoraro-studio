@@ -2,8 +2,10 @@
   'use strict';
 
   const measurementId = 'G-8QCVEVK950';
+  const clarityProjectId = 'yr1ir7czsg';
   const consentKey = 'pegoraro-analytics-consent';
   let analyticsLoaded = false;
+  let clarityLoaded = false;
 
   const loadAnalytics = () => {
     if (analyticsLoaded) return;
@@ -24,6 +26,20 @@
     });
   };
 
+  const loadClarity = () => {
+    if (clarityLoaded) return;
+    clarityLoaded = true;
+
+    window.clarity = window.clarity || function clarity() {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = `https://www.clarity.ms/tag/${clarityProjectId}`;
+    document.head.append(tag);
+  };
+
   const track = (name, params = {}) => {
     if (localStorage.getItem(consentKey) !== 'granted') return;
     loadAnalytics();
@@ -33,7 +49,10 @@
   const setConsent = (value) => {
     localStorage.setItem(consentKey, value);
     document.documentElement.classList.remove('analytics-consent-pending');
-    if (value === 'granted') loadAnalytics();
+    if (value === 'granted') {
+      loadAnalytics();
+      loadClarity();
+    }
   };
 
   const createBanner = () => {
@@ -44,7 +63,7 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Preferências de cookies');
     banner.innerHTML = `
-      <p>Usamos métricas anônimas para entender como o site é utilizado e aprimorar a experiência.</p>
+      <p>Usamos métricas e mapas de navegação anônimos para entender como o site é utilizado e aprimorar a experiência.</p>
       <div class="analytics-consent__actions">
         <button type="button" data-analytics-consent="denied">Recusar</button>
         <button type="button" data-analytics-consent="granted">Aceitar</button>
@@ -73,7 +92,10 @@
     if (event.target.matches('#briefing-form')) track('briefing_submit');
   }, true);
 
-  if (localStorage.getItem(consentKey) === 'granted') loadAnalytics();
+  if (localStorage.getItem(consentKey) === 'granted') {
+    loadAnalytics();
+    loadClarity();
+  }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', createBanner, { once: true });
   else createBanner();
 })();
